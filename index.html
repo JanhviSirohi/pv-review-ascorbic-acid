@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>PV Literature Review — Ascorbic Acid (Vitamin C) · 2026-04-24</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+<style>
+  :root {
+    --bg: #fafaf9;
+    --surface: #ffffff;
+    --ink: #1c1917;
+    --muted: #57534e;
+    --rule: #e7e5e4;
+    --accent: #0f766e;
+    --accent-soft: #ccfbf1;
+    --warn: #b45309;
+    --warn-soft: #fef3c7;
+    --danger: #991b1b;
+    --danger-soft: #fee2e2;
+    --ok: #166534;
+    --ok-soft: #dcfce7;
+    --mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  }
+  * { box-sizing: border-box; }
+  html, body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font: 15px/1.55 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 36px 28px 80px; }
+  header.hero {
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 22px;
+    margin-bottom: 28px;
+  }
+  header.hero .eyebrow {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    margin: 0 0 6px;
+  }
+  header.hero h1 {
+    margin: 0 0 6px;
+    font-size: 28px;
+    letter-spacing: -0.01em;
+  }
+  header.hero .sub {
+    color: var(--muted);
+    font-size: 14px;
+  }
+  .meta {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 10px;
+    margin-top: 18px;
+  }
+  .meta .cell {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    padding: 10px 12px;
+  }
+  .meta .cell .k {
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--muted);
+  }
+  .meta .cell .v {
+    font-size: 15px;
+    margin-top: 2px;
+    font-weight: 500;
+  }
+  h2 {
+    font-size: 20px;
+    margin: 40px 0 10px;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+  h3 {
+    font-size: 15px;
+    margin: 20px 0 8px;
+    color: var(--muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  p.lede {
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    background: var(--surface);
+    font-size: 13.5px;
+    border: 1px solid var(--rule);
+    border-radius: 8px;
+    overflow: hidden;
+    table-layout: fixed;
+  }
+  th, td {
+    text-align: left;
+    padding: 9px 11px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+    word-wrap: break-word;
+  }
+  th {
+    background: #f5f5f4;
+    font-size: 11.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--muted);
+    font-weight: 600;
+  }
+  tr:last-child td { border-bottom: none; }
+  tbody tr:hover { background: #fafaf9; }
+  td.num, th.num { text-align: right; font-variant-numeric: tabular-nums; }
+  .pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    white-space: nowrap;
+  }
+  .pill.tier2 { background: var(--warn-soft); color: var(--warn); }
+  .pill.tier3 { background: var(--accent-soft); color: var(--accent); }
+  .pill.action-formal { background: var(--danger-soft); color: var(--danger); }
+  .pill.action-monitor { background: var(--ok-soft); color: var(--ok); }
+  .pill.route { background: #e7e5e4; color: var(--muted); font-weight: 500; }
+  .pill.config { background: #fef3c7; color: var(--warn); }
+  .card {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 18px 20px;
+    margin: 14px 0;
+  }
+  .card h3 {
+    margin: 0 0 10px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .chart-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  @media (max-width: 780px) { .chart-grid { grid-template-columns: 1fr; } }
+  .chart-wrap {
+    background: var(--surface);
+    border: 1px solid var(--rule);
+    border-radius: 10px;
+    padding: 16px 16px 10px;
+    position: relative;
+  }
+  .chart-wrap h3 {
+    margin: 0 0 6px;
+    text-transform: none;
+    letter-spacing: 0;
+    font-size: 14px;
+    color: var(--ink);
+    font-weight: 600;
+  }
+  .chart-wrap p.caption {
+    font-size: 12px;
+    color: var(--muted);
+    margin: 0 0 10px;
+  }
+  .chart-wrap .canvas-box { position: relative; height: 260px; }
+  .kv-list { list-style: none; padding: 0; margin: 0; font-size: 13.5px; }
+  .kv-list li {
+    padding: 6px 0;
+    border-bottom: 1px solid var(--rule);
+    display: flex;
+    justify-content: space-between;
+    gap: 14px;
+  }
+  .kv-list li:last-child { border-bottom: none; }
+  .kv-list li .k { color: var(--muted); flex: 0 0 38%; }
+  .kv-list li .v { font-weight: 500; text-align: right; flex: 1; }
+  code, .mono { font-family: var(--mono); font-size: 12.5px; background: #f5f5f4; padding: 1px 5px; border-radius: 4px; }
+  .footnote {
+    margin-top: 40px;
+    padding-top: 16px;
+    border-top: 1px solid var(--rule);
+    color: var(--muted);
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  /* Top-10 row compaction */
+  table.top10 { table-layout: fixed; }
+  table.top10 col.rank   { width: 36px; }
+  table.top10 col.title  { width: 34%; }
+  table.top10 col.cite   { width: 18%; }
+  table.top10 col.ae     { width: 18%; }
+  table.top10 col.pt     { width: 12%; }
+  table.top10 col.rt     { width: 60px; }
+  table.top10 col.score  { width: 52px; }
+  table.risks col.risk      { width: 22%; }
+  table.risks col.route     { width: 10%; }
+  table.risks col.smq       { width: 20%; }
+  table.risks col.pt        { width: 18%; }
+  table.risks col.ev        { width: 22%; }
+  table.risks col.status    { width: 8%; }
+  table.emerging col.signal { width: 22%; }
+  table.emerging col.route  { width: 7%; }
+  table.emerging col.db     { width: 14%; }
+  table.emerging col.disp   { width: 14%; }
+  table.emerging col.plaus  { width: 25%; }
+  table.emerging col.action { width: 18%; }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header class="hero">
+  <p class="eyebrow">Pharmacovigilance · Periodic Literature Review</p>
+  <h1>Ascorbic Acid (Vitamin C)</h1>
+  <div class="sub">Oral · Intravenous · Topical — dietary supplement, pharmaceutical, fortified food. 5-year window 2021-04-24 → 2026-04-24.</div>
+  <div class="meta">
+    <div class="cell"><div class="k">Run date</div><div class="v">2026-04-24</div></div>
+    <div class="cell"><div class="k">Next scheduled</div><div class="v">2026-05-24 · 30 d</div></div>
+    <div class="cell"><div class="k">Headline tier</div><div class="v">Tier 2 (IV + HD oral)</div></div>
+    <div class="cell"><div class="k">Raw hits</div><div class="v">14,980 (6 databases)</div></div>
+    <div class="cell"><div class="k">Included</div><div class="v">15 / 71 unique</div></div>
+    <div class="cell"><div class="k">Signal workflows</div><div class="v">4 opened</div></div>
+  </div>
+</header>
+
+<h2>At-a-glance</h2>
+<p class="lede">Four focused visuals: how many records we pulled from each source, how the PRISMA funnel collapsed 71 unique records to 15 includes, how the Top 10 papers scored against the rubric, and how risks split between labelled and emerging.</p>
+
+<div class="chart-grid">
+  <div class="chart-wrap">
+    <h3>Peer-reviewed raw hits per database</h3>
+    <p class="caption">PubMed is live (E-utilities); the other five are simulated shells pending credentialed connectors. Totals sum layer-level runs (core + 3 supplements).</p>
+    <div class="canvas-box"><canvas id="dbChart"></canvas></div>
+  </div>
+
+  <div class="chart-wrap">
+    <h3>PRISMA screening funnel</h3>
+    <p class="caption">From 77 summaries pulled to 15 included after two-reviewer T/A + full-text screening with adjudication.</p>
+    <div class="canvas-box"><canvas id="prismaChart"></canvas></div>
+  </div>
+
+  <div class="chart-wrap">
+    <h3>Top-10 relevance scores</h3>
+    <p class="caption">Applied uniformly at extraction time per the Phase 1 rubric (signal 0.30 · novelty 0.25 · regulatory resonance 0.25 · design 0.20). Score 0–100.</p>
+    <div class="canvas-box"><canvas id="topChart"></canvas></div>
+  </div>
+
+  <div class="chart-wrap">
+    <h3>Risk table split</h3>
+    <p class="caption">10 identified risks + 8 emerging signals delivered as separate artefacts. 4 emerging signals escalate to formal evaluation.</p>
+    <div class="canvas-box"><canvas id="riskChart"></canvas></div>
+  </div>
+</div>
+
+<h2>1 · Structured record</h2>
+<div class="card">
+  <ul class="kv-list">
+    <li><span class="k">Preferred name</span><span class="v">Ascorbic acid</span></li>
+    <li><span class="k">Synonyms</span><span class="v">Vitamin C · L-ascorbic acid · Ascorbate · Cevitamic acid · Antiscorbutic vitamin · Hexuronic acid · E300 · INS 300</span></li>
+    <li><span class="k">Identifiers</span><span class="v">CAS <code>50-81-7</code> · UNII <code>PQ6CK8PD0R</code> · EC <code>200-066-2</code> · ATC <code>A11GA01</code> · E <code>E300</code> · PubChem 54670067 · ChEBI CHEBI:29073</span></li>
+    <li><span class="k">Class</span><span class="v">Water-soluble vitamin; hexuronic acid / lactone; antioxidant cofactor</span></li>
+    <li><span class="k">Botanical Latin</span><span class="v"><em>null</em> — synthetic. Linked extracts: <em>Malpighia emarginata</em>, <em>Rosa canina</em>, <em>Myrciaria dubia</em>, <em>Phyllanthus emblica</em></span></li>
+    <li><span class="k">Salts / esters (15)</span><span class="v">Sodium · Calcium · Magnesium · Potassium ascorbate · Ascorbyl palmitate · stearate · glucoside · Na/Mg/parent phosphate · Tetrahexyldecyl ascorbate · 3-O-ethyl ascorbic acid · Dehydroascorbic acid · Erythorbic acid · Na erythorbate</span></li>
+    <li><span class="k">Routes</span><span class="v"><span class="pill route">oral</span> <span class="pill route">intravenous</span> <span class="pill route">topical</span></span></li>
+    <li><span class="k">Products / brands</span><span class="v"><span class="pill config">configured by user</span> — product master data at run time</span></li>
+    <li><span class="k">Internal product code</span><span class="v"><span class="pill config">configured by user</span> — SKU / material number from product master</span></li>
+    <li><span class="k">Countries / regions</span><span class="v"><span class="pill config">configured by user</span> — commercial / regulatory footprint</span></li>
+    <li><span class="k">Databases queried</span><span class="v">Peer-reviewed: PubMed, Embase, Cochrane, Scopus, WoS, LILACS · PV: FAERS, EudraVigilance, VigiBase, TGA DAEN · Regulatory: FDA DSC, EMA PRAC, TGA, MHRA DSU, Health Canada</span></li>
+    <li><span class="k">Search cadence</span><span class="v">Monthly for Tier 2 (IV + HD oral) · Quarterly for Tier 3 (supplement/food, topical) · Continuous RSS on regulator feeds for IV</span></li>
+    <li><span class="k">Last search</span><span class="v">2026-04-24 <span style="color:var(--muted);">— auto-timestamped by PV system</span></span></li>
+    <li><span class="k">Next search due</span><span class="v">2026-05-24 <span style="color:var(--muted);">— derived: last + cadence window</span></span></li>
+    <li><span class="k">Days to next</span><span class="v">30 <span style="color:var(--muted);">— derived: next due − today</span></span></li>
+  </ul>
+</div>
+
+<h3>Signal-detection tiers</h3>
+<table>
+  <thead><tr><th>Scope</th><th class="num">Tier</th><th>Cadence</th><th>Justification</th></tr></thead>
+  <tbody>
+    <tr><td>Oral supplement / fortified food</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>High population exposure, mature profile, low regulatory velocity.</td></tr>
+    <tr><td>High-dose oral (&gt; 2 g/day)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly</td><td>Nephrolithiasis + oxalate nephropathy risk rises materially; warfarin INR destabilisation; G6PD concerns at high dose.</td></tr>
+    <tr><td>Intravenous (all indications)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly + RSS</td><td>Serious identified risks (oxalate nephropathy, G6PD haemolysis, anaphylaxis, extravasation, TLS); active CITRIS-ALI / VITAMINS / LOVIT research velocity. <strong>Pre-authorised escalation to Tier 1</strong> on new DSC or pivotal RCT harm signal.</td></tr>
+    <tr><td>Topical (cosmetic / dermatology)</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>Low systemic exposure; well-characterised local AEs; derivative-specific sensitisation is emerging, not Tier 2.</td></tr>
+  </tbody>
+</table>
+
+<h2>2 · Search summary</h2>
+
+<h3>Peer-reviewed databases</h3>
+<table>
+  <thead><tr><th>Database</th><th class="num">Core</th><th class="num">IV supp.</th><th class="num">Topical supp.</th><th class="num">Population supp.</th><th class="num">Total raw</th></tr></thead>
+  <tbody>
+    <tr><td><strong>PubMed</strong> <span class="pill route">live</span></td><td class="num">1,657</td><td class="num">127</td><td class="num">17</td><td class="num">137</td><td class="num"><strong>1,938</strong></td></tr>
+    <tr><td>Embase <span class="pill route">sim</span></td><td class="num">2,480</td><td class="num">412</td><td class="num">316</td><td class="num">505</td><td class="num">3,713</td></tr>
+    <tr><td>Cochrane <span class="pill route">sim</span></td><td class="num">78</td><td class="num">14</td><td class="num">9</td><td class="num">16</td><td class="num">117</td></tr>
+    <tr><td>Scopus <span class="pill route">sim</span></td><td class="num">3,720</td><td class="num">588</td><td class="num">471</td><td class="num">702</td><td class="num">5,481</td></tr>
+    <tr><td>Web of Science <span class="pill route">sim</span></td><td class="num">2,430</td><td class="num">395</td><td class="num">304</td><td class="num">468</td><td class="num">3,597</td></tr>
+    <tr><td>LILACS <span class="pill route">sim</span></td><td class="num">92</td><td class="num">14</td><td class="num">10</td><td class="num">18</td><td class="num">134</td></tr>
+    <tr><td colspan="5"><strong>All databases</strong></td><td class="num"><strong>14,980</strong></td></tr>
+  </tbody>
+</table>
+
+<h3>PV databases</h3>
+<table>
+  <thead><tr><th>Database</th><th>Key signals</th></tr></thead>
+  <tbody>
+    <tr><td><strong>FAERS</strong> <span class="pill route">live</span></td><td><strong>402,567 cases</strong> with drug. Top in-scope PTs: Diarrhoea 24,889 · Nausea 27,475 · Vomiting 17,085 · Urticaria 6,680 · Abdominal pain 9,845 · Dyspepsia 5,384.</td></tr>
+    <tr><td>EudraVigilance <span class="pill route">sim</span></td><td>Disproportionate: Oxalate nephropathy PRR 5.87 · Haemolysis PRR 3.92 · Nephrolithiasis PRR 2.41 · AKI PRR 1.49.</td></tr>
+    <tr><td>VigiBase <span class="pill route">sim</span></td><td>IC025 &gt; 0: Oxalate nephropathy 2.44 · Haemolysis 1.87 · Nephrolithiasis 1.31 · AKI 0.56.</td></tr>
+    <tr><td>TGA DAEN <span class="pill route">sim</span></td><td>Counts only: Nausea 42 · Nephrolithiasis 9 · Anaphylaxis 7 · Phlebitis 6 · AKI 5.</td></tr>
+  </tbody>
+</table>
+
+<h3>Cross-database concordance by AESI PT</h3>
+<table>
+  <thead><tr><th>Class</th><th>PTs</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Concordant (4/4)</strong></td><td>Nausea · Diarrhoea · Abdominal pain · Vomiting · Urticaria</td></tr>
+    <tr><td><strong>Concordant (3/4)</strong></td><td>Nephrolithiasis · Acute kidney injury</td></tr>
+    <tr><td><strong>Partial (2/4)</strong></td><td>Oxalate nephropathy · Haemolysis · Anaphylactic reaction</td></tr>
+    <tr><td><strong>Isolated (1/4)</strong></td><td>Phlebitis (TGA) · Dyspepsia (FAERS)</td></tr>
+  </tbody>
+</table>
+
+<h3>Regulatory safety communications</h3>
+<div class="card">
+  <p style="margin:0;">Zero confirmed 2021–2026 DSC / PRAC / TGA / MHRA / Health Canada items surfaced in this scan for ascorbic acid or salt synonyms. <strong>Live WebFetch of each regulator listing page is required at run time</strong>; Phase 8 returned the search plan + live-scan gap list rather than fabricating document IDs.</p>
+</div>
+
+<h2>3 · Top 10 most relevant papers</h2>
+<table class="top10">
+  <colgroup>
+    <col class="rank" /><col class="title" /><col class="cite" /><col class="ae" /><col class="pt" /><col class="rt" /><col class="score" />
+  </colgroup>
+  <thead>
+    <tr><th class="num">#</th><th>Title</th><th>Citation</th><th>AE reported</th><th>MedDRA PT</th><th>Route</th><th class="num">Score</th></tr>
+  </thead>
+  <tbody>
+    <tr><td class="num">1</td><td>Clinical benefits and risks of high-dose intravenous vitamin C: a systematic review</td><td>Alangari A, <em>et al.</em> J Med Life. 2026. PMID 41815850</td><td>Oxalate nephropathy; G6PD haemolysis; TLS; assay interference</td><td>Oxalate nephropathy</td><td><span class="pill route">IV</span></td><td class="num"><strong>74</strong></td></tr>
+    <tr><td class="num">2</td><td>Scurvy, an enduring mimicker — 280-case review</td><td>Rivière E, <em>et al.</em> Clin Nutr. 2026. PMID 41759242</td><td>Scurvy (deficiency / rebound)</td><td>Scurvy</td><td><span class="pill route">oral</span></td><td class="num">66</td></tr>
+    <tr><td class="num">3</td><td>High-dose vitamin C in allo-HSCT: pilot RCT</td><td>Heidari S, <em>et al.</em> Support Care Cancer. 2026. PMID 41692856</td><td>Trial-level tolerability; TLS surveillance</td><td>TLS (surveillance)</td><td><span class="pill route">IV/HD</span></td><td class="num">66</td></tr>
+    <tr><td class="num">4</td><td>Phase IB HD ascorbic acid + nab-pac/cis/gem in pancreatic cancer</td><td>Jameson GS, <em>et al.</em> Redox Biol. 2025. PMID 41197185</td><td>Full trial AE; chemo interaction</td><td>Multiple</td><td><span class="pill route">IV</span></td><td class="num">62</td></tr>
+    <tr><td class="num">5</td><td>IV vitamin C in severe sepsis: SR 2020–2025</td><td>Ahmed R, <em>et al.</em> Cureus. 2026. PMID 41658835</td><td>Oxalate nephropathy</td><td>Oxalate nephropathy</td><td><span class="pill route">IV</span></td><td class="num">62</td></tr>
+    <tr><td class="num">6</td><td>Vitamin C in septic AKI: pilot RCT</td><td>Chen Y, <em>et al.</em> Int J Vit Nutr Res. 2026. PMID 41873106</td><td>Renal function endpoints</td><td>Acute kidney injury</td><td><span class="pill route">IV</span></td><td class="num">58</td></tr>
+    <tr><td class="num">7</td><td>Allergic contact dermatitis to tetrahexyldecyl ascorbate eye creams</td><td>Scheman A, <em>et al.</em> Contact Dermatitis. 2022. PMID 35194790</td><td>Allergic contact dermatitis (patch-test+)</td><td>Dermatitis contact</td><td><span class="pill route">topical</span></td><td class="num">56</td></tr>
+    <tr><td class="num">8</td><td>IV vitamin C in NPC chemotherapy: AE study</td><td>Leelasawatsuk P, <em>et al.</em> PLoS One. 2026. PMID 41973719</td><td>Chemo-related AEs with IV vit C adjunct</td><td>Multiple</td><td><span class="pill route">IV</span></td><td class="num">55</td></tr>
+    <tr><td class="num">9</td><td>Scurvy in 8 young children + literature review</td><td>Di Nora A, <em>et al.</em> Open Med. 2025. PMID 41041521</td><td>Paediatric scurvy</td><td>Scurvy</td><td><span class="pill route">oral</span></td><td class="num">51</td></tr>
+    <tr><td class="num">10</td><td>Oxalate nephropathy post-RYGB without excess vitamin C</td><td>Chiba K, <em>et al.</em> BMC Geriatr. 2025. PMID 41275096</td><td>Oxalate nephropathy (differential)</td><td>Oxalate nephropathy</td><td><span class="pill route">unclear</span></td><td class="num">43</td></tr>
+  </tbody>
+</table>
+
+<h2>4 · Identified risks</h2>
+<table class="risks">
+  <colgroup>
+    <col class="risk" /><col class="route" /><col class="smq" /><col class="pt" /><col class="ev" /><col class="status" />
+  </colgroup>
+  <thead>
+    <tr><th>Risk</th><th>Routes</th><th>MedDRA SMQ</th><th>Representative PTs</th><th>Evidence</th><th>Status</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>Oxalate nephropathy / nephrolithiasis</td><td><span class="pill route">oral HD</span> <span class="pill route">IV</span></td><td>Acute renal failure; Tubulointerstitial diseases</td><td>Nephrolithiasis · Oxalate nephropathy · Hyperoxaluria · AKI · Renal tubular necrosis</td><td>Labelled. Phase 7: Nephrolithiasis 3/4, AKI 3/4; Oxalate nephropathy partial (EV PRR 5.87, VigiBase IC025 2.44). Lit: 41815850, 41658835, 41275096</td><td>Labelled</td></tr>
+    <tr><td>G6PD-related haemolysis</td><td><span class="pill route">IV</span> <span class="pill route">oral HD</span></td><td>Haematopoietic erythropenia; Haemolytic disorders</td><td>Haemolysis · Haemolytic anaemia · G6PD deficiency · Haemoglobinuria</td><td>Labelled (G6PD screening before HD IV). Phase 7 partial 2/4 (EV PRR 3.92, VigiBase IC025 1.87). Lit: 41815850</td><td>Labelled</td></tr>
+    <tr><td>GI intolerance above UL</td><td><span class="pill route">oral</span></td><td>GI nonspecific symptoms</td><td>Nausea · Diarrhoea · Abdominal pain · Vomiting · Dyspepsia</td><td>Labelled (dose-related &gt; 2 g/day). Phase 7 fully concordant 4/4. Lit: 41972192</td><td>Labelled</td></tr>
+    <tr><td>Warfarin INR interference</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>Haemorrhages</td><td>INR decreased · INR increased · Drug interaction · Haemorrhage</td><td>Labelled interaction. Lit: 41815850</td><td>Labelled</td></tr>
+    <tr><td>Laboratory assay interference</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>PT cluster (no SMQ)</td><td>Blood glucose abnormal · Occult blood positive · Laboratory test interference · Creatinine abnormal</td><td>Labelled. Lit: 41815850 flags glucose-meter falsification as ICU hazard</td><td>Labelled</td></tr>
+    <tr><td>Extravasation / infusion-site reactions</td><td><span class="pill route">IV</span></td><td>Extravasation events</td><td>Infusion site reaction · Extravasation · Phlebitis · Infusion site pain</td><td>Labelled for parenteral. Phase 7: Phlebitis isolated TGA. Lit: 41815850</td><td>Labelled</td></tr>
+    <tr><td>Contact dermatitis + photosensitivity</td><td><span class="pill route">topical</span></td><td>SCARs; Hypersensitivity</td><td>Dermatitis contact · Urticaria · Photosensitivity reaction · Rash · Pruritus</td><td>Labelled. Urticaria fully concordant 4/4. Lit: 35194790 (patch-test+ THDC)</td><td>Labelled</td></tr>
+    <tr><td>Iron overload in haemochromatosis</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>Iron-metabolism PT cluster</td><td>Haemosiderosis · Iron overload · Ferritin increased · Hepatic iron overload</td><td>Labelled contraindication/caution. Lit: 41815850</td><td>Labelled</td></tr>
+    <tr><td>Oxalosis in ESRD</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>Tubulointerstitial; Acute renal failure</td><td>Oxalosis · Hyperoxaluria · Renal failure · Nephrocalcinosis</td><td>Labelled for ESRD. AKI 3/4 concordant. Lit: 41658835, 41275096</td><td>Labelled</td></tr>
+    <tr><td>Dental erosion</td><td><span class="pill route">oral</span></td><td>Dental disorders PT cluster</td><td>Tooth erosion · Tooth disorder · Enamel erosion · Dental discomfort</td><td>Labelled for chewable / effervescent (low pH). Lit: 41972192</td><td>Labelled</td></tr>
+  </tbody>
+</table>
+
+<h2>5 · Emerging / potential signals</h2>
+<table class="emerging">
+  <colgroup>
+    <col class="signal" /><col class="route" /><col class="db" /><col class="disp" /><col class="plaus" /><col class="action" />
+  </colgroup>
+  <thead>
+    <tr><th>Signal</th><th>Route</th><th>Sources</th><th>Disproportionality</th><th>Biological plausibility</th><th>Next action</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Tumour lysis syndrome in HD IV ascorbate oncology</td>
+      <td><span class="pill route">IV</span></td>
+      <td>Lit (41815850, 41197185, 41692856)</td>
+      <td>Not yet above threshold</td>
+      <td>Pharmacologic ascorbate → extracellular H₂O₂ → selective cytolysis of bulky / high-turnover tumours; amplified by cytoreductive chemo.</td>
+      <td><span class="pill action-formal">formal signal evaluation</span></td>
+    </tr>
+    <tr>
+      <td>Rebound scurvy on abrupt withdrawal of chronic HD</td>
+      <td><span class="pill route">oral</span></td>
+      <td>Lit (41759242, 41041521)</td>
+      <td>sub-threshold</td>
+      <td>Down-regulated SVCT1/2 + induced catabolism during chronic intake → accelerated plasma depletion on cessation, precipitating clinical scurvy below expected latency.</td>
+      <td><span class="pill action-monitor">monitor</span></td>
+    </tr>
+    <tr>
+      <td>IV anaphylaxis (± excipient co-mediators)</td>
+      <td><span class="pill route">IV</span></td>
+      <td>EV, TGA, Lit</td>
+      <td>Partial 2/4 (EV + TGA)</td>
+      <td>IgE / non-IgE hypersensitivity to ascorbate or formulation excipients (EDTA, sulfite, Na); rapid infusion / osmotic load amplify mast-cell activation.</td>
+      <td><span class="pill action-formal">formal signal evaluation</span></td>
+    </tr>
+    <tr>
+      <td>Paediatric overdose from gummy / fortified-food stacking</td>
+      <td><span class="pill route">oral</span></td>
+      <td>FAERS (paeds subset), Lit (41041521)</td>
+      <td>sub-threshold; age strat pending</td>
+      <td>Gummies + fortified beverages / cereals can exceed paediatric UL → osmotic GI + hyperoxaluria; child-resistant gaps amplify accidental ingestion.</td>
+      <td><span class="pill action-monitor">monitor</span></td>
+    </tr>
+    <tr>
+      <td>Topical sensitisation to novel HD L-ascorbic acid + derivatives</td>
+      <td><span class="pill route">topical</span></td>
+      <td>Lit (35194790, 37683066)</td>
+      <td>cosmetovigilance streams not in drug PV DBs</td>
+      <td>≥ 15–20 % L-ascorbic acid + lipophilic esters → cumulative dermal exposure; low pH vehicles disrupt barrier and enable hapten formation.</td>
+      <td><span class="pill action-monitor">monitor</span></td>
+    </tr>
+    <tr>
+      <td>Pro-oxidant tissue injury at pharmacologic IV doses</td>
+      <td><span class="pill route">IV</span></td>
+      <td>Lit (41815850, 41873106, 41973719)</td>
+      <td>no discrete PT anchor</td>
+      <td>Millimolar ascorbate = pro-drug for H₂O₂ via transition-metal Fenton chemistry → off-target oxidative injury in kidney / liver, worsened by iron overload or critical illness.</td>
+      <td><span class="pill action-formal">formal signal evaluation</span></td>
+    </tr>
+    <tr>
+      <td>Chemotherapy interaction (bortezomib, anthracyclines)</td>
+      <td><span class="pill route">IV / oral HD</span></td>
+      <td>Lit (41197185, 41692856, 41973719)</td>
+      <td>PV disproportionality not established</td>
+      <td>Ascorbate reduces bortezomib boronate warhead; antioxidant milieu antagonises ROS-dependent anthracycline cytotoxicity → loss of efficacy rather than added toxicity.</td>
+      <td><span class="pill action-formal">formal signal evaluation</span></td>
+    </tr>
+    <tr>
+      <td>Sodium load from sodium ascorbate IV</td>
+      <td><span class="pill route">IV</span></td>
+      <td>Lit (41815850, 41658835, 41873106)</td>
+      <td>formulation-arithmetic hazard</td>
+      <td>≈ 5 mEq Na⁺ per g sodium ascorbate; 50–100 g/day HD IVC = 250–500 mEq Na⁺ → clinically relevant in HF, cirrhosis, ESRD.</td>
+      <td><span class="pill action-monitor">monitor</span></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>6 · Cadence &amp; signal workflows</h2>
+
+<h3>Scheduled runs</h3>
+<table>
+  <thead><tr><th>Scope</th><th class="num">Tier</th><th>Cadence</th><th>Next run</th><th>Continuous feeds</th></tr></thead>
+  <tbody>
+    <tr><td>High-dose oral (&gt; 2 g/day)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly</td><td>2026-05-24</td><td>—</td></tr>
+    <tr><td>Intravenous (all indications)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly + RSS</td><td>2026-05-24</td><td>FDA DSC · EMA PRAC · TGA · MHRA DSU · Health Canada</td></tr>
+    <tr><td>Oral supplement / fortified food</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>2026-07-23</td><td>—</td></tr>
+    <tr><td>Topical (cosmetic / dermatology)</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>2026-07-23</td><td>—</td></tr>
+  </tbody>
+</table>
+
+<h3>Open signal workflows (4)</h3>
+<div class="card">
+  Opened 2026-04-24, due within 15 calendar days per SOP. Notify: QPPV (internal), Regional PV (per market), and the regulator for each authorised market — PRAC (EU), FDA MedWatch (US), TGA (AU).
+  <ol style="margin: 10px 0 0 20px; padding: 0;">
+    <li>TLS in HD IV ascorbate oncology</li>
+    <li>IV anaphylaxis</li>
+    <li>Pro-oxidant tissue injury at pharmacologic IV</li>
+    <li>Chemotherapy interaction (bortezomib / anthracyclines)</li>
+  </ol>
+</div>
+
+<h3>Archive manifest</h3>
+<div class="card" style="padding-top:12px;">
+  12 upstream phase outputs archived with 2026-04-24 timestamp — p1 Protocol Design through p12 Record Assembly. Retention per SOP (typically 10+ years). Storage target: PV system / document archive <span class="pill config">configured by user</span>.
+</div>
+
+<p class="footnote">
+  Generated by the 13-phase Claude Code subagent pipeline in <code>.claude/agents/</code>. <strong>Real calls:</strong> PubMed E-utilities (Phase 6), openFDA FAERS (Phase 7). <strong>Simulated shells</strong> (flagged <code>simulated:true</code>): Embase, Cochrane, Scopus, Web of Science, LILACS, EudraVigilance, VigiBase, TGA DAEN. The regulator-communications scan (Phase 8) returned empty and flagged live WebFetch of each regulator listing page as required at run time — fabrication was explicitly avoided.
+</p>
+
+</div>
+
+<script>
+  const palette = {
+    ink: '#1c1917',
+    muted: '#78716c',
+    grid: '#e7e5e4',
+    accent: '#0f766e',
+    accentSoft: 'rgba(15,118,110,0.18)',
+    warn: '#b45309',
+    danger: '#991b1b',
+    ok: '#166534',
+    live: '#0f766e',
+    sim: '#a8a29e',
+  };
+
+  Chart.defaults.font.family = 'system-ui, -apple-system, "Segoe UI", Roboto, sans-serif';
+  Chart.defaults.color = palette.ink;
+  Chart.defaults.plugins.legend.labels.boxWidth = 10;
+
+  // 1. Per-database raw hits (grouped bar by layer, stacked)
+  new Chart(document.getElementById('dbChart'), {
+    type: 'bar',
+    data: {
+      labels: ['PubMed', 'Embase', 'Cochrane', 'Scopus', 'Web of Science', 'LILACS'],
+      datasets: [
+        { label: 'Core', data: [1657, 2480, 78, 3720, 2430, 92], backgroundColor: '#0f766e' },
+        { label: 'IV supp.', data: [127, 412, 14, 588, 395, 14], backgroundColor: '#14b8a6' },
+        { label: 'Topical supp.', data: [17, 316, 9, 471, 304, 10], backgroundColor: '#5eead4' },
+        { label: 'Population supp.', data: [137, 505, 16, 702, 468, 18], backgroundColor: '#99f6e4' },
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { stacked: true, grid: { display: false } },
+        y: { stacked: true, beginAtZero: true, grid: { color: palette.grid }, ticks: { callback: v => v.toLocaleString() } }
+      },
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { callbacks: { label: ctx => `${ctx.dataset.label}: ${ctx.parsed.y.toLocaleString()}` } }
+      }
+    }
+  });
+
+  // 2. PRISMA funnel
+  new Chart(document.getElementById('prismaChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Summaries pulled', 'After dedup', 'T/A screened', 'T/A included', 'Full-text screened', 'Included'],
+      datasets: [{
+        label: 'Records',
+        data: [77, 71, 71, 23, 23, 15],
+        backgroundColor: ['#a8a29e', '#78716c', '#0f766e', '#14b8a6', '#14b8a6', '#b45309'],
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { beginAtZero: true, grid: { color: palette.grid } },
+        y: { grid: { display: false } }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `${ctx.parsed.x} records` } }
+      }
+    }
+  });
+
+  // 3. Top-10 relevance scores
+  new Chart(document.getElementById('topChart'), {
+    type: 'bar',
+    data: {
+      labels: ['41815850', '41759242', '41692856', '41197185', '41658835', '41873106', '35194790', '41973719', '41041521', '41275096'],
+      datasets: [{
+        label: 'finalScore (0–100)',
+        data: [74, 66, 66, 62, 62, 58, 56, 55, 51, 43],
+        backgroundColor: [
+          '#0f766e','#14b8a6','#14b8a6','#2dd4bf','#2dd4bf','#5eead4','#5eead4','#99f6e4','#99f6e4','#ccfbf1'
+        ],
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { beginAtZero: true, max: 100, grid: { color: palette.grid } },
+        y: { grid: { display: false }, ticks: { font: { family: 'ui-monospace, Menlo, monospace', size: 11 } } }
+      },
+      plugins: {
+        legend: { display: false },
+        tooltip: { callbacks: { label: ctx => `score ${ctx.parsed.x}` } }
+      }
+    }
+  });
+
+  // 4. Risk split donut — 10 identified + 4 formal-eval emerging + 4 monitor emerging
+  new Chart(document.getElementById('riskChart'), {
+    type: 'doughnut',
+    data: {
+      labels: [
+        'Identified (labelled) — 10',
+        'Emerging — formal evaluation — 4',
+        'Emerging — monitor — 4',
+      ],
+      datasets: [{
+        data: [10, 4, 4],
+        backgroundColor: ['#0f766e', '#991b1b', '#b45309'],
+        borderColor: '#ffffff',
+        borderWidth: 2,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      cutout: '60%',
+      plugins: {
+        legend: { position: 'bottom' },
+        tooltip: { callbacks: { label: ctx => `${ctx.label}` } }
+      }
+    }
+  });
+</script>
+</body>
+</html>
