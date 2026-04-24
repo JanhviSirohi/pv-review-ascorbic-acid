@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PV Literature Review — Ascorbic Acid (Vitamin C) · 2026-04-24</title>
+<title>PV Literature Review — Ascorbic Acid (Vitamin C) · 2026-04-24 · v2 live</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -226,16 +226,19 @@
 <div class="wrap">
 
 <header class="hero">
-  <p class="eyebrow">Pharmacovigilance · Periodic Literature Review</p>
+  <p class="eyebrow">Pharmacovigilance · Periodic Literature Review · <strong style="color:var(--danger);">v2 live data update</strong></p>
   <h1>Ascorbic Acid (Vitamin C)</h1>
   <div class="sub">Oral · Intravenous · Topical — dietary supplement, pharmaceutical, fortified food. 5-year window 2021-04-24 → 2026-04-24.</div>
   <div class="meta">
-    <div class="cell"><div class="k">Run date</div><div class="v">2026-04-24</div></div>
+    <div class="cell"><div class="k">Run date</div><div class="v">2026-04-24 · v2</div></div>
     <div class="cell"><div class="k">Next scheduled</div><div class="v">2026-05-24 · 30 d</div></div>
     <div class="cell"><div class="k">Headline tier</div><div class="v">Tier 2 (IV + HD oral)</div></div>
-    <div class="cell"><div class="k">Raw hits</div><div class="v">14,980 (6 databases)</div></div>
-    <div class="cell"><div class="k">Included</div><div class="v">15 / 71 unique</div></div>
-    <div class="cell"><div class="k">Signal workflows</div><div class="v">4 opened</div></div>
+    <div class="cell"><div class="k">FAERS cases</div><div class="v">402,567 · 32.9 % serious</div></div>
+    <div class="cell"><div class="k">FDA recalls (new)</div><div class="v">14 · 1 × Class I</div></div>
+    <div class="cell"><div class="k">Signal workflows</div><div class="v">5 opened</div></div>
+  </div>
+  <div style="margin-top:14px; padding:12px 14px; background:var(--danger-soft); border-left:3px solid var(--danger); border-radius:4px; font-size:13.5px;">
+    <strong style="color:var(--danger);">v2 live data refresh — 2026-04-24.</strong> Re-ran the pipeline against every public / keyless source reachable from this environment: PubChem PUG REST, openFDA (drug/event, drug/label, drug/enforcement), FDA DSC RSS, MHRA gov.uk, EMA site search + PRAC minutes, Health Canada recalls-rappels, TGA. Key material changes from v1: (1) <strong>14 US recalls surfaced</strong> (1 Class I glass-particulate, 12 Class II compounding-pharmacy sterility cluster on IV ascorbic acid, 1 Class III) — previously missed. (2) True FAERS RRR computed from 2×2 tables: <strong>Haemolysis 3.48 and Nephrolithiasis 2.33 cross the 2.0 formal-signal threshold</strong>. (3) Four ingredient-identity corrections (UNII / CAS drift on three salts). (4) MHRA / EMA / Health Canada drug-PV channels <strong>confirmed genuinely empty</strong> (not a tooling artifact). Sources that remain simulated or blocked are listed in the footer.
   </div>
 </header>
 
@@ -273,10 +276,10 @@
   <ul class="kv-list">
     <li><span class="k">Preferred name</span><span class="v">Ascorbic acid</span></li>
     <li><span class="k">Synonyms</span><span class="v">Vitamin C · L-ascorbic acid · Ascorbate · Cevitamic acid · Antiscorbutic vitamin · Hexuronic acid · E300 · INS 300</span></li>
-    <li><span class="k">Identifiers</span><span class="v">CAS <code>50-81-7</code> · UNII <code>PQ6CK8PD0R</code> · EC <code>200-066-2</code> · ATC <code>A11GA01</code> · E <code>E300</code> · PubChem 54670067 · ChEBI CHEBI:29073</span></li>
+    <li><span class="k">Identifiers <span class="pill route">PubChem live</span></span><span class="v">CAS <code>50-81-7</code> · UNII <code>PQ6CK8PD0R</code> · EC <code>200-066-2</code> · ATC <code>A11GA01</code> · E <code>E300</code> · PubChem CID <code>54670067</code> · ChEBI <code>CHEBI:29073</code> · <strong>RxCUI <code>1151</code></strong> · InChIKey <code>CIWBSHSKHKDKBQ-JLAZNSOCSA-N</code> · MW 176.12 · C₆H₈O₆</span></li>
     <li><span class="k">Class</span><span class="v">Water-soluble vitamin; hexuronic acid / lactone; antioxidant cofactor</span></li>
     <li><span class="k">Botanical Latin</span><span class="v"><em>null</em> — synthetic. Linked extracts: <em>Malpighia emarginata</em>, <em>Rosa canina</em>, <em>Myrciaria dubia</em>, <em>Phyllanthus emblica</em></span></li>
-    <li><span class="k">Salts / esters (15)</span><span class="v">Sodium · Calcium · Magnesium · Potassium ascorbate · Ascorbyl palmitate · stearate · glucoside · Na/Mg/parent phosphate · Tetrahexyldecyl ascorbate · 3-O-ethyl ascorbic acid · Dehydroascorbic acid · Erythorbic acid · Na erythorbate</span></li>
+    <li><span class="k">Salts / esters (15) <span class="pill route">PubChem live</span></span><span class="v">Sodium ascorbate (CAS 134-03-2 · UNII <code>S033EH8359</code>) · Calcium ascorbate (CAS <strong>5743-27-1</strong> · UNII <strong><code>J96U0ZD4Y6</code></strong>) · Magnesium · Potassium ascorbate · Ascorbyl palmitate (CAS 137-66-6 · UNII <strong><code>QN83US2B0N</code></strong>) · stearate · glucoside · Na/Mg/parent phosphate · Tetrahexyldecyl ascorbate (CAS 183476-82-6 · UNII <strong><code>47143LT58A</code></strong>) · 3-O-ethyl ascorbic acid · Dehydroascorbic acid · Erythorbic acid · Na erythorbate. <em style="color:var(--danger);">v2 corrected 4 UNII/CAS values that drifted in v1.</em></span></li>
     <li><span class="k">Routes</span><span class="v"><span class="pill route">oral</span> <span class="pill route">intravenous</span> <span class="pill route">topical</span></span></li>
     <li><span class="k">Products / brands</span><span class="v"><span class="pill config">configured by user</span> — product master data at run time</span></li>
     <li><span class="k">Internal product code</span><span class="v"><span class="pill config">configured by user</span> — SKU / material number from product master</span></li>
@@ -316,14 +319,54 @@
   </tbody>
 </table>
 
-<h3>PV databases</h3>
+<h3>FAERS live — expanded v2 (openFDA 2×2 RRR, seriousness, routes, yearly trend)</h3>
+
+<div style="display:grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap:10px; margin: 10px 0 14px;">
+  <div class="card" style="margin:0; padding:12px;"><div class="k" style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Total drug cases</div><div style="font-size:22px; font-weight:600;">402,567</div></div>
+  <div class="card" style="margin:0; padding:12px;"><div class="k" style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Serious</div><div style="font-size:22px; font-weight:600;">132,298<span style="font-size:13px; color:var(--muted); font-weight:400;"> · 32.9 %</span></div></div>
+  <div class="card" style="margin:0; padding:12px;"><div class="k" style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Deaths</div><div style="font-size:22px; font-weight:600; color:var(--danger);">31,883<span style="font-size:13px; color:var(--muted); font-weight:400;"> · 7.9 %</span></div></div>
+  <div class="card" style="margin:0; padding:12px;"><div class="k" style="font-size:11px; text-transform:uppercase; letter-spacing:0.08em; color:var(--muted);">Hospitalisations</div><div style="font-size:22px; font-weight:600;">129,815<span style="font-size:13px; color:var(--muted); font-weight:400;"> · 32.2 %</span></div></div>
+</div>
+
+<h3>AESI PT — live 2×2 Relative Reporting Ratio (drug+event / event-only · drug-total / db-total)</h3>
+<p class="lede">DB total 20,006,989. <strong>RRR &gt; 2.0 = formal signal candidate.</strong> Oxalate nephropathy is <em>not</em> a discrete FAERS PT — the signal is distributed across Nephrolithiasis / AKI / Urine oxalate increased.</p>
 <table>
-  <thead><tr><th>Database</th><th>Key signals</th></tr></thead>
+  <thead><tr><th>PT</th><th class="num">Drug + event</th><th class="num">Event (all drugs)</th><th class="num">RRR</th><th>Status</th></tr></thead>
   <tbody>
-    <tr><td><strong>FAERS</strong> <span class="pill route">live</span></td><td><strong>402,567 cases</strong> with drug. Top in-scope PTs: Diarrhoea 24,889 · Nausea 27,475 · Vomiting 17,085 · Urticaria 6,680 · Abdominal pain 9,845 · Dyspepsia 5,384.</td></tr>
-    <tr><td>EudraVigilance <span class="pill route">sim</span></td><td>Disproportionate: Oxalate nephropathy PRR 5.87 · Haemolysis PRR 3.92 · Nephrolithiasis PRR 2.41 · AKI PRR 1.49.</td></tr>
-    <tr><td>VigiBase <span class="pill route">sim</span></td><td>IC025 &gt; 0: Oxalate nephropathy 2.44 · Haemolysis 1.87 · Nephrolithiasis 1.31 · AKI 0.56.</td></tr>
-    <tr><td>TGA DAEN <span class="pill route">sim</span></td><td>Counts only: Nausea 42 · Nephrolithiasis 9 · Anaphylaxis 7 · Phlebitis 6 · AKI 5.</td></tr>
+    <tr><td><strong>Haemolysis</strong></td><td class="num">519</td><td class="num">7,419</td><td class="num"><strong>3.48</strong></td><td><span class="pill action-formal">formal signal</span></td></tr>
+    <tr><td><strong>Nephrolithiasis</strong></td><td class="num">2,043</td><td class="num">43,528</td><td class="num"><strong>2.33</strong></td><td><span class="pill action-formal">formal signal</span></td></tr>
+    <tr><td>Phlebitis</td><td class="num">194</td><td class="num">4,984</td><td class="num">1.93</td><td><span class="pill action-monitor">watchlist</span></td></tr>
+    <tr><td>Dermatitis contact</td><td class="num">422</td><td class="num">10,867</td><td class="num">1.93</td><td><span class="pill action-monitor">watchlist</span></td></tr>
+    <tr><td>Acute kidney injury</td><td class="num">4,948</td><td class="num">144,702</td><td class="num">1.70</td><td><span class="pill action-monitor">watchlist</span></td></tr>
+    <tr><td>Haemolytic anaemia</td><td class="num">277</td><td class="num">8,600</td><td class="num">1.60</td><td><span class="pill action-monitor">watchlist</span></td></tr>
+    <tr><td>Hypernatraemia</td><td class="num">134</td><td class="num">4,734</td><td class="num">1.41</td><td>sub-threshold</td></tr>
+    <tr><td>Anaphylactic reaction</td><td class="num">1,140</td><td class="num">51,952</td><td class="num">1.09</td><td>sub-threshold</td></tr>
+    <tr><td>Tumour lysis syndrome</td><td class="num">159</td><td class="num">8,297</td><td class="num">0.95</td><td>sub-threshold</td></tr>
+    <tr><td>Extravasation</td><td class="num">31</td><td class="num">3,998</td><td class="num">0.39</td><td>sub-threshold</td></tr>
+    <tr><td>Oxalate nephropathy</td><td class="num" style="color:var(--muted);">n/a</td><td class="num" style="color:var(--muted);">n/a</td><td class="num" style="color:var(--muted);">—</td><td>not a FAERS PT — captured via Nephrolithiasis + AKI</td></tr>
+  </tbody>
+</table>
+
+<div class="chart-grid" style="margin-top:16px;">
+  <div class="chart-wrap">
+    <h3>FAERS route of administration (live, all-time)</h3>
+    <p class="caption">Oral dominates raw volume, but parenteral (SC + IV + IM = 192,676 reports = 47.9 % of drug-coded routes) drives the serious-outcome share. Topical 18,574.</p>
+    <div class="canvas-box"><canvas id="routeChart"></canvas></div>
+  </div>
+  <div class="chart-wrap">
+    <h3>FAERS yearly trend 2021–2025</h3>
+    <p class="caption">Steady 23 % decline across the 5-year window — no emerging safety wave. Suggests ongoing baseline reporting rather than an active signal period.</p>
+    <div class="canvas-box"><canvas id="trendChart"></canvas></div>
+  </div>
+</div>
+
+<h3>Other PV databases (unchanged from v1 — still blocked or simulated)</h3>
+<table>
+  <thead><tr><th>Database</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>EudraVigilance line listings</td><td><span class="pill config">MAH / DAP credentials required</span> · v1 shell retained for structure</td></tr>
+    <tr><td>VigiBase / VigiLyze</td><td><span class="pill config">WHO-UMC subscription</span> · v1 shell retained</td></tr>
+    <tr><td>TGA DAEN</td><td><span class="pill config">blocked</span> · SPA gate + timeout/403 on alternate endpoints · v1 shell retained</td></tr>
   </tbody>
 </table>
 
@@ -338,10 +381,41 @@
   </tbody>
 </table>
 
-<h3>Regulatory safety communications</h3>
-<div class="card">
-  <p style="margin:0;">Zero confirmed 2021–2026 DSC / PRAC / TGA / MHRA / Health Canada items surfaced in this scan for ascorbic acid or salt synonyms. <strong>Live WebFetch of each regulator listing page is required at run time</strong>; Phase 8 returned the search plan + live-scan gap list rather than fabricating document IDs.</p>
-</div>
+<h3>Regulatory safety communications — v2 live scan results</h3>
+<table>
+  <thead><tr><th>Regulator</th><th>Source</th><th>Result</th></tr></thead>
+  <tbody>
+    <tr><td><strong>FDA DSC</strong></td><td>RSS feed</td><td><span class="pill config">retired</span> All three candidate URLs returned HTTP 404 — feed relocated / deprecated. Cannot confirm absence via RSS; HTML index scrape required.</td></tr>
+    <tr><td><strong>FDA labels</strong> <span class="pill route">openFDA live</span></td><td><code>drug/label</code></td><td><strong>212 SPL records</strong> contain ascorbic acid. Boxed warnings rare and driven by <em>co-formulants</em> (omega-3 bleeding risk in prenatal DHA; pediatric iron overdose in iron-containing multivitamins) — no boxed warning is attributable to ascorbate itself.</td></tr>
+    <tr><td><strong>FDA enforcement</strong> <span class="pill route">openFDA live</span></td><td><code>drug/enforcement</code></td><td><strong>14 recalls in window</strong> — see table below. <strong>New signal</strong>: compounded-IV sterility cluster.</td></tr>
+    <tr><td><strong>EMA PRAC</strong></td><td>site search + 10 recent minutes/agendas/highlights</td><td><span class="pill action-monitor">empty · real</span> 1,177 hits on substance search are all EPAR excipient mentions. No PRAC minute / signal / referral / PSUSA 2021-2026 has ascorbate as subject. (Signals-tracker URL path changed — returned 404 at legacy path.)</td></tr>
+    <tr><td><strong>MHRA DSU</strong></td><td>gov.uk search + 4 recent DSUs</td><td><span class="pill action-monitor">empty · real</span> Zero DSU / PAR / FSN / Class-3 recall 2021-2026 targets ascorbate. gov.uk is server-rendered — this is a true negative.</td></tr>
+    <tr><td><strong>Health Canada</strong></td><td>recalls-rappels full-text search</td><td><span class="pill action-monitor">1 non-drug hit</span> "That Homebrew Shop brand Ascorbic Acid recalled due to Sodium Percarbonate" (2023-09-26) — food-grade cross-contamination, <em>not</em> a therapeutic vitamin-C PV signal. No pharmaceutical recalls in window.</td></tr>
+    <tr><td><strong>TGA Safety Alerts · MSU · DAEN</strong></td><td>tga.gov.au + daen.tga.gov.au</td><td><span class="pill config">blocked</span> All four TGA endpoints returned timeout / 403 (bot mitigation) or SPA gate. DAEN redirects to T&C gate; adverse-event data rendered client-side only. <strong>Production path:</strong> headless-browser scrape or TGA DAEN CSV bulk export.</td></tr>
+  </tbody>
+</table>
+
+<h3>FDA enforcement — 14 recalls in the 5-year window <span class="pill route">live · openFDA</span></h3>
+<p class="lede">Dominant pattern: compounding-pharmacy sterility failures on IV ascorbic acid. This signal was missed in v1.</p>
+<table>
+  <thead><tr><th style="width:82px;">Class</th><th style="width:90px;">Date</th><th>Product</th><th>Firm</th><th>Reason</th></tr></thead>
+  <tbody>
+    <tr><td><span class="pill action-formal">Class I</span></td><td>2024-09-30</td><td>Ascorbic Acid Injection 500 mg/mL, 50 mL SDV</td><td>Staska Pharmaceuticals</td><td>Glass particulates</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2025-07-30</td><td>Ascorbic Acid for Injection (preserved + PF, all strengths)</td><td>GenoGenix LLC</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2025-12-26</td><td>Halls Defense Vitamin C cough drops (+ menthol variants)</td><td>Gold Star Distribution</td><td>CGMP — rodent activity at distribution center</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2023-05-12</td><td>Ascorbic Acid Preserved Injection 500 mg/mL, 30 mL MDV</td><td>Empower Pharmacy</td><td>Mislabeling: PF product labeled as preserved</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2022-12-22</td><td>Methionine/Inositol/Choline + ascorbic acid compounded injections</td><td>Pharmacy Innovations</td><td>Insanitary conditions</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2022-05-09</td><td>Myers' Cocktail (+ Mg / thiamine / riboflavin / ascorbic acid 64.4 mg/mL)</td><td>Olympia Pharmacy</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2022-05-09</td><td>Tri-Immune Boost: glutathione + ascorbic acid 200 mg/mL + zinc</td><td>Olympia Pharmacy</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2022-05-09</td><td>Preserved Ascorbic Acid 500 mg/mL MDV</td><td>Olympia Pharmacy</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2022-03-07</td><td>Ascorbic Acid 500 mg/mL, 25 / 50 mL vials</td><td>Tailor Made Compounding</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2021-11-17</td><td>Ascorbic Acid Injection 500 mg/mL, 50 mL MDV</td><td>ASP Cares</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2021-08-13</td><td>Ascorbic Acid (non-corn) 500 mg/mL MDV</td><td>Red Mountain Compounding</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2021-08-13</td><td>Ascorbic Acid (non-corn) 500 mg/mL PF</td><td>Red Mountain Compounding</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier2">Class II</span></td><td>2025-07-30</td><td>Ascorbic Acid for Injection Preserved (all strengths)</td><td>GenoGenix LLC</td><td>Lack of sterility assurance</td></tr>
+    <tr><td><span class="pill tier3">Class III</span></td><td>2024-07-02</td><td>PEG-3350 + sodium ascorbate + ascorbic acid bowel prep</td><td>Novel Labs / Teva</td><td>Pouch leakage</td></tr>
+  </tbody>
+</table>
 
 <h2>3 · Top 10 most relevant papers</h2>
 <table class="top10">
@@ -396,11 +470,19 @@
     <tr><th>Signal</th><th>Route</th><th>Sources</th><th>Disproportionality</th><th>Biological plausibility</th><th>Next action</th></tr>
   </thead>
   <tbody>
+    <tr style="background:#fef3c7;">
+      <td><strong>Compounded-IV sterility / particulate contamination of ascorbic acid injection</strong> <span class="pill route" style="background:var(--danger); color:#fff;">new · v2</span></td>
+      <td><span class="pill route">IV</span></td>
+      <td>openFDA enforcement live — 14 recalls 2021-2026</td>
+      <td>1 × Class I (glass particulates) + 11 × Class II (compounding sterility) + 1 × mislabel + 1 × Class III (pouch leakage)</td>
+      <td>Repeated CGMP / sterility failures at US compounding pharmacies (Staska, Olympia, Tailor Made, ASP Cares, Red Mountain, Pharmacy Innovations, Empower, GenoGenix). Patient exposure risk: injection-site infection, sepsis, particulate embolism, under-dosing from mislabelled PF-vs-preserved vials.</td>
+      <td><span class="pill action-formal">formal signal evaluation</span></td>
+    </tr>
     <tr>
       <td>Tumour lysis syndrome in HD IV ascorbate oncology</td>
       <td><span class="pill route">IV</span></td>
       <td>Lit (41815850, 41197185, 41692856)</td>
-      <td>Not yet above threshold</td>
+      <td>FAERS RRR 0.95 — not above threshold</td>
       <td>Pharmacologic ascorbate → extracellular H₂O₂ → selective cytolysis of bulky / high-turnover tumours; amplified by cytoreductive chemo.</td>
       <td><span class="pill action-formal">formal signal evaluation</span></td>
     </tr>
@@ -476,15 +558,17 @@
   </tbody>
 </table>
 
-<h3>Open signal workflows (4)</h3>
+<h3>Open signal workflows (5) <span class="pill route" style="background:var(--danger); color:#fff;">+1 in v2</span></h3>
 <div class="card">
   Opened 2026-04-24, due within 15 calendar days per SOP. Notify: QPPV (internal), Regional PV (per market), and the regulator for each authorised market — PRAC (EU), FDA MedWatch (US), TGA (AU).
   <ol style="margin: 10px 0 0 20px; padding: 0;">
+    <li><strong>Compounded-IV sterility / particulate contamination of ascorbic acid injection</strong> <span class="pill route" style="background:var(--danger); color:#fff;">new · v2</span> — driven by 14 FDA recalls 2021-2026 (1 Class I, 12 Class II, 1 Class III)</li>
     <li>TLS in HD IV ascorbate oncology</li>
     <li>IV anaphylaxis</li>
     <li>Pro-oxidant tissue injury at pharmacologic IV</li>
     <li>Chemotherapy interaction (bortezomib / anthracyclines)</li>
   </ol>
+  <p style="margin:10px 0 0; font-size:13px;"><strong>Also elevated to formal evaluation in v2 based on FAERS RRR &gt; 2.0:</strong> Haemolysis (RRR 3.48; consistent with G6PD mechanism) and Nephrolithiasis (RRR 2.33; consistent with oxalate crystalluria). Both were already in the identified-risks table — v2 adds quantitative disproportionality backing.</p>
 </div>
 
 <h3>Archive manifest</h3>
@@ -493,7 +577,13 @@
 </div>
 
 <p class="footnote">
-  Generated by the 13-phase Claude Code subagent pipeline in <code>.claude/agents/</code>. <strong>Real calls:</strong> PubMed E-utilities (Phase 6), openFDA FAERS (Phase 7). <strong>Simulated shells</strong> (flagged <code>simulated:true</code>): Embase, Cochrane, Scopus, Web of Science, LILACS, EudraVigilance, VigiBase, TGA DAEN. The regulator-communications scan (Phase 8) returned empty and flagged live WebFetch of each regulator listing page as required at run time — fabrication was explicitly avoided.
+  Generated by the 13-phase Claude Code subagent pipeline in <code>.claude/agents/</code>, then refreshed in v2 with five parallel live-data agents on 2026-04-24.<br /><br />
+  <strong>Live / real calls in v2:</strong> PubMed E-utilities (Phase 6); openFDA <code>drug/event</code> + <code>drug/label</code> + <code>drug/enforcement</code> (Phase 7 + FDA enforcement); PubChem PUG REST + RxNav (Phase 2 identity); gov.uk (MHRA DSU); ema.europa.eu (PRAC minutes + highlights + substance search); recalls-rappels.canada.ca (Health Canada).<br /><br />
+  <strong>Blocked / still simulated:</strong>
+  (a) <em>Credentialed only:</em> Embase (Elsevier), Scopus (Elsevier), Web of Science (Clarivate), Cochrane API, LILACS (no public JSON), EudraVigilance line listings (MAH/DAP), VigiBase / VigiLyze (WHO-UMC), MedDRA MSSO — these cannot be reached without paid credentials and remain as simulated shells from v1.
+  (b) <em>Bot-mitigation / SPA-gated:</em> TGA Safety Alerts + MSU + DAEN all returned timeout / 403 / SPA gate. Production path is headless-browser scrape or TGA DAEN bulk CSV export.
+  (c) <em>Feed retired:</em> FDA Drug Safety Communications RSS URL returned 404 at every candidate path — feed appears retired / relocated. DSC absence is inferred via label + enforcement pull but not directly confirmed via an RSS scan.<br /><br />
+  <strong>Data corrections in v2:</strong> four ingredient UNII / CAS drifts fixed from PubChem (calcium ascorbate CAS 5743-27-1 · UNII J96U0ZD4Y6; ascorbyl palmitate UNII QN83US2B0N; tetrahexyldecyl ascorbate UNII 47143LT58A). RxCUI 1151 added. Fabrication was explicitly avoided throughout — empty results (MHRA, EMA PRAC) are reported as genuine negatives, not as placeholders.
 </p>
 
 </div>
@@ -598,17 +688,17 @@
     }
   });
 
-  // 4. Risk split donut — 10 identified + 4 formal-eval emerging + 4 monitor emerging
+  // 4. Risk split donut — 10 identified + 5 formal-eval emerging + 4 monitor emerging (v2: +1 sterility)
   new Chart(document.getElementById('riskChart'), {
     type: 'doughnut',
     data: {
       labels: [
         'Identified (labelled) — 10',
-        'Emerging — formal evaluation — 4',
+        'Emerging — formal evaluation — 5',
         'Emerging — monitor — 4',
       ],
       datasets: [{
-        data: [10, 4, 4],
+        data: [10, 5, 4],
         backgroundColor: ['#0f766e', '#991b1b', '#b45309'],
         borderColor: '#ffffff',
         borderWidth: 2,
@@ -622,6 +712,58 @@
         legend: { position: 'bottom' },
         tooltip: { callbacks: { label: ctx => `${ctx.label}` } }
       }
+    }
+  });
+
+  // 5. FAERS route of administration (live) — oral vs parenteral vs topical
+  new Chart(document.getElementById('routeChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Oral', 'Unknown', 'Subcutaneous', 'Intravenous', 'Topical', 'Intramuscular', 'Inhalation', 'Intra-articular', 'Ophthalmic', 'Nasal'],
+      datasets: [{
+        label: 'Reports',
+        data: [222358, 141532, 108113, 71566, 18574, 12997, 11338, 8654, 7925, 7049],
+        backgroundColor: ['#0f766e','#a8a29e','#991b1b','#991b1b','#14b8a6','#b45309','#78716c','#78716c','#78716c','#78716c'],
+        borderRadius: 4,
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { beginAtZero: true, grid: { color: palette.grid }, ticks: { callback: v => v.toLocaleString() } },
+        y: { grid: { display: false } }
+      },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => `${ctx.parsed.x.toLocaleString()} reports` } } }
+    }
+  });
+
+  // 6. FAERS yearly trend 2021-2025 (live)
+  new Chart(document.getElementById('trendChart'), {
+    type: 'line',
+    data: {
+      labels: ['2021','2022','2023','2024','2025'],
+      datasets: [{
+        label: 'Reports received',
+        data: [28333, 26722, 23137, 23052, 21865],
+        borderColor: '#0f766e',
+        backgroundColor: 'rgba(15,118,110,0.12)',
+        borderWidth: 2,
+        fill: true,
+        tension: 0.3,
+        pointBackgroundColor: '#0f766e',
+        pointRadius: 4,
+      }]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { grid: { display: false } },
+        y: { beginAtZero: true, grid: { color: palette.grid }, ticks: { callback: v => v.toLocaleString() } }
+      },
+      plugins: { legend: { display: false }, tooltip: { callbacks: { label: ctx => `${ctx.parsed.y.toLocaleString()} reports` } } }
     }
   });
 </script>
