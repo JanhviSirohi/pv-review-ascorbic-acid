@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>PV Literature Review — Ascorbic Acid (Vitamin C) · 2026-04-24</title>
+<title>PV Literature Review — Ascorbic Acid (Vitamin C) · updated 2026-06-11</title>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
 <style>
   :root {
@@ -137,6 +137,27 @@
   .pill.action-monitor { background: var(--ok-soft); color: var(--ok); }
   .pill.route { background: #e7e5e4; color: var(--muted); font-weight: 500; }
   .pill.config { background: #fef3c7; color: var(--warn); }
+  .pill.new {
+    background: #1d4ed8;
+    color: #fff;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    box-shadow: 0 0 0 2px rgba(29,78,216,0.15);
+  }
+  tr.is-new { background: #eff6ff !important; }
+  tr.is-new:hover { background: #dbeafe !important; }
+  .update-banner {
+    background: #eff6ff;
+    border: 1px solid #bfdbfe;
+    border-left: 3px solid #1d4ed8;
+    border-radius: 8px;
+    padding: 16px 18px;
+    margin: 18px 0 4px;
+    font-size: 13.5px;
+  }
+  .update-banner h3 { margin: 0 0 8px; font-size: 14px; color: #1e3a8a; text-transform: none; letter-spacing: 0; font-weight: 700; }
+  .update-banner ul { margin: 8px 0 0; padding-left: 18px; }
+  .update-banner li { margin: 4px 0; }
   .card {
     background: var(--surface);
     border: 1px solid var(--rule);
@@ -232,14 +253,26 @@
 <header class="hero">
   <p class="eyebrow">Outread · Pharmacovigilance · Periodic Literature Review</p>
   <h1>Ascorbic Acid (Vitamin C)</h1>
-  <div class="sub">Oral · Intravenous · Topical — dietary supplement, pharmaceutical, fortified food. 5-year window 2021-04-24 → 2026-04-24.</div>
+  <div class="sub">Oral · Intravenous · Topical — dietary supplement, pharmaceutical, fortified food. 5-year window 2021-04-24 → 2026-06-11.</div>
   <div class="meta">
     <div class="cell"><div class="k">Run date</div><div class="v">2026-04-24</div></div>
-    <div class="cell"><div class="k">Next scheduled</div><div class="v">2026-05-24 · 30 d</div></div>
+    <div class="cell"><div class="k">Surveillance update <span class="pill new">NEW</span></div><div class="v">2026-06-11</div></div>
     <div class="cell"><div class="k">Headline tier</div><div class="v">Tier 2 (IV + HD oral)</div></div>
-    <div class="cell"><div class="k">FAERS cases</div><div class="v">402,567 · 32.9 % serious</div></div>
-    <div class="cell"><div class="k">FDA recalls in window</div><div class="v">14 · 1 × Class I</div></div>
+    <div class="cell"><div class="k">FAERS cases</div><div class="v">408,064 · 32.9 % serious</div></div>
+    <div class="cell"><div class="k">FDA recalls in window</div><div class="v">15 · 1 × Class I</div></div>
     <div class="cell"><div class="k">Signal workflows</div><div class="v">5 opened</div></div>
+  </div>
+
+  <div class="update-banner">
+    <h3>Surveillance update — 2026-06-11 <span class="pill new">NEW</span></h3>
+    Refresh covering the 2026-04-24 → 2026-06-11 gap window. Each new item below carries a <span class="pill new">NEW</span> tag in place.
+    <ul>
+      <li><strong>1 new FDA recall</strong> (Class II, Safecor Health, 2026-05-01) — black foreign particles in a Vitamin B-complex / Vitamin C / folic acid oral liquid; Ohio-only, 520 syringes. Total in-window recalls now <strong>15</strong>.</li>
+      <li><strong>FAERS</strong> all-time total rose to <strong>408,064</strong> (+5,497 backfill). Formal-signal counts essentially unchanged: Haemolysis 519 → 527, Nephrolithiasis 2,043 → 2,076 (~1.5 %, no status change). Dataset last loaded 2026-04-28 — no genuinely new in-window reports yet.</li>
+      <li><strong>7 SPL label updates</strong> in window, notably the McGuff <strong>Ascor</strong> injectable ascorbic acid label (effective 2026-05-29).</li>
+      <li><strong>4 new PV-relevant papers</strong> entered PubMed — led by a topical L-ascorbic acid 15 % serum safety RCT.</li>
+      <li><strong>MHRA · EMA PRAC · Health Canada:</strong> no new ascorbate-subject communications in window.</li>
+    </ul>
   </div>
 </header>
 
@@ -286,8 +319,8 @@
     <li><span class="k">Internal product code</span><span class="v"><span class="pill config">configured by user</span> — SKU / material number from product master</span></li>
     <li><span class="k">Countries / regions</span><span class="v"><span class="pill config">configured by user</span> — commercial / regulatory footprint</span></li>
     <li><span class="k">Search cadence</span><span class="v">Monthly for Tier 2 (IV + HD oral) · Quarterly for Tier 3 (supplement/food, topical) · Continuous RSS on regulator feeds for IV</span></li>
-    <li><span class="k">Last search</span><span class="v">2026-04-24 <span style="color:var(--muted);">— auto-timestamped by the PV system</span></span></li>
-    <li><span class="k">Next search due</span><span class="v">2026-05-24 <span style="color:var(--muted);">— derived: last + cadence window</span></span></li>
+    <li><span class="k">Last search</span><span class="v">2026-06-11 <span class="pill new">NEW</span> <span style="color:var(--muted);">— prior 2026-04-24; auto-timestamped by the PV system</span></span></li>
+    <li><span class="k">Next search due</span><span class="v">2026-07-11 <span class="pill new">NEW</span> <span style="color:var(--muted);">— derived: last + monthly cadence window</span></span></li>
     <li><span class="k">Days to next</span><span class="v">30 <span style="color:var(--muted);">— derived: next due − today</span></span></li>
   </ul>
 </div>
@@ -332,14 +365,31 @@
   </tbody>
 </table>
 
+<h3>Literature update — new PubMed records 2026-04-24 → 2026-06-11 <span class="pill new">NEW</span></h3>
+<p class="lede">87 raw hits entered PubMed in the gap window; the large majority are agricultural / phytotoxicity, food-science, and chemistry papers where ascorbate is an antioxidant marker or reagent. Four are genuinely PV-relevant. None are new anaphylaxis, G6PD / haemolysis, tumour-lysis, or oxalate-nephropathy case reports — so the established AESI profile is unchanged.</p>
+<table>
+  <thead><tr><th style="width:90px;">PMID</th><th>Title</th><th style="width:70px;">Route</th><th>AESI bearing</th></tr></thead>
+  <tbody>
+    <tr class="is-new"><td>42206438</td><td>Effectiveness and safety of topical L-ascorbic acid 15 % serum vs retinol 0.1 % for skin aging — double-blind RCT (<em>Dermatology Reports</em>, 2026)</td><td><span class="pill route">topical</span></td><td>Topical sensitisation / contact dermatitis — only new record with primary safety endpoints on an ascorbic-acid product</td></tr>
+    <tr class="is-new"><td>42256997</td><td>Dermoscopic Clues of Scurvy in Clinical Practice (<em>Clinical Case Reports</em>, 2026)</td><td><span class="pill route">oral</span></td><td>Scurvy / rebound-scurvy recognition</td></tr>
+    <tr class="is-new"><td>42246021</td><td>Ascorbic acid as adjunct therapy for anaemia in erythropoietin-treated haemodialysis patients (<em>Clinical Kidney Journal</em>, 2026)</td><td><span class="pill route">iv</span></td><td>Oxalate / renal safety in the renally-impaired population</td></tr>
+    <tr class="is-new"><td>42232545</td><td>Integrative oncology alongside systemic cancer therapies in advanced bladder &amp; prostate cancer (<em>Frontiers in Oncology</em>, 2026)</td><td><span class="pill route">iv</span></td><td>High-dose IV / oncology context</td></tr>
+  </tbody>
+</table>
+<p class="lede" style="margin-top:8px;">Recommended action: ingest PMID 42206438 into the next extraction cycle (topical sensitisation evidence); the other three are context papers held for the monitoring file. No change to the Top-10 ranking this cycle.</p>
+
 <h2>3 · FAERS signal analysis</h2>
-<p class="lede">openFDA drug/event, all-time, for ascorbic acid and major salts (ascorbic acid · vitamin C · sodium / calcium / magnesium ascorbate · ascorbyl palmitate). Database total: 20,006,989 reports.</p>
+<p class="lede">openFDA drug/event, all-time, for ascorbic acid and major salts (ascorbic acid · vitamin C · sodium / calcium / magnesium ascorbate · ascorbyl palmitate). Database total: 20,006,989 reports. <span class="pill new">NEW</span> refreshed 2026-06-11; openFDA drug/event dataset last loaded 2026-04-28, so post-April reports are not yet in the index.</p>
 
 <div class="stat-grid">
-  <div class="card"><div class="k">Total drug cases</div><div class="val">402,567</div></div>
+  <div class="card"><div class="k">Total drug cases <span class="pill new">NEW</span></div><div class="val">408,064<span class="sub">· was 402,567</span></div></div>
   <div class="card"><div class="k">Serious</div><div class="val">132,298<span class="sub">· 32.9 %</span></div></div>
   <div class="card"><div class="k">Deaths</div><div class="val" style="color:var(--danger);">31,883<span class="sub">· 7.9 %</span></div></div>
   <div class="card"><div class="k">Hospitalisations</div><div class="val">129,815<span class="sub">· 32.2 %</span></div></div>
+</div>
+
+<div class="card" style="border-left:3px solid #1d4ed8;">
+  <strong>Formal-signal recheck <span class="pill new">NEW</span></strong> — the two AESI PTs above the 2.0 threshold were re-pulled on 2026-06-11. <strong>Haemolysis</strong> 519 → <strong>527</strong> (+8) and <strong>Nephrolithiasis</strong> 2,043 → <strong>2,076</strong> (+33). Both moved ~1.5 %, proportionate to the +1.4 % all-time dataset growth (backfill of reports dated on/before 2026-04-28) — neither moved disproportionately, so <strong>no change to signal status</strong>. Both remain formal-signal candidates with quantitative backing for the labelled G6PD-haemolysis and oxalate-nephropathy risks.
 </div>
 
 <h3>AESI PT — 2×2 Relative Reporting Ratio</h3>
@@ -387,12 +437,16 @@
 
 <h3>FDA labels — structured product labelling</h3>
 <p class="lede">openFDA drug/label returned <strong>212 SPL records</strong> containing ascorbic acid as a substance. Boxed warnings present on the sampled records are driven by co-formulants — omega-3 bleeding risk on prenatal DHA products, and standard paediatric iron-overdose warning on iron-containing multivitamins. <strong>No boxed warning is attributable to ascorbate itself.</strong> Typical ascorbate-related label content is benign: allergic rash / sensitisation, hypersensitivity with specific formulations.</p>
+<div class="card" style="border-left:3px solid #1d4ed8;">
+  <strong>Label updates in window <span class="pill new">NEW</span></strong> — 7 SPL labels carry an <code>effective_time</code> between 2026-04-24 and 2026-06-11. The material one is <strong>Ascor</strong> (McGuff Pharmaceuticals) — the FDA-approved injectable ascorbic acid product — effective <strong>2026-05-29</strong>; flagged for a version diff against the prior label for any new warnings / AESI language. The remaining six are OTC / supplement / topical combination products (Norixa Mini, Norvexa Mini, Vitalux, PADORO Tranexamic Acid Vitamin C Serum, C07 Strong Ligaments &amp; Joints, Folyra).
+</div>
 
-<h3>FDA enforcement — 14 recalls, 2021-04-24 to 2026-04-24</h3>
-<p class="lede">Dominant pattern: compounding-pharmacy sterility failures on IV ascorbic acid. One Class I (glass particulates) and one Class III (pouch leakage on a combination bowel prep).</p>
+<h3>FDA enforcement — 15 recalls, 2021-04-24 to 2026-06-11</h3>
+<p class="lede">Dominant pattern: compounding-pharmacy sterility failures on IV ascorbic acid. One Class I (glass particulates) and two Class III / particulate events on combination products. The 2026-05-01 Safecor recall is the first new addition since the prior run.</p>
 <table>
   <thead><tr><th style="width:82px;">Class</th><th style="width:90px;">Date</th><th>Product</th><th>Firm</th><th>Reason</th></tr></thead>
   <tbody>
+    <tr class="is-new"><td><span class="pill tier2">Class II</span> <span class="pill new">NEW</span></td><td>2026-05-01</td><td>Vitamin B-Complex, Vitamin C &amp; Folic Acid oral liquid (Nephronex), 5 mL syringe</td><td>Safecor Health</td><td>Foreign substance — black particles in liquid (Ohio-only, 520 syringes)</td></tr>
     <tr><td><span class="pill action-formal">Class I</span></td><td>2024-09-30</td><td>Ascorbic Acid Injection 500 mg/mL, 50 mL SDV</td><td>Staska Pharmaceuticals</td><td>Glass particulates</td></tr>
     <tr><td><span class="pill tier2">Class II</span></td><td>2025-07-30</td><td>Ascorbic Acid for Injection (preserved + PF, all strengths)</td><td>GenoGenix LLC</td><td>Lack of sterility assurance</td></tr>
     <tr><td><span class="pill tier2">Class II</span></td><td>2025-07-30</td><td>Ascorbic Acid for Injection Preserved (all strengths)</td><td>GenoGenix LLC</td><td>Lack of sterility assurance</td></tr>
@@ -414,9 +468,9 @@
 <table>
   <thead><tr><th>Source</th><th>Result</th></tr></thead>
   <tbody>
-    <tr><td>MHRA Drug Safety Update (gov.uk)</td><td>No DSU, Public Assessment Report, Field Safety Notice, or Class-3 recall in 2021-2026 targeting ascorbic acid or vitamin C.</td></tr>
-    <tr><td>EMA PRAC minutes / agendas / highlights</td><td>Ten most recent PRAC documents (Nov 2025 – Apr 2026) scanned. No PRAC minute, signal assessment, referral, or PSUSA identifies ascorbic acid as subject in the 5-year window; substance-search hits on the EMA site are EPAR excipient mentions only.</td></tr>
-    <tr><td>Health Canada recalls</td><td>One non-pharmaceutical hit in window: <em>"That Homebrew Shop brand Ascorbic Acid recalled due to Sodium Percarbonate"</em> (2023-09-26) — food-grade cross-contamination, not a therapeutic vitamin-C PV signal.</td></tr>
+    <tr><td>MHRA Drug Safety Update (gov.uk)</td><td>No DSU, Public Assessment Report, Field Safety Notice, or Class-3 recall in 2021-2026 targeting ascorbic acid or vitamin C. <span class="pill new">NEW</span> Re-scanned to 2026-06-11 — still nothing; the only in-window bulletin (30 Apr 2026) covers nasal decongestants, and the two in-window search hits (ICH guidelines page; Fresenius peritoneal-dialysis Braille-label defect) are incidental token matches.</td></tr>
+    <tr><td>EMA PRAC minutes / agendas / highlights</td><td>No PRAC minute, signal assessment, referral, or PSUSA identifies ascorbic acid as subject; substance-search hits on the EMA site are EPAR excipient mentions only. <span class="pill new">NEW</span> Re-scanned to 2026-06-11 — EMA full-text search returns zero ascorbate results; in-window PRAC documents (May + Jun 2026 meetings) show no ascorbate item at title level.</td></tr>
+    <tr><td>Health Canada recalls</td><td>One non-pharmaceutical hit: <em>"That Homebrew Shop brand Ascorbic Acid recalled due to Sodium Percarbonate"</em> (2023-09-26) — food-grade cross-contamination, not a therapeutic vitamin-C PV signal. <span class="pill new">NEW</span> Re-scanned to 2026-06-11 — no new ascorbate-subject recall; in-window vitamin/multivitamin recalls (Kirkland 50+ metal fragments, Baxter cap breakage, vitamin D lamp) are unrelated to ascorbate.</td></tr>
   </tbody>
 </table>
 
@@ -516,8 +570,8 @@
     <tr>
       <td>Topical sensitisation to novel HD L-ascorbic acid and derivatives</td>
       <td><span class="pill route">topical</span></td>
-      <td>Lit (35194790, 37683066)</td>
-      <td>FAERS Dermatitis contact RRR 1.93 (watchlist); case reports and SR-level</td>
+      <td>Lit (35194790, 37683066, <strong>42206438</strong> <span class="pill new">NEW</span>)</td>
+      <td>FAERS Dermatitis contact RRR 1.93 (watchlist); case reports + SR; <span class="pill new">NEW</span> 2026 double-blind RCT of 15 % L-ascorbic acid serum adds primary safety/tolerability data</td>
       <td>≥ 15–20 % L-ascorbic acid + lipophilic esters → cumulative dermal exposure; low pH vehicles disrupt barrier and enable hapten formation.</td>
       <td><span class="pill action-monitor">monitor</span></td>
     </tr>
@@ -550,14 +604,14 @@
 
 <h2>8 · Cadence &amp; signal workflows</h2>
 
-<h3>Scheduled runs</h3>
+<h3>Scheduled runs <span class="pill new">NEW</span> — rebased to the 2026-06-11 update</h3>
 <table>
-  <thead><tr><th>Scope</th><th class="num">Tier</th><th>Cadence</th><th>Next run</th><th>Continuous feeds</th></tr></thead>
+  <thead><tr><th>Scope</th><th class="num">Tier</th><th>Cadence</th><th>Last run</th><th>Next run</th><th>Continuous feeds</th></tr></thead>
   <tbody>
-    <tr><td>High-dose oral (&gt; 2 g/day)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly</td><td>2026-05-24</td><td>—</td></tr>
-    <tr><td>Intravenous (all indications)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly + RSS</td><td>2026-05-24</td><td>FDA DSC · EMA PRAC · MHRA DSU · Health Canada</td></tr>
-    <tr><td>Oral supplement / fortified food</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>2026-07-23</td><td>—</td></tr>
-    <tr><td>Topical (cosmetic / dermatology)</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>2026-07-23</td><td>—</td></tr>
+    <tr><td>High-dose oral (&gt; 2 g/day)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly</td><td>2026-06-11</td><td>2026-07-11</td><td>—</td></tr>
+    <tr><td>Intravenous (all indications)</td><td class="num"><span class="pill tier2">2</span></td><td>monthly + RSS</td><td>2026-06-11</td><td>2026-07-11</td><td>FDA DSC · EMA PRAC · MHRA DSU · Health Canada</td></tr>
+    <tr><td>Oral supplement / fortified food</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>2026-04-24</td><td>2026-07-23</td><td>—</td></tr>
+    <tr><td>Topical (cosmetic / dermatology)</td><td class="num"><span class="pill tier3">3</span></td><td>quarterly</td><td>2026-04-24</td><td>2026-07-23</td><td>—</td></tr>
   </tbody>
 </table>
 
@@ -577,6 +631,7 @@
 <p class="footnote">
   Generated by <strong>Outread</strong>'s pharmacovigilance agent pipeline — 13 phase-specific agents for protocol design, ingredient identity, risk landscape, tiering, Boolean search construction, literature search, PV database query, regulatory surveillance, two-reviewer screening, extraction + relevance scoring, risk-table assembly, record assembly, and cadence / archive / signal workflow handoff.<br /><br />
   <strong>Live data sources:</strong> PubMed E-utilities · openFDA <code>drug/event</code> · openFDA <code>drug/label</code> · openFDA <code>drug/enforcement</code> · PubChem PUG REST · RxNav / RxNorm · gov.uk (MHRA DSU) · ema.europa.eu (PRAC minutes, agendas, highlights, substance search) · recalls-rappels.canada.ca (Health Canada).<br /><br />
+  <strong>Initial run 2026-04-24; surveillance update 2026-06-11</strong> — items added in the update carry a <span class="pill new">NEW</span> tag in place. The openFDA drug/event dataset was last loaded 2026-04-28, so adverse-event reports submitted after that date are not yet indexed; all other live sources are current to the update date.<br /><br />
   Fields marked <span class="pill config">configured by user</span> (products / brands, internal product code, countries marketed) are populated from company product master data at run time.
 </p>
 
