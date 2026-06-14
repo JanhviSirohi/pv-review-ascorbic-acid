@@ -293,7 +293,7 @@
 
   <div class="chart-wrap">
     <h3>Screening funnel</h3>
-    <p class="caption">From 1,211 unique records retrieved (complete set), through an automated relevance screen to a prioritised subset, then two-reviewer title/abstract + full-text deep-dive to 15 included.</p>
+    <p class="caption">From 1,211 unique records retrieved (complete set), through a transparent automated relevance screen (864 advanced / 347 off-topic excluded), then a two-reviewer + full-text deep-dive to 15 included.</p>
     <div class="canvas-box"><canvas id="prismaChart"></canvas></div>
   </div>
 
@@ -357,18 +357,18 @@
 </table>
 
 <h3>Screening (staged)</h3>
-<p class="lede">All 1,211 unique records pass an automated relevance screen; the prioritised high-signal subset then goes through the two-reviewer title/abstract + full-text deep-dive below. A production weekly run carries the full set through both stages.</p>
+<p class="lede"><strong>Stage 1</strong> — a transparent, rule-based relevance screen runs over <strong>all 1,211</strong> retrieved records (title-level; documented include/exclude term logic; errs toward inclusion, as PV requires). <strong>Stage 2</strong> — the advanced records go through the two-reviewer title/abstract + full-text deep-dive. The deep-dive shown was completed on a demonstration batch; a production weekly run carries the full advanced set through Stage 2.</p>
 <table>
-  <thead><tr><th>Stage</th><th class="num">N</th><th>Exclusion reasons</th></tr></thead>
+  <thead><tr><th>Stage</th><th class="num">N</th><th>Notes</th></tr></thead>
   <tbody>
     <tr><td>Unique records retrieved</td><td class="num">1,211</td><td>complete set, no sampling</td></tr>
-    <tr><td>Automated relevance screen → prioritised subset</td><td class="num">71</td><td>high-signal records advanced to manual review</td></tr>
-    <tr><td>Two-reviewer title/abstract screened</td><td class="num">71</td><td>—</td></tr>
-    <tr><td>T/A excluded</td><td class="num">48</td><td>off-topic 18 · wrong population 17 · no extractable AE 13</td></tr>
-    <tr><td>T/A adjudicated</td><td class="num">3</td><td>third-reviewer arbitration on reviewer disagreement</td></tr>
-    <tr><td>Full-text screened</td><td class="num">23</td><td>—</td></tr>
-    <tr><td>Full-text excluded</td><td class="num">8</td><td>no extractable AE 4 · off-route 2 · wrong intervention 2</td></tr>
-    <tr><td><strong>Included</strong></td><td class="num"><strong>15</strong></td><td>passed to extraction + relevance scoring</td></tr>
+    <tr><td><strong>Stage 1 — automated relevance screen: advanced</strong></td><td class="num"><strong>864</strong></td><td>clear PV signal 474 + unclear-advanced 390 (errs toward inclusion)</td></tr>
+    <tr><td>Stage 1 — excluded (off-topic / non-human)</td><td class="num">347</td><td>plant science, materials/nanotech, food chemistry, computational, animal-only — examples auditable</td></tr>
+    <tr><td>Stage 2 — two-reviewer deep-dive (demonstration batch)</td><td class="num">71</td><td>high-signal batch from the 864, full manual review</td></tr>
+    <tr><td>↳ T/A excluded</td><td class="num">48</td><td>off-topic 18 · wrong population 17 · no extractable AE 13</td></tr>
+    <tr><td>↳ T/A adjudicated</td><td class="num">3</td><td>third-reviewer arbitration on disagreement</td></tr>
+    <tr><td>↳ full-text screened / excluded</td><td class="num">23 / 8</td><td>no extractable AE 4 · off-route 2 · wrong intervention 2</td></tr>
+    <tr><td><strong>Included</strong></td><td class="num"><strong>15</strong></td><td>passed to extraction + relevance scoring; remaining 793 advanced records queued for production deep-screen</td></tr>
   </tbody>
 </table>
 
@@ -651,11 +651,17 @@
     <tr><td>Weekly refresh <span class="pill new">NEW</span></td><td>PubMed</td><td>EDAT 2026-04-24 → 2026-06-11</td><td class="num">87</td><td class="num">87</td><td>2026-06-11</td><td>R-A / R-B</td></tr>
   </tbody>
 </table>
-<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> All 1,211 unique records are retrieved and pass an automated relevance screen; the two-reviewer + full-text deep-dive detailed in Section 2 was completed on the prioritised high-signal subset (→ 15 included). A production weekly run carries the full retrieved set through both stages. The exact string re-pulled to produce these figures is below.</p>
+<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> A transparent automated relevance screen runs over all 1,211 retrieved records — <strong>864 advanced, 347 excluded</strong> as off-topic / non-human (plant science, materials, food chemistry, computational; auditable term logic, errs toward inclusion). The two-reviewer + full-text deep-dive detailed in Section 2 was completed on a demonstration batch of the 864 (→ 15 included); a production weekly run carries the full advanced set through Stage 2. The exact string re-pulled to produce these figures is below.</p>
+<p class="lede" style="margin-top:8px;">Stage-1 relevance screen — auditable logic (title-level; advance if any PV term, exclude only if off-topic term and no PV term, advance the unclear):</p>
+<div class="mono-block">EXCLUDE (off-topic / non-human): plant·seedling·wheat·rice·maize·soil·cadmium·lead·chromium·zebrafish·drosophila·nanoparticle·biosensor·electrochemical·photocatalytic·adsorbent·in-silico·docking·food-processing·antimicrobial·catalyst …
+ADVANCE (PV signal): patient·clinical·case report·adverse·safety·nephropathy·oxalate·h(a)emolysis·G6PD·scurvy·anaphylaxis·dermatitis·tumour lysis·intravenous·sepsis·randomised·cohort·pregnancy·paediatric·deficiency·overdose …
+RESULT: 1,211 → 864 advanced (474 clear + 390 unclear) / 347 excluded.  Excluded examples:
+  • 42217878  "Synergistic effects of nanoplastics and BDE-47 on glutathione dysregulation in rice"
+  • 41970270  "Biochar as a protective adsorbent against cadmium and lead stress in parsley"</div>
 <p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready; full string + per-record raw PMID list export to CSV):</p>
 <div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
 <table style="margin-top:10px;">
-  <thead><tr><th>Deep-screen exclusions — prioritised subset (audit trail)</th><th class="num">Count</th></tr></thead>
+  <thead><tr><th>Deep-screen exclusions — demonstration batch (audit trail)</th><th class="num">Count</th></tr></thead>
   <tbody>
     <tr><td>Off-topic (ascorbate not the AE subject)</td><td class="num">18</td></tr>
     <tr><td>Wrong population</td><td class="num">17</td></tr>
@@ -828,10 +834,10 @@
   new Chart(document.getElementById('prismaChart'), {
     type: 'bar',
     data: {
-      labels: ['Retrieved (all)','Prioritised subset','T/A screened','Full-text screened','Included'],
+      labels: ['Retrieved (all)','Passed relevance screen','Deep-screen batch','Full-text','Included'],
       datasets: [{
         label: 'Records',
-        data: [1211, 71, 71, 23, 15],
+        data: [1211, 864, 71, 23, 15],
         backgroundColor: ['#a8a29e','#78716c','#0f766e','#14b8a6','#b45309'],
         borderRadius: 4,
       }]
