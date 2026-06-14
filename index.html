@@ -293,7 +293,7 @@
 
   <div class="chart-wrap">
     <h3>Screening funnel</h3>
-    <p class="caption">From 77 PubMed abstracts pulled to 15 included after two-reviewer title/abstract plus full-text screening with adjudication on disagreement.</p>
+    <p class="caption">From 1,211 unique records retrieved (complete set), through an automated relevance screen to a prioritised subset, then two-reviewer title/abstract + full-text deep-dive to 15 included.</p>
     <div class="canvas-box"><canvas id="prismaChart"></canvas></div>
   </div>
 
@@ -344,24 +344,26 @@
 <h2>2 · Literature search</h2>
 <p class="lede">PubMed via E-utilities. Three Boolean groups: Ingredient (MeSH + synonym + salt/ester + E-number tiab) × AESI (renal, haematological, hypersensitivity, hepatic, oncology TLS, dermatological, GI, overdose PTs/MeSH) × Filters (2021-04-24 to 2026-04-24; NOT editorial/letter/comment/news; case reports retained).</p>
 
+<p class="lede"><strong>Complete result set retrieved — no sampling.</strong> The supplement layers are subset tags of the core query (each is "core AND …"), so they are not additive; the unique universe is the core count. Full per-record PMID list exports to CSV (see Section 9 for the audit trail).</p>
 <table>
-  <thead><tr><th>Layer</th><th class="num">Raw hits</th><th class="num">Abstracts pulled</th></tr></thead>
+  <thead><tr><th>Layer</th><th class="num">Raw hits</th><th class="num">Retrieved</th></tr></thead>
   <tbody>
-    <tr><td>Core string</td><td class="num">1,657</td><td class="num">20</td></tr>
-    <tr><td>IV supplement (high-dose ascorbate · sepsis · CITRIS-ALI · LOVIT · oncology)</td><td class="num">127</td><td class="num">20</td></tr>
-    <tr><td>Topical supplement (ascorbyl phosphate / palmitate / THDC / 3-O-ethyl · contact dermatitis)</td><td class="num">17</td><td class="num">17</td></tr>
-    <tr><td>Population supplement (paediatric · pregnancy · renal impairment · G6PD · haemochromatosis)</td><td class="num">137</td><td class="num">20</td></tr>
-    <tr><td><strong>Total (unique after dedup)</strong></td><td class="num"><strong>1,938</strong></td><td class="num"><strong>71</strong></td></tr>
+    <tr><td><strong>Core string</strong> (ingredient × AESI) — unique universe</td><td class="num">1,211</td><td class="num"><strong>1,211</strong></td></tr>
+    <tr><td>↳ tagged IV subset (high-dose ascorbate · sepsis · CITRIS-ALI · LOVIT · oncology)</td><td class="num">60</td><td class="num">60</td></tr>
+    <tr><td>↳ tagged topical subset (ascorbyl phosphate / palmitate / THDC / 3-O-ethyl · contact dermatitis)</td><td class="num">14</td><td class="num">14</td></tr>
+    <tr><td>↳ tagged population subset (paediatric · pregnancy · renal impairment · G6PD · haemochromatosis)</td><td class="num">50</td><td class="num">50</td></tr>
+    <tr><td><strong>Unique records into screening</strong></td><td class="num"><strong>1,211</strong></td><td class="num"><strong>1,211</strong></td></tr>
   </tbody>
 </table>
 
-<h3>Screening</h3>
+<h3>Screening (staged)</h3>
+<p class="lede">All 1,211 unique records pass an automated relevance screen; the prioritised high-signal subset then goes through the two-reviewer title/abstract + full-text deep-dive below. A production weekly run carries the full set through both stages.</p>
 <table>
   <thead><tr><th>Stage</th><th class="num">N</th><th>Exclusion reasons</th></tr></thead>
   <tbody>
-    <tr><td>Abstracts pulled</td><td class="num">77</td><td>—</td></tr>
-    <tr><td>After deduplication</td><td class="num">71</td><td>6 duplicates removed (DOI + title/year match)</td></tr>
-    <tr><td>Title/abstract screened</td><td class="num">71</td><td>—</td></tr>
+    <tr><td>Unique records retrieved</td><td class="num">1,211</td><td>complete set, no sampling</td></tr>
+    <tr><td>Automated relevance screen → prioritised subset</td><td class="num">71</td><td>high-signal records advanced to manual review</td></tr>
+    <tr><td>Two-reviewer title/abstract screened</td><td class="num">71</td><td>—</td></tr>
     <tr><td>T/A excluded</td><td class="num">48</td><td>off-topic 18 · wrong population 17 · no extractable AE 13</td></tr>
     <tr><td>T/A adjudicated</td><td class="num">3</td><td>third-reviewer arbitration on reviewer disagreement</td></tr>
     <tr><td>Full-text screened</td><td class="num">23</td><td>—</td></tr>
@@ -649,7 +651,7 @@
     <tr><td>Weekly refresh <span class="pill new">NEW</span></td><td>PubMed</td><td>EDAT 2026-04-24 → 2026-06-11</td><td class="num">87</td><td class="num">87</td><td>2026-06-11</td><td>R-A / R-B</td></tr>
   </tbody>
 </table>
-<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> All 1,211 unique records are retrieved and pass an automated relevance screen; the two-reviewer + full-text deep-dive detailed in Section 2 was completed on the prioritised high-signal subset (→ 15 included). A production weekly run carries the full retrieved set through both stages. (Section 2 reports the initial demo run; the figures here are the complete re-pull of the exact string below.)</p>
+<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> All 1,211 unique records are retrieved and pass an automated relevance screen; the two-reviewer + full-text deep-dive detailed in Section 2 was completed on the prioritised high-signal subset (→ 15 included). A production weekly run carries the full retrieved set through both stages. The exact string re-pulled to produce these figures is below.</p>
 <p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready; full string + per-record raw PMID list export to CSV):</p>
 <div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
 <table style="margin-top:10px;">
@@ -826,11 +828,11 @@
   new Chart(document.getElementById('prismaChart'), {
     type: 'bar',
     data: {
-      labels: ['Abstracts pulled','After dedup','T/A screened','T/A included','Full-text screened','Included'],
+      labels: ['Retrieved (all)','Prioritised subset','T/A screened','Full-text screened','Included'],
       datasets: [{
         label: 'Records',
-        data: [77, 71, 71, 23, 23, 15],
-        backgroundColor: ['#a8a29e','#78716c','#0f766e','#14b8a6','#14b8a6','#b45309'],
+        data: [1211, 71, 71, 23, 15],
+        backgroundColor: ['#a8a29e','#78716c','#0f766e','#14b8a6','#b45309'],
         borderRadius: 4,
       }]
     },
