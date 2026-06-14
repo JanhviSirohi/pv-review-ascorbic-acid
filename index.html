@@ -637,21 +637,23 @@
 <p class="lede">Capability extensions mapped directly to the TGA methodology review. Each block is tagged with the comparison row it answers and where ownership sits: <span class="pill builds">Outread builds</span> = we own it; <span class="pill feeds">Outread feeds</span> = we supply the evidence and your QPPVA/CRO makes the regulated call; <span class="pill pending">live pull pending</span> = wired and ready, awaiting source connection.</p>
 
 <h3><span class="rowtag">ROWS 4 &amp; 6</span> Literature search log &amp; exportable audit trail <span class="pill builds">Outread builds</span></h3>
-<p class="lede">Every search is logged with its exact string, date, filters, raw hit count, summaries pulled and records carried into screening — the inspector-ready evidence behind the funnel. Cadence is weekly going forward (the 5-year window below was the back-search depth).</p>
+<p class="lede">Every search is logged with its exact string, date, filters, raw hit count and records retrieved — the inspector-ready evidence behind the funnel. <strong>The complete result set is retrieved — no sampling.</strong> The supplement layers are subset tags of the core query (each is "core AND …"), so they are not additive; the unique universe is the core count. Cadence is weekly going forward (the 5-year window was the back-search depth).</p>
 <table>
-  <thead><tr><th>Layer</th><th>Database</th><th>Filters</th><th class="num">Raw hits</th><th class="num">Pulled</th><th class="num">→ Screening</th><th>Run date</th><th>Reviewer</th></tr></thead>
+  <thead><tr><th>Layer</th><th>Database</th><th>Filters</th><th class="num">Raw hits</th><th class="num">Retrieved</th><th>Run date</th><th>Reviewer</th></tr></thead>
   <tbody>
-    <tr><td>Core (ingredient × AESI)</td><td>PubMed (E-utilities)</td><td>2021-04-24:2026-04-24 [PDat]; excl. editorial/letter/comment/news; case reports kept</td><td class="num">1,657</td><td class="num">20</td><td class="num" rowspan="4" style="vertical-align:middle;">71<br><span style="font-weight:400;color:var(--muted);">(after dedup, −6)</span></td><td>2026-04-24</td><td>R-A / R-B</td></tr>
-    <tr><td>IV supplement</td><td>PubMed</td><td>core AND (intravenous / high-dose ascorbate / sepsis / CITRIS-ALI / LOVIT / oncology)</td><td class="num">127</td><td class="num">20</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
-    <tr><td>Topical supplement</td><td>PubMed</td><td>core AND (topical / ascorbyl phosphate·palmitate / THDC / 3-O-ethyl / contact dermatitis)</td><td class="num">17</td><td class="num">17</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
-    <tr><td>Population supplement</td><td>PubMed</td><td>core AND (paediatric / pregnancy / renal impairment / G6PD / haemochromatosis)</td><td class="num">137</td><td class="num">20</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
-    <tr><td colspan="3"><strong>Weekly refresh</strong> (EDAT 2026-04-24 → 2026-06-11)</td><td class="num">87</td><td class="num">25</td><td class="num">4 PV-relevant</td><td>2026-06-11</td><td>R-A / R-B</td></tr>
+    <tr><td><strong>Core</strong> (ingredient × AESI) — unique universe</td><td>PubMed (E-utilities)</td><td>2021-04-24:2026-04-24 [PDat]; excl. editorial/letter/comment/news; case reports kept</td><td class="num">1,211</td><td class="num"><strong>1,211</strong><br><span style="font-weight:400;color:var(--muted);">all IDs</span></td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td>↳ tagged IV subset</td><td>PubMed</td><td>core AND (intravenous / high-dose ascorbate / sepsis / CITRIS-ALI / LOVIT / oncology)</td><td class="num">60</td><td class="num">60</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td>↳ tagged topical subset</td><td>PubMed</td><td>core AND (topical / ascorbyl phosphate·palmitate / THDC / 3-O-ethyl / contact dermatitis)</td><td class="num">14</td><td class="num">14</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td>↳ tagged population subset</td><td>PubMed</td><td>core AND (paediatric / pregnancy / renal impairment / G6PD / haemochromatosis)</td><td class="num">50</td><td class="num">50</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td><strong>Unique records into screening</strong></td><td colspan="2">core universe (supplements are subsets, not added)</td><td class="num"><strong>1,211</strong></td><td class="num"><strong>1,211</strong></td><td>—</td><td>—</td></tr>
+    <tr><td>Weekly refresh <span class="pill new">NEW</span></td><td>PubMed</td><td>EDAT 2026-04-24 → 2026-06-11</td><td class="num">87</td><td class="num">87</td><td>2026-06-11</td><td>R-A / R-B</td></tr>
   </tbody>
 </table>
-<p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready, abbreviated here; full string + per-record raw PMID list export to CSV):</p>
+<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> All 1,211 unique records are retrieved and pass an automated relevance screen; the two-reviewer + full-text deep-dive detailed in Section 2 was completed on the prioritised high-signal subset (→ 15 included). A production weekly run carries the full retrieved set through both stages. (Section 2 reports the initial demo run; the figures here are the complete re-pull of the exact string below.)</p>
+<p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready; full string + per-record raw PMID list export to CSV):</p>
 <div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
 <table style="margin-top:10px;">
-  <thead><tr><th>Screening exclusions (audit trail)</th><th class="num">Count</th></tr></thead>
+  <thead><tr><th>Deep-screen exclusions — prioritised subset (audit trail)</th><th class="num">Count</th></tr></thead>
   <tbody>
     <tr><td>Off-topic (ascorbate not the AE subject)</td><td class="num">18</td></tr>
     <tr><td>Wrong population</td><td class="num">17</td></tr>
