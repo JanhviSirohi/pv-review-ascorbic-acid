@@ -146,6 +146,11 @@
   }
   tr.is-new { background: #eff6ff !important; }
   tr.is-new:hover { background: #dbeafe !important; }
+  .pill.builds { background: #dcfce7; color: #166534; font-weight: 700; }
+  .pill.feeds { background: #fef3c7; color: #92400e; font-weight: 700; }
+  .pill.pending { background: #fee2e2; color: #991b1b; font-weight: 700; }
+  .rowtag { display:inline-block; background:#1f3b57; color:#fff; font-size:10px; font-weight:700; letter-spacing:0.04em; padding:2px 7px; border-radius:4px; margin-right:8px; vertical-align:middle; }
+  .mono-block { font-family: var(--mono); font-size: 11.5px; background:#f5f5f4; border:1px solid var(--rule); border-radius:6px; padding:10px 12px; white-space:pre-wrap; word-break:break-word; color:#292524; margin:8px 0; }
   .update-banner {
     background: #eff6ff;
     border: 1px solid #bfdbfe;
@@ -628,10 +633,121 @@
   <p style="margin:10px 0 0; font-size:13px;">FAERS RRR elevations (Haemolysis 3.48, Nephrolithiasis 2.33) provide quantitative backing for the existing identified-risks entries on G6PD haemolysis and oxalate nephropathy — no additional workflow opened because both are already labelled.</p>
 </div>
 
+<h2>9 · Inspection-readiness &amp; compliance layer <span class="pill new">NEW</span></h2>
+<p class="lede">Capability extensions mapped directly to the TGA methodology review. Each block is tagged with the comparison row it answers and where ownership sits: <span class="pill builds">Outread builds</span> = we own it; <span class="pill feeds">Outread feeds</span> = we supply the evidence and your QPPVA/CRO makes the regulated call; <span class="pill pending">live pull pending</span> = wired and ready, awaiting source connection.</p>
+
+<h3><span class="rowtag">ROWS 4 &amp; 6</span> Literature search log &amp; exportable audit trail <span class="pill builds">Outread builds</span></h3>
+<p class="lede">Every search is logged with its exact string, date, filters, raw hit count, summaries pulled and records carried into screening — the inspector-ready evidence behind the funnel. Cadence is weekly going forward (the 5-year window below was the back-search depth).</p>
+<table>
+  <thead><tr><th>Layer</th><th>Database</th><th>Filters</th><th class="num">Raw hits</th><th class="num">Pulled</th><th class="num">→ Screening</th><th>Run date</th><th>Reviewer</th></tr></thead>
+  <tbody>
+    <tr><td>Core (ingredient × AESI)</td><td>PubMed (E-utilities)</td><td>2021-04-24:2026-04-24 [PDat]; excl. editorial/letter/comment/news; case reports kept</td><td class="num">1,657</td><td class="num">20</td><td class="num" rowspan="4" style="vertical-align:middle;">71<br><span style="font-weight:400;color:var(--muted);">(after dedup, −6)</span></td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td>IV supplement</td><td>PubMed</td><td>core AND (intravenous / high-dose ascorbate / sepsis / CITRIS-ALI / LOVIT / oncology)</td><td class="num">127</td><td class="num">20</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td>Topical supplement</td><td>PubMed</td><td>core AND (topical / ascorbyl phosphate·palmitate / THDC / 3-O-ethyl / contact dermatitis)</td><td class="num">17</td><td class="num">17</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td>Population supplement</td><td>PubMed</td><td>core AND (paediatric / pregnancy / renal impairment / G6PD / haemochromatosis)</td><td class="num">137</td><td class="num">20</td><td>2026-04-24</td><td>R-A / R-B</td></tr>
+    <tr><td colspan="3"><strong>Weekly refresh</strong> (EDAT 2026-04-24 → 2026-06-11)</td><td class="num">87</td><td class="num">25</td><td class="num">4 PV-relevant</td><td>2026-06-11</td><td>R-A / R-B</td></tr>
+  </tbody>
+</table>
+<p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready, abbreviated here; full string + per-record raw PMID list export to CSV):</p>
+<div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
+<table style="margin-top:10px;">
+  <thead><tr><th>Screening exclusions (audit trail)</th><th class="num">Count</th></tr></thead>
+  <tbody>
+    <tr><td>Off-topic (ascorbate not the AE subject)</td><td class="num">18</td></tr>
+    <tr><td>Wrong population</td><td class="num">17</td></tr>
+    <tr><td>No extractable adverse-event data</td><td class="num">13</td></tr>
+    <tr><td>[Full-text] no extractable AE</td><td class="num">4</td></tr>
+    <tr><td>[Full-text] off-route</td><td class="num">2</td></tr>
+    <tr><td>[Full-text] wrong intervention</td><td class="num">2</td></tr>
+    <tr><td><strong>Two-reviewer + adjudicator</strong></td><td class="num">3 adjudicated</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="rowtag">ROW 7</span> Screening triage log <span class="pill builds">Outread builds</span></h3>
+<p class="lede">Per-record triage in the controlled format — citation, suspected AE, article type, country, Australian relevance, decision and escalation. Included set shown; full log covers all 71 screened records.</p>
+<table>
+  <thead><tr><th>ID (PMID)</th><th>API</th><th>Suspected AE</th><th>Article type</th><th>Country</th><th>AU relevance</th><th>Decision</th><th>Escalation</th></tr></thead>
+  <tbody>
+    <tr><td>41815850</td><td>Ascorbic acid</td><td>Oxalate nephropathy; G6PD haemolysis; TLS</td><td>Systematic review</td><td>Multi</td><td>No AU patient</td><td>Include</td><td>→ Signal</td></tr>
+    <tr><td>41658835</td><td>Ascorbic acid</td><td>Oxalate nephropathy</td><td>Systematic review</td><td>Multi</td><td>No AU patient</td><td>Include</td><td>→ Signal</td></tr>
+    <tr><td>41873106</td><td>Ascorbic acid</td><td>Acute kidney injury</td><td>RCT (pilot)</td><td>China</td><td>No AU patient</td><td>Include</td><td>Monitor</td></tr>
+    <tr><td>41692856</td><td>Ascorbic acid</td><td>TLS surveillance</td><td>RCT (pilot)</td><td>Iran</td><td>No AU patient</td><td>Include</td><td>Monitor</td></tr>
+    <tr><td>41197185</td><td>Ascorbic acid</td><td>Chemo interaction</td><td>Phase IB trial</td><td>US</td><td>No AU patient</td><td>Include</td><td>→ Signal</td></tr>
+    <tr><td>35194790</td><td>Tetrahexyldecyl ascorbate</td><td>Allergic contact dermatitis</td><td>Case report (patch-test+)</td><td>US</td><td>No AU patient</td><td>Include</td><td>→ Signal</td></tr>
+    <tr><td>41759242</td><td>Ascorbic acid</td><td>Scurvy</td><td>Review (280 cases)</td><td>Multi</td><td>No AU patient</td><td>Include</td><td>Monitor</td></tr>
+    <tr><td>41041521</td><td>Ascorbic acid</td><td>Scurvy (paediatric)</td><td>Case series</td><td>Italy</td><td>No AU patient</td><td>Include</td><td>Monitor</td></tr>
+    <tr><td>41275096</td><td>Ascorbic acid</td><td>Oxalate nephropathy</td><td>Case report</td><td>Japan</td><td>No AU patient</td><td>Include</td><td>Differential</td></tr>
+    <tr><td>42206438 <span class="pill new">NEW</span></td><td>L-ascorbic acid (topical)</td><td>Topical tolerability</td><td>RCT (double-blind)</td><td>Indonesia</td><td>No AU patient</td><td>Include</td><td>Monitor</td></tr>
+    <tr><td>41978127</td><td>Vitamin C (CAM survey)</td><td>n/a — usage survey</td><td>Cross-sectional survey</td><td><strong>Australia</strong></td><td><strong>AU context, not an individual AE case</strong></td><td>Exclude</td><td>Logged (NS register)</td></tr>
+    <tr><td>41763665</td><td>—</td><td>Haemolysis (naphthalene, not ascorbate)</td><td>Case report</td><td>NL</td><td>No AU patient</td><td>Exclude</td><td>Off-intervention</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="rowtag">ROW 13</span> Justified non-submission register <span class="pill feeds">Outread feeds — QPPVA signs</span></h3>
+<p class="lede">Cases found but not carried to TGA reporting, each with a documented rationale. Outread produces the register; the QPPVA sign-off confirming defensibility is applied by your Qualified Person.</p>
+<table>
+  <thead><tr><th>NS-ID</th><th>Citation</th><th>Reason category</th><th>Rationale</th><th>TGA reportable?</th><th>QPPVA sign-off</th></tr></thead>
+  <tbody>
+    <tr><td>NS-001</td><td>41815850</td><td>Review / no individual patient</td><td>Systematic review, aggregate data, no identifiable individual case</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-002</td><td>41658835</td><td>Review / no individual patient</td><td>Sepsis IVC systematic review; no individual ICSR-eligible case</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-003</td><td>41759242</td><td>Review / no individual patient</td><td>Pooled case review; no new identifiable AU patient</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-004</td><td>35194790</td><td>Overseas / no AU patient</td><td>US patch-test case report; no Australian patient or reporter</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-005</td><td>41275096</td><td>Overseas / no AU patient</td><td>Japan oxalate-nephropathy case; ascorbate not causal (confounder)</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-006</td><td>41041521</td><td>Overseas / no AU patient</td><td>Italian paediatric scurvy series; deficiency state, overseas</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-007</td><td>42206438 <span class="pill new">NEW</span></td><td>Clinical trial / not spontaneous</td><td>Double-blind RCT tolerability data; no AU individual case</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+    <tr><td>NS-008</td><td>41978127</td><td>No individual AE case</td><td>Australian usage survey — relevant context, but no individual adverse event</td><td>No</td><td><span class="pill config">pending QP</span></td></tr>
+  </tbody>
+</table>
+
+<h3><span class="rowtag">ROW 11</span> Signal management lifecycle <span class="pill feeds">Outread feeds — QPPVA/CRO closes</span></h3>
+<p class="lede">Detection, prioritisation, validation state, owner and due date — tracked to the decision gate. Closure (QPPVA approval / CAPA / final benefit-risk) sits with your QP or CRO.</p>
+<table>
+  <thead><tr><th>Signal ID</th><th>Description</th><th>Status</th><th>Priority</th><th>Validation</th><th>Owner</th><th>Due</th><th>Next action</th></tr></thead>
+  <tbody>
+    <tr><td>SIG-001</td><td>Compounded-IV sterility / particulate contamination</td><td>Open</td><td>High</td><td>Confirmed — 14 FDA recalls (1 Class I)</td><td><span class="pill config">QPPVA</span></td><td>15 d</td><td>Formal eval → QP closure</td></tr>
+    <tr><td>SIG-002</td><td>G6PD haemolysis</td><td>Open</td><td>High</td><td>Confirmed — FAERS RRR 3.48; labelled</td><td><span class="pill config">QPPVA</span></td><td>Routine</td><td>Monitor (labelled)</td></tr>
+    <tr><td>SIG-003</td><td>Oxalate nephropathy / nephrolithiasis</td><td>Open</td><td>High</td><td>Confirmed — FAERS RRR 2.33; labelled</td><td><span class="pill config">QPPVA</span></td><td>Routine</td><td>Monitor (labelled)</td></tr>
+    <tr><td>SIG-004</td><td>TLS in HD IV ascorbate oncology</td><td>Open</td><td>Medium</td><td>Under validation — trial-level; FAERS RRR 0.95</td><td><span class="pill config">QPPVA</span></td><td>15 d</td><td>Formal eval</td></tr>
+    <tr><td>SIG-005</td><td>IV anaphylaxis</td><td>Open</td><td>Medium</td><td>Under validation — sparse spontaneous</td><td><span class="pill config">QPPVA</span></td><td>15 d</td><td>Formal eval</td></tr>
+    <tr><td>SIG-006</td><td>Chemotherapy interaction (bortezomib / anthracyclines)</td><td>Open</td><td>Medium</td><td>Under validation — mechanistic + trial</td><td><span class="pill config">QPPVA</span></td><td>15 d</td><td>Formal eval</td></tr>
+  </tbody>
+</table>
+
+<h3><span class="rowtag">ROW 14</span> Benefit-risk intelligence summary <span class="pill feeds">Outread feeds — QP concludes</span></h3>
+<div class="card">
+  <ul class="kv-list">
+    <li><span class="k">Overall status</span><span class="v"><strong>Favourable</strong> — routine monitoring; one scope under closer watch</span></li>
+    <li><span class="k">Oral supplement / fortified food</span><span class="v">Favourable — mature profile, GI + dental effects manageable</span></li>
+    <li><span class="k">Topical</span><span class="v">Favourable — local AEs only; derivative sensitisation monitored</span></li>
+    <li><span class="k">High-dose oral (&gt; 2 g/day)</span><span class="v">Favourable with monitoring — nephrolithiasis (RRR 2.33)</span></li>
+    <li><span class="k">Intravenous (all indications)</span><span class="v" style="color:var(--warn);"><strong>Favourable — closer watch</strong> — serious identified risks (G6PD RRR 3.48, oxalate nephropathy) + compounding-sterility recall cluster</span></li>
+    <li><span class="k">What would shift it</span><span class="v">New TGA DSC; LOVIT-family RCT harm signal; cluster of AU oxalate/haemolysis cases; further IV sterility recalls</span></li>
+    <li><span class="k">Ownership</span><span class="v">Intelligence input by Outread; the formal benefit-risk conclusion in regulated documentation is QP-owned</span></li>
+  </ul>
+</div>
+
+<h3><span class="rowtag">ROWS 15–19</span> Australian, EU &amp; WHO source extensions <span class="pill pending">live pull pending valid ScrapeGraph key</span></h3>
+<p class="lede">These four sources are JS-rendered / bot-protected and were excluded from the demo for that reason — not a capability gap. They are wired to ingest via ScrapeGraph; each shows the source and the extraction query that runs on key connection. No data is shown until the live pull succeeds (we do not fabricate regulatory data).</p>
+<table>
+  <thead><tr><th>Row</th><th>Source</th><th>What it adds</th><th>Ingestion route</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr><td>16</td><td>TGA DAEN <span style="color:var(--muted);">(daen.tga.gov.au)</span></td><td>Australian spontaneous adverse-event reports for ascorbic acid + salts</td><td>ScrapeGraph SmartScraper over DAEN search / bulk export</td><td><span class="pill pending">pending key</span></td></tr>
+    <tr><td>17</td><td>TGA Safety Alerts &amp; Recalls <span style="color:var(--muted);">(tga.gov.au)</span></td><td>Australian regulator safety notices / recalls</td><td>ScrapeGraph over alerts index (bot-gated to plain fetch)</td><td><span class="pill pending">pending key</span></td></tr>
+    <tr><td>18</td><td>WHO VigiAccess <span style="color:var(--muted);">(vigiaccess.org)</span></td><td>Global adverse-event aggregate (public view)</td><td>ScrapeGraph (React SPA — 757-byte shell on plain fetch)</td><td><span class="pill pending">pending key</span></td></tr>
+    <tr><td>19</td><td>EudraVigilance public ADR <span style="color:var(--muted);">(adrreports.eu)</span></td><td>EU adverse-event aggregate (public view; line-level EVDAS needs MAH access)</td><td>ScrapeGraph (React SPA)</td><td><span class="pill pending">pending key</span></td></tr>
+    <tr><td>15</td><td>Australian PI / CMI / ARTG <span style="color:var(--muted);">(tga.gov.au)</span></td><td>Comparison of findings against the Australian ascorbic acid label</td><td>ScrapeGraph over PI/CMI + ARTG lookup</td><td><span class="pill pending">pending key</span></td></tr>
+  </tbody>
+</table>
+<p class="lede" style="margin-top:8px;">Example extraction query (Row 16, runs on connection):</p>
+<div class="mono-block">POST api.scrapegraphai.com/v1/smartscraper
+{ "website_url": "https://daen.tga.gov.au/medicines-search/?q=ascorbic%20acid",
+  "user_prompt": "Return every adverse-event reaction term with its case count for ascorbic acid and its salts (sodium/calcium/magnesium ascorbate, ascorbyl palmitate); include report year and seriousness where shown." }</div>
+
 <p class="footnote">
   Generated by <strong>Outread</strong>'s pharmacovigilance agent pipeline — 13 phase-specific agents for protocol design, ingredient identity, risk landscape, tiering, Boolean search construction, literature search, PV database query, regulatory surveillance, two-reviewer screening, extraction + relevance scoring, risk-table assembly, record assembly, and cadence / archive / signal workflow handoff.<br /><br />
   <strong>Live data sources:</strong> PubMed E-utilities · openFDA <code>drug/event</code> · openFDA <code>drug/label</code> · openFDA <code>drug/enforcement</code> · PubChem PUG REST · RxNav / RxNorm · gov.uk (MHRA DSU) · ema.europa.eu (PRAC minutes, agendas, highlights, substance search) · recalls-rappels.canada.ca (Health Canada).<br /><br />
   <strong>Initial run 2026-04-24; surveillance update 2026-06-11</strong> — items added in the update carry a <span class="pill new">NEW</span> tag in place. The openFDA drug/event dataset was last loaded 2026-04-28, so adverse-event reports submitted after that date are not yet indexed; all other live sources are current to the update date.<br /><br />
+  <strong>Inspection-readiness layer (Section 9):</strong> the search log, audit trail, triage log, justified-non-submission register, signal lifecycle and benefit-risk summary are built from this review's own execution data. The Australian / EU / WHO source extensions (Rows 15–19) are JS-rendered or bot-protected and are wired to ingest via ScrapeGraph; they show their source and extraction query but no data until a live pull succeeds — regulatory data is never fabricated. Items requiring a Qualified Person's decision or signature are marked <span class="pill feeds">Outread feeds</span> and remain with your QPPVA / CRO.<br /><br />
   Fields marked <span class="pill config">configured by user</span> (products / brands, internal product code, countries marketed) are populated from company product master data at run time.
 </p>
 
