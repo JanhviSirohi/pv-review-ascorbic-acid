@@ -293,7 +293,7 @@
 
   <div class="chart-wrap">
     <h3>Screening funnel</h3>
-    <p class="caption">From 1,211 unique records retrieved (complete set), through a transparent automated relevance screen (864 advanced / 347 off-topic excluded), then a two-reviewer + full-text deep-dive to 15 included.</p>
+    <p class="caption">From 1,211 unique records retrieved (complete set), through a transparent relevance screen (864 advanced / 347 off-topic), then an eligibility deep-screen of all 864 (title + abstract) to 142 included.</p>
     <div class="canvas-box"><canvas id="prismaChart"></canvas></div>
   </div>
 
@@ -357,18 +357,16 @@
 </table>
 
 <h3>Screening (staged)</h3>
-<p class="lede"><strong>Stage 1</strong> — a transparent, rule-based relevance screen runs over <strong>all 1,211</strong> retrieved records (title-level; documented include/exclude term logic; errs toward inclusion, as PV requires). <strong>Stage 2</strong> — the advanced records go through the two-reviewer title/abstract + full-text deep-dive. The deep-dive shown was completed on a demonstration batch; a production weekly run carries the full advanced set through Stage 2.</p>
+<p class="lede"><strong>Stage 1</strong> — a transparent, rule-based relevance screen runs over <strong>all 1,211</strong> retrieved records (title-level; documented include/exclude term logic; errs toward inclusion, as PV requires). <strong>Stage 2</strong> — an automated eligibility screen reads the title + abstract of <strong>every one of the 864</strong> advanced records and decides include/exclude with a recorded reason, extracting the AE, MedDRA PT, route and study design for each include. Human two-reviewer confirmation + QPPVA sign-off is the production step (Outread feeds; QP owns).</p>
 <table>
   <thead><tr><th>Stage</th><th class="num">N</th><th>Notes</th></tr></thead>
   <tbody>
     <tr><td>Unique records retrieved</td><td class="num">1,211</td><td>complete set, no sampling</td></tr>
     <tr><td><strong>Stage 1 — automated relevance screen: advanced</strong></td><td class="num"><strong>864</strong></td><td>clear PV signal 474 + unclear-advanced 390 (errs toward inclusion)</td></tr>
     <tr><td>Stage 1 — excluded (off-topic / non-human)</td><td class="num">347</td><td>plant science, materials/nanotech, food chemistry, computational, animal-only — examples auditable</td></tr>
-    <tr><td>Stage 2 — two-reviewer deep-dive (demonstration batch)</td><td class="num">71</td><td>high-signal batch from the 864, full manual review</td></tr>
-    <tr><td>↳ T/A excluded</td><td class="num">48</td><td>off-topic 18 · wrong population 17 · no extractable AE 13</td></tr>
-    <tr><td>↳ T/A adjudicated</td><td class="num">3</td><td>third-reviewer arbitration on disagreement</td></tr>
-    <tr><td>↳ full-text screened / excluded</td><td class="num">23 / 8</td><td>no extractable AE 4 · off-route 2 · wrong intervention 2</td></tr>
-    <tr><td><strong>Included</strong></td><td class="num"><strong>15</strong></td><td>passed to extraction + relevance scoring; remaining 793 advanced records queued for production deep-screen</td></tr>
+    <tr><td><strong>Stage 2 — eligibility deep-screen: ALL 864 read</strong></td><td class="num"><strong>864</strong></td><td>title + abstract reviewed; decision + reason recorded for every record</td></tr>
+    <tr><td>↳ excluded at deep-screen</td><td class="num">722</td><td>ascorbate as antioxidant reagent/marker · animal / in-vitro · efficacy- or mechanism-only · not the subject substance</td></tr>
+    <tr><td><strong>Included</strong></td><td class="num"><strong>142</strong></td><td>36 identified-risk · 44 potential/emerging · 62 negative-safety / tolerability records — all extracted</td></tr>
   </tbody>
 </table>
 
@@ -490,18 +488,19 @@
     <tr><th class="num">#</th><th>Title</th><th>Citation</th><th>AE reported</th><th>MedDRA PT</th><th>Route</th><th class="num">Score</th></tr>
   </thead>
   <tbody>
-    <tr><td class="num">1</td><td>Clinical benefits and risks of high-dose intravenous vitamin C: a systematic review</td><td>Alangari A, <em>et al.</em> J Med Life. 2026. PMID 41815850</td><td>Oxalate nephropathy; G6PD haemolysis; TLS; assay interference</td><td>Oxalate nephropathy</td><td><span class="pill route">IV</span></td><td class="num"><strong>74</strong></td></tr>
-    <tr><td class="num">2</td><td>Scurvy, an enduring mimicker — 280-case review</td><td>Rivière E, <em>et al.</em> Clin Nutr. 2026. PMID 41759242</td><td>Scurvy (deficiency / rebound)</td><td>Scurvy</td><td><span class="pill route">oral</span></td><td class="num">66</td></tr>
-    <tr><td class="num">3</td><td>High-dose vitamin C in allo-HSCT: pilot RCT</td><td>Heidari S, <em>et al.</em> Support Care Cancer. 2026. PMID 41692856</td><td>Trial-level tolerability; TLS surveillance</td><td>TLS (surveillance)</td><td><span class="pill route">IV/HD</span></td><td class="num">66</td></tr>
-    <tr><td class="num">4</td><td>Phase IB HD ascorbic acid + nab-pac/cis/gem in pancreatic cancer</td><td>Jameson GS, <em>et al.</em> Redox Biol. 2025. PMID 41197185</td><td>Full trial AE; chemo interaction</td><td>Multiple</td><td><span class="pill route">IV</span></td><td class="num">62</td></tr>
-    <tr><td class="num">5</td><td>IV vitamin C in severe sepsis: SR 2020–2025</td><td>Ahmed R, <em>et al.</em> Cureus. 2026. PMID 41658835</td><td>Oxalate nephropathy</td><td>Oxalate nephropathy</td><td><span class="pill route">IV</span></td><td class="num">62</td></tr>
-    <tr><td class="num">6</td><td>Vitamin C in septic AKI: pilot RCT</td><td>Chen Y, <em>et al.</em> Int J Vit Nutr Res. 2026. PMID 41873106</td><td>Renal function endpoints</td><td>Acute kidney injury</td><td><span class="pill route">IV</span></td><td class="num">58</td></tr>
-    <tr><td class="num">7</td><td>Allergic contact dermatitis to tetrahexyldecyl ascorbate eye creams</td><td>Scheman A, <em>et al.</em> Contact Dermatitis. 2022. PMID 35194790</td><td>Allergic contact dermatitis (patch-test+)</td><td>Dermatitis contact</td><td><span class="pill route">topical</span></td><td class="num">56</td></tr>
-    <tr><td class="num">8</td><td>IV vitamin C in NPC chemotherapy: AE study</td><td>Leelasawatsuk P, <em>et al.</em> PLoS One. 2026. PMID 41973719</td><td>Chemo-related AEs with IV vit C adjunct</td><td>Multiple</td><td><span class="pill route">IV</span></td><td class="num">55</td></tr>
-    <tr><td class="num">9</td><td>Scurvy in 8 young children + literature review</td><td>Di Nora A, <em>et al.</em> Open Med. 2025. PMID 41041521</td><td>Paediatric scurvy</td><td>Scurvy</td><td><span class="pill route">oral</span></td><td class="num">51</td></tr>
-    <tr><td class="num">10</td><td>Oxalate nephropathy post-RYGB without excess vitamin C</td><td>Chiba K, <em>et al.</em> BMC Geriatr. 2025. PMID 41275096</td><td>Oxalate nephropathy (differential)</td><td>Oxalate nephropathy</td><td><span class="pill route">unclear</span></td><td class="num">43</td></tr>
+    <tr><td class="num">1</td><td>Pseudohyperglycemia Secondary to High-Dose Intravenous Vitamin C Managed as Diabetic Ketoacidosis: An Endocrinological Catastrophe.</td><td>Orija IB, et al. AACE Clin Case Rep. 2021. PMID 34307844</td><td>pseudohyperglycemia from POC glucose-meter interference; erroneous DKA management</td><td>Blood glucose abnormal (assay interference)</td><td><span class="pill route">iv</span></td><td class="num"><strong>88</strong></td></tr>
+    <tr><td class="num">2</td><td>Vitamin C-Induced Oxalate Nephropathy in a Septic Patient.</td><td>Wissanji T, et al. Crit Care Explor. 2021. PMID 33912831</td><td>oxalate nephropathy, intratubular Ca-oxalate crystals, AKI requiring RRT</td><td>Oxalate nephropathy</td><td><span class="pill route">iv</span></td><td class="num">86</td></tr>
+    <tr><td class="num">3</td><td>Increased Rates of Supplement-Associated Oxalate Nephropathy During COVID-19 Pandemic.</td><td>Fong P, et al. Kidney Int Rep. 2022. PMID 36120391</td><td>supplement / vitamin C-associated oxalate nephropathy (case-series surge)</td><td>Oxalate nephropathy</td><td><span class="pill route">oral</span></td><td class="num">85</td></tr>
+    <tr><td class="num">4</td><td>High-dose vitamin-C induced prolonged factitious hyperglycemia in a peritoneal dialysis patient.</td><td>Lachance O, et al. J Med Case Rep. 2021. PMID 34020705</td><td>factitious hyperglycemia from glucometer interference (6 days); iatrogenic hypoglycaemia risk</td><td>Blood glucose abnormal (assay interference)</td><td><span class="pill route">iv</span></td><td class="num">85</td></tr>
+    <tr><td class="num">5</td><td>Clinical benefits and risks of high-dose intravenous vitamin C: a systematic review.</td><td>Alangari A, et al. J Med Life. 2026. PMID 41815850</td><td>oxalate nephropathy and haemolysis (G6PD deficiency)</td><td>Oxalate nephropathy</td><td><span class="pill route">iv</span></td><td class="num">82</td></tr>
+    <tr><td class="num">6</td><td>Oxalate nephropathy from high-dose intravenous vitamin C in a patient with multiple myeloma.</td><td>Zou G, et al. J Nephrol. 2025. PMID 39511062</td><td>oxalate nephropathy from high-dose IV vitamin C</td><td>Oxalate nephropathy</td><td><span class="pill route">iv</span></td><td class="num">80</td></tr>
+    <tr><td class="num">7</td><td>Acute Kidney Injury From Biopsy-Proven Renal Oxalosis From Excessive Intake of Vitamin C Leading to ESKD.</td><td>Williams R, et al. Cureus. 2022. PMID 36721621</td><td>AKI and renal oxalosis (Ca-oxalate crystals) → end-stage kidney disease</td><td>Oxalate nephropathy</td><td><span class="pill route">oral</span></td><td class="num">80</td></tr>
+    <tr><td class="num">8</td><td>Seven cases of allergic contact dermatitis caused by cosmetics containing 3-O-ethyl-L-ascorbic acid.</td><td>Suzuki K, et al. Contact Dermatitis. 2022. PMID 34994407</td><td>allergic contact dermatitis (7 cases, patch-test confirmed)</td><td>Dermatitis allergic</td><td><span class="pill route">topical</span></td><td class="num">80</td></tr>
+    <tr><td class="num">9</td><td>Phase IB trial of high-dose ascorbic acid + nab-paclitaxel + cisplatin + gemcitabine in metastatic pancreatic cancer.</td><td>Jameson GS, et al. Redox Biol. 2025. PMID 41197185</td><td>Grade ≥3 treatment-related AEs: thrombocytopenia 82.4%, anaemia 35.3%, neutropenia 29%</td><td>Thrombocytopenia</td><td><span class="pill route">iv</span></td><td class="num">78</td></tr>
+    <tr><td class="num">10</td><td>Acute oxalate nephropathy: exploring the role of excess dietary oxalate intake.</td><td>Bothara R, et al. CEN Case Rep. 2024. PMID 38587605</td><td>acute oxalate nephropathy / AKI from excess dietary vitamin C</td><td>Oxalate nephropathy</td><td><span class="pill route">oral</span></td><td class="num">78</td></tr>
   </tbody>
 </table>
+<p class="lede" style="margin-top:8px;">Ranked from the <strong>142 included records</strong> by the relevance rubric (signal 0.30 · novelty 0.25 · regulatory resonance 0.25 · design 0.20). The dominant literature signal is <strong>oxalate nephropathy</strong> (13 identified-risk papers, both high-dose IV and oral megadose) followed by <strong>glucose-meter assay interference / pseudohyperglycaemia</strong> — a serious, under-recognised hazard that misdirected insulin/DKA management in two ICU case reports.</p>
 
 <h2>6 · Identified risks</h2>
 <table class="risks">
@@ -512,13 +511,13 @@
     <tr><th>Risk</th><th>Routes</th><th>MedDRA SMQ</th><th>Representative PTs</th><th>Evidence</th><th>Status</th></tr>
   </thead>
   <tbody>
-    <tr><td>Oxalate nephropathy / nephrolithiasis</td><td><span class="pill route">oral HD</span> <span class="pill route">IV</span></td><td>Acute renal failure; Tubulointerstitial diseases</td><td>Nephrolithiasis · Oxalate nephropathy · Hyperoxaluria · AKI</td><td>Labelled. FAERS RRR 2.33 for Nephrolithiasis (formal signal). Lit: 41815850, 41658835, 41275096.</td><td>Labelled</td></tr>
+    <tr><td>Oxalate nephropathy / nephrolithiasis</td><td><span class="pill route">oral HD</span> <span class="pill route">IV</span></td><td>Acute renal failure; Tubulointerstitial diseases</td><td>Nephrolithiasis · Oxalate nephropathy · Hyperoxaluria · AKI</td><td>Labelled. FAERS RRR 2.33 (Nephrolithiasis, formal signal). <strong>Strongest literature signal — 13 included oxalate-nephropathy papers</strong> across high-dose IV and oral megadose: e.g. PMID 33912831 (septic ICU), 39511062 (myeloma), 36721621 (→ ESKD), 38587605, 36120391 (COVID-era supplement surge).</td><td>Labelled</td></tr>
     <tr><td>G6PD-related haemolysis</td><td><span class="pill route">IV</span> <span class="pill route">oral HD</span></td><td>Haematopoietic erythropenia; Haemolytic disorders</td><td>Haemolysis · Haemolytic anaemia · G6PD deficiency · Haemoglobinuria</td><td>Labelled (G6PD screening before HD IV). FAERS RRR 3.48 for Haemolysis (formal signal). Lit: 41815850.</td><td>Labelled</td></tr>
     <tr><td>GI intolerance above UL</td><td><span class="pill route">oral</span></td><td>GI nonspecific symptoms</td><td>Nausea · Diarrhoea · Abdominal pain · Vomiting · Dyspepsia</td><td>Labelled (dose-related &gt; 2 g/day). FAERS top-100 reactions. Lit: 41972192.</td><td>Labelled</td></tr>
     <tr><td>Warfarin INR interference</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>Haemorrhages</td><td>INR decreased · INR increased · Drug interaction · Haemorrhage</td><td>Labelled interaction. Lit: 41815850 references anticoagulation management in HD IVC.</td><td>Labelled</td></tr>
-    <tr><td>Laboratory assay interference</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>PT cluster (no dedicated SMQ)</td><td>Blood glucose abnormal · Occult blood positive · Laboratory test interference · Creatinine abnormal</td><td>Labelled. Lit: 41815850 flags glucose-meter falsification as ICU hazard.</td><td>Labelled</td></tr>
+    <tr><td>Laboratory assay interference</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>PT cluster (no dedicated SMQ)</td><td>Blood glucose abnormal · Occult blood positive · Laboratory test interference · Creatinine abnormal</td><td>Labelled. <strong>Ranked #1 and #4 in the Top-10</strong>: two ICU case reports of pseudohyperglycaemia from glucose-meter interference that misdirected DKA/insulin management (PMID 34307844, 34020705) — a serious, under-recognised hazard.</td><td>Labelled</td></tr>
     <tr><td>Extravasation / infusion-site reactions</td><td><span class="pill route">IV</span></td><td>Extravasation events</td><td>Infusion site reaction · Extravasation · Phlebitis</td><td>Labelled for parenteral. FAERS Phlebitis RRR 1.93 (watchlist). Lit: 41815850.</td><td>Labelled</td></tr>
-    <tr><td>Contact dermatitis + photosensitivity</td><td><span class="pill route">topical</span></td><td>SCARs; Hypersensitivity</td><td>Dermatitis contact · Urticaria · Photosensitivity reaction · Rash · Pruritus</td><td>Labelled. FAERS Dermatitis contact RRR 1.93 (watchlist). Lit: 35194790 (patch-test+ THDC).</td><td>Labelled</td></tr>
+    <tr><td>Contact dermatitis + photosensitivity</td><td><span class="pill route">topical</span></td><td>SCARs; Hypersensitivity</td><td>Dermatitis contact · Urticaria · Photosensitivity reaction · Rash · Pruritus</td><td>Labelled. FAERS Dermatitis contact RRR 1.93 (watchlist). Lit: <strong>3-O-ethyl-L-ascorbic acid — 7 patch-test-confirmed allergic contact dermatitis cases (PMID 34994407)</strong>; tetrahexyldecyl ascorbate (PMID 35194790); granulomatous dermatitis (PMID 35693923).</td><td>Labelled</td></tr>
     <tr><td>Iron overload in haemochromatosis</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>Iron-metabolism PT cluster</td><td>Haemosiderosis · Iron overload · Ferritin increased · Hepatic iron overload</td><td>Labelled contraindication / caution. Lit: 41815850.</td><td>Labelled</td></tr>
     <tr><td>Oxalosis in ESRD</td><td><span class="pill route">oral</span> <span class="pill route">IV</span></td><td>Tubulointerstitial; Acute renal failure</td><td>Oxalosis · Hyperoxaluria · Renal failure · Nephrocalcinosis</td><td>Labelled for ESRD. FAERS AKI RRR 1.70 (watchlist). Lit: 41658835, 41275096.</td><td>Labelled</td></tr>
     <tr><td>Dental erosion</td><td><span class="pill route">oral</span></td><td>Dental disorders PT cluster</td><td>Tooth erosion · Tooth disorder · Enamel erosion · Dental discomfort</td><td>Labelled for chewable / effervescent (low pH). Lit: 41972192.</td><td>Labelled</td></tr>
@@ -651,7 +650,7 @@
     <tr><td>Weekly refresh <span class="pill new">NEW</span></td><td>PubMed</td><td>EDAT 2026-04-24 → 2026-06-11</td><td class="num">87</td><td class="num">87</td><td>2026-06-11</td><td>R-A / R-B</td></tr>
   </tbody>
 </table>
-<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> A transparent automated relevance screen runs over all 1,211 retrieved records — <strong>864 advanced, 347 excluded</strong> as off-topic / non-human (plant science, materials, food chemistry, computational; auditable term logic, errs toward inclusion). The two-reviewer + full-text deep-dive detailed in Section 2 was completed on a demonstration batch of the 864 (→ 15 included); a production weekly run carries the full advanced set through Stage 2. The exact string re-pulled to produce these figures is below.</p>
+<p class="lede" style="margin-top:8px;"><strong>Screening is staged.</strong> A transparent relevance screen runs over all 1,211 retrieved records — <strong>864 advanced, 347 excluded</strong> as off-topic / non-human. An eligibility deep-screen then reads the title + abstract of <strong>every one of the 864</strong> and records an include/exclude decision with reason — <strong>142 included, 722 excluded</strong>. Human two-reviewer confirmation + QPPVA sign-off is the production step (Outread feeds; QP owns). The exact string re-pulled to produce these figures is below.</p>
 <p class="lede" style="margin-top:8px;">Stage-1 relevance screen — auditable logic (title-level; advance if any PV term, exclude only if off-topic term and no PV term, advance the unclear):</p>
 <div class="mono-block">EXCLUDE (off-topic / non-human): plant·seedling·wheat·rice·maize·soil·cadmium·lead·chromium·zebrafish·drosophila·nanoparticle·biosensor·electrochemical·photocatalytic·adsorbent·in-silico·docking·food-processing·antimicrobial·catalyst …
 ADVANCE (PV signal): patient·clinical·case report·adverse·safety·nephropathy·oxalate·h(a)emolysis·G6PD·scurvy·anaphylaxis·dermatitis·tumour lysis·intravenous·sepsis·randomised·cohort·pregnancy·paediatric·deficiency·overdose …
@@ -661,20 +660,21 @@ RESULT: 1,211 → 864 advanced (474 clear + 390 unclear) / 347 excluded.  Exclud
 <p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready; full string + per-record raw PMID list export to CSV):</p>
 <div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
 <table style="margin-top:10px;">
-  <thead><tr><th>Deep-screen exclusions — demonstration batch (audit trail)</th><th class="num">Count</th></tr></thead>
+  <thead><tr><th>Deep-screen exclusions — all 864 (audit trail)</th><th class="num">Count</th></tr></thead>
   <tbody>
-    <tr><td>Off-topic (ascorbate not the AE subject)</td><td class="num">18</td></tr>
-    <tr><td>Wrong population</td><td class="num">17</td></tr>
-    <tr><td>No extractable adverse-event data</td><td class="num">13</td></tr>
-    <tr><td>[Full-text] no extractable AE</td><td class="num">4</td></tr>
-    <tr><td>[Full-text] off-route</td><td class="num">2</td></tr>
-    <tr><td>[Full-text] wrong intervention</td><td class="num">2</td></tr>
-    <tr><td><strong>Two-reviewer + adjudicator</strong></td><td class="num">3 adjudicated</td></tr>
+    <tr><td>Animal / in-vitro / preclinical (no human AE)</td><td class="num">360</td></tr>
+    <tr><td>Other — no extractable human adverse event</td><td class="num">171</td></tr>
+    <tr><td>Ascorbate as antioxidant reagent / biomarker / assay</td><td class="num">119</td></tr>
+    <tr><td>Efficacy- or mechanism-only (no safety/AE data)</td><td class="num">33</td></tr>
+    <tr><td>Ascorbate not the subject substance</td><td class="num">26</td></tr>
+    <tr><td>Food-science / materials / chemistry</td><td class="num">13</td></tr>
+    <tr><td><strong>Total excluded at deep-screen</strong></td><td class="num"><strong>722</strong></td></tr>
+    <tr><td><strong>Included</strong></td><td class="num"><strong>142</strong></td></tr>
   </tbody>
 </table>
 
 <h3><span class="rowtag">ROW 7</span> Screening triage log <span class="pill builds">Outread builds</span></h3>
-<p class="lede">Per-record triage in the controlled format — citation, suspected AE, article type, country, Australian relevance, decision and escalation. Included set shown; full log covers all 71 screened records.</p>
+<p class="lede">Per-record triage in the controlled format — citation, suspected AE, article type, country, Australian relevance, decision and escalation. A sample of the 142 included records is shown; the full log covers all 864 deep-screened records.</p>
 <table>
   <thead><tr><th>ID (PMID)</th><th>API</th><th>Suspected AE</th><th>Article type</th><th>Country</th><th>AU relevance</th><th>Decision</th><th>Escalation</th></tr></thead>
   <tbody>
@@ -834,11 +834,11 @@ RESULT: 1,211 → 864 advanced (474 clear + 390 unclear) / 347 excluded.  Exclud
   new Chart(document.getElementById('prismaChart'), {
     type: 'bar',
     data: {
-      labels: ['Retrieved (all)','Passed relevance screen','Deep-screen batch','Full-text','Included'],
+      labels: ['Retrieved (all)','Passed relevance screen','Deep-screened (all)','Included'],
       datasets: [{
         label: 'Records',
-        data: [1211, 864, 71, 23, 15],
-        backgroundColor: ['#a8a29e','#78716c','#0f766e','#14b8a6','#b45309'],
+        data: [1211, 864, 864, 142],
+        backgroundColor: ['#a8a29e','#78716c','#0f766e','#b45309'],
         borderRadius: 4,
       }]
     },
