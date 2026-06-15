@@ -145,7 +145,8 @@
     <tr><td>FDA labels &amp; recalls (openFDA)</td><td>Product labels &amp; recalls</td><td><span class="pill p-ok">searched live — 212 · 15</span></td></tr>
     <tr><td>UK MHRA · EU EMA · Health Canada</td><td>Regulator safety pages</td><td><span class="pill p-ok">searched live</span></td></tr>
     <tr><td><strong>TGA DAEN</strong> (Australia) <span class="pill p-new">live</span></td><td>Australian side-effect reports</td><td><span class="pill p-ok">searched live — 3,117 reports</span></td></tr>
-    <tr><td>WHO VigiAccess · EU EudraVigilance</td><td>Global / EU side-effect databases</td><td><span class="pill p-pending">reachable via browser automation — not yet pulled</span></td></tr>
+    <tr><td><strong>WHO VigiAccess</strong> (global) <span class="pill p-new">live</span></td><td>WHO global side-effect database</td><td><span class="pill p-ok">searched live — 22,578 reports</span></td></tr>
+    <tr><td><strong>EU EudraVigilance</strong> <span class="pill p-new">live</span></td><td>European side-effect database</td><td><span class="pill p-ok">searched live — 4,272 cases</span></td></tr>
     <tr><td>TGA alerts · Australian labels</td><td>Australian regulator sources</td><td><span class="pill p-pending">JS search (down at TGA at time of run)</span></td></tr>
   </tbody>
 </table>
@@ -249,6 +250,37 @@
   </tbody>
 </table>
 <p style="font-size:13px;color:var(--muted);">Hypersensitivity and anaphylaxis appearing near the top is consistent with the allergy/anaphylaxis signal flagged elsewhere in this review. Taste changes (ageusia/dysgeusia) most likely come from zinc-containing cold remedies in the multi-ingredient products, not vitamin C. Source: TGA DAEN — medicines, all dates to Jun 2026, retrieved live; active-ingredient search on “ascorbic acid” (485 products).</p>
+
+<h3>Global &amp; EU reports — WHO VigiAccess and EudraVigilance <span class="pill p-new">live</span></h3>
+<div class="plain">
+  <div class="lbl">In plain words</div>
+  <p>To round out the picture beyond the US and Australia, we pulled the <b>WHO global database</b> and the <b>EU database</b> directly — both for vitamin C as a single ingredient (cleaner than the multi-product Australian view). They tell a consistent story: the most-reported problems are general/injection-site reactions, stomach upset, and skin and allergic reactions.</p>
+</div>
+<div class="two">
+  <div class="card">
+    <h3 style="margin-top:0;">WHO VigiAccess (global) — 22,578 reports</h3>
+    <ul class="kv">
+      <li><span class="k">General / admin-site</span><span class="v">9,066 (25%)</span></li>
+      <li><span class="k">Skin reactions</span><span class="v">6,671 (18%)</span></li>
+      <li><span class="k">Stomach / gut</span><span class="v">4,380 (12%)</span></li>
+      <li><span class="k">Nervous system</span><span class="v">3,205 (9%)</span></li>
+      <li><span class="k">Immune (allergy)</span><span class="v">1,099 (3%)</span></li>
+      <li><span class="k">Kidney / urinary</span><span class="v">348 (1%)</span></li>
+      <li><span class="k">Blood</span><span class="v">173</span></li>
+    </ul>
+  </div>
+  <div class="card">
+    <h3 style="margin-top:0;">EU EudraVigilance — 4,272 cases</h3>
+    <ul class="kv">
+      <li><span class="k">Female</span><span class="v">3,048 (71%)</span></li>
+      <li><span class="k">Aged 18–64</span><span class="v">2,195 (51%)</span></li>
+      <li><span class="k">Aged 65+</span><span class="v">620 (15%)</span></li>
+      <li><span class="k">From outside Europe</span><span class="v">2,659 (62%)</span></li>
+      <li><span class="k">Top body systems</span><span class="v">general · injury · gut · nervous · skin</span></li>
+    </ul>
+  </div>
+</div>
+<p style="font-size:13px;color:var(--muted);">Sources: WHO VigiAccess (VigiBase) and EU EudraVigilance (adrreports.eu / EMA analytics), both retrieved live for the single ingredient “ascorbic acid,” to Jun 2026. As with all spontaneous reports, these counts reflect what was <em>reported</em>, not confirmed cause — and can't be compared head-to-head between databases because each collects differently.</p>
 
 <h2><span class="n">4</span> Official records — recalls, labels and warnings</h2>
 <div class="plain">
@@ -397,15 +429,16 @@
       <li><span class="k">UK / EU / Canada scan</span><span class="v"><span class="pill p-ok">done</span></span></li>
       <li><span class="k">Risk + signal tables</span><span class="v"><span class="pill p-ok">done</span></span></li>
       <li><span class="k">Australia's database (DAEN)</span><span class="v"><span class="pill p-ok">done — 3,117</span></span></li>
+      <li><span class="k">WHO global database</span><span class="v"><span class="pill p-ok">done — 22,578</span></span></li>
+      <li><span class="k">EU adverse-event database</span><span class="v"><span class="pill p-ok">done — 4,272</span></span></li>
     </ul>
   </div>
   <div class="card">
-    <h3 style="margin-top:0;">Reachable via browser automation (not yet pulled)</h3>
+    <h3 style="margin-top:0;">Still to pull</h3>
     <ul class="kv">
-      <li><span class="k">WHO global database</span><span class="v"><span class="pill p-pending">pending</span></span></li>
-      <li><span class="k">EU adverse-event view</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">Australia safety alerts</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">Australian product labels</span><span class="v"><span class="pill p-pending">pending</span></span></li>
+      <li><span class="k">Embase / Scopus / WoS</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
     </ul>
   </div>
 </div>
@@ -415,7 +448,7 @@
   <div class="src-h">Where the data comes from (all live)</div>
   PubMed · US FDA openFDA (side-effect reports, product labels, recalls) · PubChem · RxNorm · UK gov.uk (MHRA) · EU EMA (PRAC) · Health Canada recalls.<br /><br />
   <div class="src-h">Honesty notes</div>
-  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. <strong>TGA DAEN (Australia) was pulled live via browser automation</strong> — the figures shown (3,117 reports across 485 ascorbic-acid products) are real, retrieved directly from the TGA dashboard. WHO VigiAccess and the EU view are reachable the same way but not yet pulled — shown as gaps, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
+  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. <strong>TGA DAEN (Australia, 3,117), WHO VigiAccess (global, 22,578) and EU EudraVigilance (4,272) were all pulled live via browser automation</strong> — driving a real browser through each database's terms gate and dashboard, exactly as a person would. The figures are real, retrieved directly. The only remaining gaps are the paid-licence research databases (Embase, Scopus, Web of Science) and the currently-down TGA search pages — shown as gaps, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
 </div>
 
 </div>
