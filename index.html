@@ -147,7 +147,8 @@
     <tr><td><strong>TGA DAEN</strong> (Australia) <span class="pill p-new">live</span></td><td>Australian side-effect reports</td><td><span class="pill p-ok">searched live — 3,117 reports</span></td></tr>
     <tr><td><strong>WHO VigiAccess</strong> (global) <span class="pill p-new">live</span></td><td>WHO global side-effect database</td><td><span class="pill p-ok">searched live — 22,578 reports</span></td></tr>
     <tr><td><strong>EU EudraVigilance</strong> <span class="pill p-new">live</span></td><td>European side-effect database</td><td><span class="pill p-ok">searched live — 4,272 cases</span></td></tr>
-    <tr><td>TGA alerts · Australian labels</td><td>Australian regulator sources</td><td><span class="pill p-pending">JS search (down at TGA at time of run)</span></td></tr>
+    <tr><td><strong>TGA safety alerts</strong> (Australia) <span class="pill p-new">live</span></td><td>Australian regulator alerts/recalls</td><td><span class="pill p-ok">searched live — none for vitamin C</span></td></tr>
+    <tr><td>Australian product labels (PI/CMI)</td><td>Australian regulator source</td><td><span class="pill p-pending">not yet pulled</span></td></tr>
   </tbody>
 </table>
 <p style="font-size:13px;color:var(--muted);">This is the same standard set a full pharmacovigilance review covers. Embase and the other research databases need a paid licence. The Australian / global / EU side-effect databases were tested with a live scraping key — they authenticate, but their data only appears after an in-page “accept terms + search” step a page-scraper can't perform, so the real route is their bulk data export or a browser-automation tool. Every gap is shown explicitly rather than hidden behind an unstated “PubMed only,” and none is filled with made-up data.</p>
@@ -303,6 +304,7 @@
 <table>
   <thead><tr><th>Regulator checked</th><th>Result</th></tr></thead>
   <tbody>
+    <tr><td><strong>Australia (TGA)</strong> <span class="pill p-new">live</span></td><td><span class="pill p-ok">nothing new</span> Searched the TGA site live — no vitamin C safety alert or recall. The only recent vitamin safety action is for <em>vitamin B6</em> (nerve-damage warning), not vitamin C.</td></tr>
     <tr><td>UK (MHRA)</td><td><span class="pill p-ok">nothing new</span> No vitamin C safety notice in the period.</td></tr>
     <tr><td>Europe (EMA / PRAC)</td><td><span class="pill p-ok">nothing new</span> No vitamin C safety item in recent meetings.</td></tr>
     <tr><td>Canada (Health Canada)</td><td><span class="pill p-ok">nothing new</span> Only a food-grade contamination recall, not a medicine.</td></tr>
@@ -431,13 +433,13 @@
       <li><span class="k">Australia's database (DAEN)</span><span class="v"><span class="pill p-ok">done — 3,117</span></span></li>
       <li><span class="k">WHO global database</span><span class="v"><span class="pill p-ok">done — 22,578</span></span></li>
       <li><span class="k">EU adverse-event database</span><span class="v"><span class="pill p-ok">done — 4,272</span></span></li>
+      <li><span class="k">Australia safety alerts (TGA)</span><span class="v"><span class="pill p-ok">done — none</span></span></li>
     </ul>
   </div>
   <div class="card">
     <h3 style="margin-top:0;">Still to pull</h3>
     <ul class="kv">
-      <li><span class="k">Australia safety alerts</span><span class="v"><span class="pill p-pending">pending</span></span></li>
-      <li><span class="k">Australian product labels</span><span class="v"><span class="pill p-pending">pending</span></span></li>
+      <li><span class="k">Australian product labels (PI/CMI)</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">Embase / Scopus / WoS</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
     </ul>
   </div>
