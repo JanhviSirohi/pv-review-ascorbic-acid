@@ -433,40 +433,185 @@
 <h2><span class="n">9</span> The audit trail</h2>
 <div class="plain">
   <div class="lbl">In plain words</div>
-  <p>Everything above can be checked and reproduced. We keep the exact searches, every keep/drop decision with a reason, and the dated logs an inspector would ask for. A few country-specific databases couldn't be read automatically — they hide their data behind an in-page “accept terms + search” step — so they're marked as gaps, never faked.</p>
+  <p>Everything above can be checked and repeated. Below is the actual search log — every source, the exact query, the date it was run, the window it covered, what came back, who reviewed it, and whether it's complete. Download it as a spreadsheet and drop it straight into a PSUR or an inspection file. The only sources not run are the paid-subscription research databases, listed as exactly that — never filled with assumed data.</p>
 </div>
-<div class="two">
-  <div class="card">
-    <h3 style="margin-top:0;">What's fully built &amp; real</h3>
-    <ul class="kv">
-      <li><span class="k">Search log</span><span class="v"><span class="pill p-ok">done</span></span></li>
-      <li><span class="k">Every keep/drop + reason</span><span class="v"><span class="pill p-ok">done</span></span></li>
-      <li><span class="k">FDA reports + recalls</span><span class="v"><span class="pill p-ok">done</span></span></li>
-      <li><span class="k">UK / EU / Canada scan</span><span class="v"><span class="pill p-ok">done</span></span></li>
-      <li><span class="k">Risk + signal tables</span><span class="v"><span class="pill p-ok">done</span></span></li>
-      <li><span class="k">Australia's database (DAEN)</span><span class="v"><span class="pill p-ok">done — 3,117</span></span></li>
-      <li><span class="k">WHO global database</span><span class="v"><span class="pill p-ok">done — 22,578</span></span></li>
-      <li><span class="k">EU adverse-event database</span><span class="v"><span class="pill p-ok">done — 4,272</span></span></li>
-      <li><span class="k">Australia safety alerts (TGA)</span><span class="v"><span class="pill p-ok">done — none</span></span></li>
-      <li><span class="k">Australian labels (PI/CMI)</span><span class="v"><span class="pill p-ok">done — 5</span></span></li>
-    </ul>
-  </div>
-  <div class="card">
-    <h3 style="margin-top:0;">Only gap left: paid-licence databases</h3>
-    <ul class="kv">
-      <li><span class="k">Embase</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
-      <li><span class="k">Scopus</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
-      <li><span class="k">Web of Science</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
-    </ul>
-  </div>
+
+<h3 style="margin-bottom:2px;">Literature &amp; database search log</h3>
+<p style="font-size:13px;color:var(--muted);margin-top:0;margin-bottom:10px;">One line per source — the reproducible record an auditor lifts into a PSUR/PBRER.
+  <button type="button" onclick="downloadSearchLog()" style="display:inline-block;margin-left:8px;padding:6px 13px;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:7px;font-size:12.5px;font-weight:650;cursor:pointer;vertical-align:middle;">⬇ Download as CSV</button>
+</p>
+<div style="overflow-x:auto;">
+<table style="font-size:12.5px;min-width:820px;">
+  <thead><tr><th>Source</th><th>Type</th><th>Exact query / strategy</th><th>Run date &amp; window</th><th>What came back</th><th>Reviewer</th><th>Status</th></tr></thead>
+  <tbody>
+    <tr>
+      <td><strong>PubMed / MEDLINE</strong><br /><span style="color:var(--faint);">NCBI E-utilities</span></td>
+      <td>Literature database</td>
+      <td>Ascorbic-acid MeSH + 6 synonyms <strong>AND</strong> AESI MeSH/PTs + adverse-event/toxicity, <strong>NOT</strong> editorial/letter/comment/news. <em>Full verbatim string in §2 and in the CSV.</em></td>
+      <td>2026-04-24 (refreshed 2026-06-11)<br />2021-04-24 → 2026-04-24</td>
+      <td>1,211 found → 864 read in full → <strong>142 retained</strong>; 722 excluded, each with a recorded reason (§2)</td>
+      <td>R-A / R-B + adjudicator<br /><span style="color:var(--faint);">QPPVA sign-off in production</span></td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>FDA FAERS</strong><br /><span style="color:var(--faint);">openFDA drug/event</span></td>
+      <td>Spontaneous case reports</td>
+      <td>generic_name = “ascorbic acid” (+ salt/ester synonyms); RRR disproportionality per PT</td>
+      <td>2026-04-24<br />cumulative → data load 2026-04-28</td>
+      <td>402,567 cases (32.9% serious, 7.9% fatal); 2 PTs ≥ RRR 2.0 (haemolysis 3.48, nephrolithiasis 2.33)</td>
+      <td>openFDA API</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>FDA labels</strong><br /><span style="color:var(--faint);">openFDA drug/label</span></td>
+      <td>Product labels</td>
+      <td>active ingredient = ascorbic acid</td>
+      <td>2026-04-24<br />current labels</td>
+      <td>212 labels; boxed warnings relate to other ingredients, not vitamin C</td>
+      <td>openFDA API</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>FDA recalls</strong><br /><span style="color:var(--faint);">openFDA drug/enforcement</span></td>
+      <td>Recalls / enforcement</td>
+      <td>ascorbic acid / vitamin C</td>
+      <td>2026-04-24<br />2021-04-24 → 2026-04-24</td>
+      <td>15 recalls (1 Class I, Class II compounding-sterility cluster, 1 Class III) — itemised in §4</td>
+      <td>openFDA API</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>TGA DAEN</strong> <span class="pill p-new">AU</span><br /><span style="color:var(--faint);">live browser</span></td>
+      <td>Spontaneous case reports</td>
+      <td>active-ingredient search “ascorbic acid”</td>
+      <td>retrieved live<br />all dates → Jun 2026</td>
+      <td>3,117 reports across 485 products; 2,740 sole-suspect; 21 reported deaths</td>
+      <td>live browser pull</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>WHO VigiAccess</strong><br /><span style="color:var(--faint);">VigiBase · live browser</span></td>
+      <td>Spontaneous case reports</td>
+      <td>substance “ascorbic acid”</td>
+      <td>retrieved live<br />all dates → Jun 2026</td>
+      <td>22,578 reports; top groups general/admin-site, skin, gut</td>
+      <td>live browser pull</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>EU EudraVigilance</strong><br /><span style="color:var(--faint);">adrreports.eu · live browser</span></td>
+      <td>Spontaneous case reports</td>
+      <td>substance “ascorbic acid”</td>
+      <td>retrieved live<br />all dates → Jun 2026</td>
+      <td>4,272 cases (71% female; 62% from outside Europe)</td>
+      <td>live browser pull</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>TGA safety alerts</strong> <span class="pill p-new">AU</span><br /><span style="color:var(--faint);">live browser</span></td>
+      <td>Regulator scan</td>
+      <td>vitamin C / ascorbic acid alerts &amp; recalls</td>
+      <td>retrieved live<br />5-year window</td>
+      <td>none for vitamin C (recent vitamin action is B6, not C)</td>
+      <td>live browser pull</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>TGA PI/CMI labels</strong> <span class="pill p-new">AU</span><br /><span style="color:var(--faint);">live browser</span></td>
+      <td>Product labels</td>
+      <td>repository search “ascorbic acid”</td>
+      <td>retrieved live<br />current labels</td>
+      <td>5 registered products (CERNEVIT; MoviPrep ×2; Plenvu ×2)</td>
+      <td>live browser pull</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>UK MHRA</strong><br /><span style="color:var(--faint);">gov.uk Drug Safety Update</span></td>
+      <td>Regulator scan</td>
+      <td>vitamin C / ascorbic acid</td>
+      <td>2026-04-24<br />2021 → 2026</td>
+      <td>no vitamin C safety notice in the period</td>
+      <td>analyst scan</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>EU EMA / PRAC</strong><br /><span style="color:var(--faint);">minutes &amp; signal tracker</span></td>
+      <td>Regulator scan</td>
+      <td>ascorbic acid in PRAC minutes / signal tracker</td>
+      <td>2026-04-24<br />2021 → 2026</td>
+      <td>no vitamin C safety item</td>
+      <td>analyst scan</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Health Canada</strong><br /><span style="color:var(--faint);">recalls &amp; safety alerts</span></td>
+      <td>Regulator scan</td>
+      <td>vitamin C / ascorbic acid</td>
+      <td>2026-04-24<br />2021 → 2026</td>
+      <td>only a food-grade contamination recall, not a medicine</td>
+      <td>analyst scan</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+    <tr>
+      <td><strong>Identity / reference</strong><br /><span style="color:var(--faint);">PubChem · RxNorm · UNII</span></td>
+      <td>Reference lookup</td>
+      <td>CAS 50-81-7 · RxCUI 1151 · UNII PQ6CK8PD0R</td>
+      <td>2026-04-24<br />n/a</td>
+      <td>ingredient identity + salt/ester list confirmed (§1)</td>
+      <td>API</td>
+      <td><span class="pill p-ok">complete</span></td>
+    </tr>
+  </tbody>
+</table>
 </div>
+<p style="font-size:13px;color:var(--muted);"><b>Not searched (disclosed scope limit):</b> Embase, Scopus and Web of Science require a paid subscription, so they were not run. They are recorded here as a documented scope limitation — never filled with assumed data. A subscription or a partner library account closes this if the customer requires the two extra research databases.</p>
+
+<script>
+(function(){
+  var LOG = [
+    ["Source","Type","Exact query / search strategy","Run date","Window covered","Hits / outcome","Reviewer","Status"],
+    ["PubMed / MEDLINE (NCBI E-utilities)","Literature database",
+      `(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])`,
+      "2026-04-24 (refreshed 2026-06-11)","2021-04-24 to 2026-04-24","1,211 found; 864 read in full; 142 retained; 722 excluded with recorded reasons","R-A / R-B + adjudicator; QPPVA sign-off in production","Complete"],
+    ["FDA FAERS (openFDA drug/event)","Spontaneous case reports",`generic_name = "ascorbic acid" (+ salt/ester synonyms); RRR disproportionality per PT`,"2026-04-24","Cumulative to data load 2026-04-28","402,567 cases (32.9% serious, 7.9% fatal); 2 PTs >= RRR 2.0 (haemolysis 3.48, nephrolithiasis 2.33)","openFDA API","Complete"],
+    ["FDA labels (openFDA drug/label)","Product labels","active ingredient = ascorbic acid","2026-04-24","Current labels","212 labels; boxed warnings relate to other ingredients, not vitamin C","openFDA API","Complete"],
+    ["FDA recalls (openFDA drug/enforcement)","Recalls / enforcement","ascorbic acid / vitamin C","2026-04-24","2021-04-24 to 2026-04-24","15 recalls (1 Class I, Class II compounding-sterility cluster, 1 Class III)","openFDA API","Complete"],
+    ["TGA DAEN (Australia)","Spontaneous case reports","active-ingredient search: ascorbic acid","Retrieved live","All dates to Jun 2026","3,117 reports across 485 products; 2,740 sole-suspect; 21 reported deaths","Live browser pull","Complete"],
+    ["WHO VigiAccess (VigiBase)","Spontaneous case reports","substance: ascorbic acid","Retrieved live","All dates to Jun 2026","22,578 reports","Live browser pull","Complete"],
+    ["EU EudraVigilance (adrreports.eu)","Spontaneous case reports","substance: ascorbic acid","Retrieved live","All dates to Jun 2026","4,272 cases","Live browser pull","Complete"],
+    ["TGA safety alerts (Australia)","Regulator scan","vitamin C / ascorbic acid alerts & recalls","Retrieved live","5-year window","None for vitamin C","Live browser pull","Complete"],
+    ["TGA PI/CMI labels (Australia)","Product labels","repository search: ascorbic acid","Retrieved live","Current labels","5 registered products (CERNEVIT; MoviPrep x2; Plenvu x2)","Live browser pull","Complete"],
+    ["UK MHRA (gov.uk Drug Safety Update)","Regulator scan","vitamin C / ascorbic acid","2026-04-24","2021 to 2026","No vitamin C safety notice in the period","Analyst scan","Complete"],
+    ["EU EMA / PRAC (minutes & signal tracker)","Regulator scan","ascorbic acid in PRAC minutes / signal tracker","2026-04-24","2021 to 2026","No vitamin C safety item","Analyst scan","Complete"],
+    ["Health Canada (recalls & safety alerts)","Regulator scan","vitamin C / ascorbic acid","2026-04-24","2021 to 2026","Only a food-grade contamination recall, not a medicine","Analyst scan","Complete"],
+    ["Identity / reference (PubChem, RxNorm, UNII)","Reference lookup","CAS 50-81-7; RxCUI 1151; UNII PQ6CK8PD0R","2026-04-24","n/a","Ingredient identity + salt/ester list confirmed","API","Complete"],
+    ["Embase","Literature database (not run)","planned: ascorbic-acid + AESI strategy (Emtree)","Not run","--","Not searched - paid subscription required","--","Scope limit"],
+    ["Scopus","Literature database (not run)","planned: ascorbic-acid + AESI strategy","Not run","--","Not searched - paid subscription required","--","Scope limit"],
+    ["Web of Science","Literature database (not run)","planned: ascorbic-acid + AESI strategy","Not run","--","Not searched - paid subscription required","--","Scope limit"]
+  ];
+  window.downloadSearchLog = function(){
+    var csv = LOG.map(function(r){
+      return r.map(function(c){
+        var s = String(c==null?"":c);
+        return /[",\n]/.test(s) ? '"'+s.replace(/"/g,'""')+'"' : s;
+      }).join(",");
+    }).join("\r\n");
+    var blob = new Blob(["﻿"+csv], {type:"text/csv;charset=utf-8;"});
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url; a.download = "ascorbic-acid_search-log_2026-04-24.csv";
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  };
+})();
+</script>
 <p style="font-size:13px;color:var(--muted);">One honest boundary: the legal decisions — whether a case must be reported to a regulator, and the final sign-off — stay with the customer's qualified safety person. We do the finding and the evidence; they make and sign the call.</p>
 
 <div class="foot">
   <div class="src-h">Where the data comes from (all live)</div>
   PubMed · US FDA openFDA (side-effect reports, product labels, recalls) · PubChem · RxNorm · UK gov.uk (MHRA) · EU EMA (PRAC) · Health Canada recalls.<br /><br />
   <div class="src-h">Honesty notes</div>
-  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. <strong>TGA DAEN (Australia, 3,117), WHO VigiAccess (global, 22,578) and EU EudraVigilance (4,272) were all pulled live via browser automation</strong> — driving a real browser through each database's terms gate and dashboard, exactly as a person would. The figures are real, retrieved directly. The only remaining gaps are the paid-licence research databases (Embase, Scopus, Web of Science) and the currently-down TGA search pages — shown as gaps, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
+  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. <strong>TGA DAEN (Australia, 3,117), WHO VigiAccess (global, 22,578) and EU EudraVigilance (4,272) were all pulled live via browser automation</strong> — driving a real browser through each database's terms gate and dashboard, exactly as a person would. The figures are real, retrieved directly. The only sources not run are the paid-subscription research databases (Embase, Scopus, Web of Science) — recorded in the search log as a documented scope limitation, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
 </div>
 
 </div>
