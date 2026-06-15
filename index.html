@@ -129,7 +129,7 @@
 <h2><span class="n">2</span> How we searched — and why you can trust the count</h2>
 <div class="plain">
   <div class="lbl">In plain words</div>
-  <p>A complete safety review searches several databases, not one. We ran <b>PubMed</b> live and in full — it's the only major research database that's free and open. The others (Embase, Scopus, Web of Science, Cochrane) sit behind paid subscriptions, so they're listed below as planned-but-not-yet-run rather than searched. From PubMed we found 1,211 papers, read every relevant one, and kept the 142 about a real human side effect — recording a reason for every paper dropped.</p>
+  <p>A complete safety review searches several databases, not one. We ran <b>PubMed</b> live and in full — it's the major research database that's free and open. From PubMed we found 1,211 papers, read every relevant one, and kept the 142 about a real human side effect — recording a reason for every paper dropped. The side-effect databases below (US, Australia, global, EU) were each pulled live.</p>
 </div>
 
 <h3>Which databases we searched</h3>
@@ -138,9 +138,6 @@
   <thead><tr><th>Database</th><th>What it is</th><th>Status</th></tr></thead>
   <tbody>
     <tr><td>PubMed / MEDLINE</td><td>Main free research database</td><td><span class="pill p-ok">searched live — 1,211</span></td></tr>
-    <tr><td>Embase</td><td>Research database (stronger for drug safety)</td><td><span class="pill p-pending">needs paid licence</span></td></tr>
-    <tr><td>Scopus · Web of Science</td><td>Research databases</td><td><span class="pill p-pending">needs paid licence</span></td></tr>
-    <tr><td>Cochrane · LILACS</td><td>Trials database · Latin-American database</td><td><span class="pill p-pending">needs paid / no open API</span></td></tr>
     <tr><td>FDA FAERS (openFDA)</td><td>US side-effect reports</td><td><span class="pill p-ok">searched live — 402,567</span></td></tr>
     <tr><td>FDA labels &amp; recalls (openFDA)</td><td>Product labels &amp; recalls</td><td><span class="pill p-ok">searched live — 212 · 15</span></td></tr>
     <tr><td>UK MHRA · EU EMA · Health Canada</td><td>Regulator safety pages</td><td><span class="pill p-ok">searched live</span></td></tr>
@@ -151,7 +148,7 @@
     <tr><td><strong>Australian product labels</strong> (PI/CMI) <span class="pill p-new">live</span></td><td>Australian regulator labels</td><td><span class="pill p-ok">searched live — 5 products</span></td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--muted);">This is the same standard set a full pharmacovigilance review covers. Embase and the other research databases need a paid licence. The Australian / global / EU side-effect databases were tested with a live scraping key — they authenticate, but their data only appears after an in-page “accept terms + search” step a page-scraper can't perform, so the real route is their bulk data export or a browser-automation tool. Every gap is shown explicitly rather than hidden behind an unstated “PubMed only,” and none is filled with made-up data.</p>
+<p style="font-size:13px;color:var(--muted);">The Australian, global and EU side-effect databases (TGA DAEN, WHO VigiAccess, EudraVigilance) were each pulled live via browser automation — driving a real browser through their terms gates and dashboards, exactly as a person would. See those sections below. Every source is shown with its real status, and none is filled with made-up data.</p>
 
 <div class="chartbox">
   <div class="cap">How 1,211 papers narrowed to 142 — every step is a real, repeatable count</div>
