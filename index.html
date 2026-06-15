@@ -144,11 +144,11 @@
     <tr><td>FDA FAERS (openFDA)</td><td>US side-effect reports</td><td><span class="pill p-ok">searched live — 402,567</span></td></tr>
     <tr><td>FDA labels &amp; recalls (openFDA)</td><td>Product labels &amp; recalls</td><td><span class="pill p-ok">searched live — 212 · 15</span></td></tr>
     <tr><td>UK MHRA · EU EMA · Health Canada</td><td>Regulator safety pages</td><td><span class="pill p-ok">searched live</span></td></tr>
-    <tr><td>TGA DAEN · WHO VigiAccess · EU EudraVigilance</td><td>Australia / global / EU side-effect databases</td><td><span class="pill p-pending">needs access key</span></td></tr>
-    <tr><td>TGA alerts · Australian labels</td><td>Australian regulator sources</td><td><span class="pill p-pending">needs access key</span></td></tr>
+    <tr><td>TGA DAEN · WHO VigiAccess · EU EudraVigilance</td><td>Australia / global / EU side-effect databases</td><td><span class="pill p-pending">gated — needs bulk file / browser automation</span></td></tr>
+    <tr><td>TGA alerts · Australian labels</td><td>Australian regulator sources</td><td><span class="pill p-pending">JS search (down at TGA) — not page-scrapeable</span></td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--muted);">This is the same standard set a full pharmacovigilance review covers. Adding Embase and the access-key sources is a licensing/key decision — they're shown as gaps so an inspector sees exactly what was and wasn't run, rather than an unstated “PubMed only.”</p>
+<p style="font-size:13px;color:var(--muted);">This is the same standard set a full pharmacovigilance review covers. Embase and the other research databases need a paid licence. The Australian / global / EU side-effect databases were tested with a live scraping key — they authenticate, but their data only appears after an in-page “accept terms + search” step a page-scraper can't perform, so the real route is their bulk data export or a browser-automation tool. Every gap is shown explicitly rather than hidden behind an unstated “PubMed only,” and none is filled with made-up data.</p>
 
 <div class="chartbox">
   <div class="cap">How 1,211 papers narrowed to 142 — every step is a real, repeatable count</div>
@@ -360,7 +360,7 @@
 <h2><span class="n">9</span> The audit trail</h2>
 <div class="plain">
   <div class="lbl">In plain words</div>
-  <p>Everything above can be checked and reproduced. We keep the exact searches, every keep/drop decision with a reason, and the dated logs an inspector would ask for. A few country-specific databases need a paid access key before they can be added — those are marked, not faked.</p>
+  <p>Everything above can be checked and reproduced. We keep the exact searches, every keep/drop decision with a reason, and the dated logs an inspector would ask for. A few country-specific databases couldn't be read automatically — they hide their data behind an in-page “accept terms + search” step — so they're marked as gaps, never faked.</p>
 </div>
 <div class="two">
   <div class="card">
@@ -374,7 +374,7 @@
     </ul>
   </div>
   <div class="card">
-    <h3 style="margin-top:0;">Needs an access key to add</h3>
+    <h3 style="margin-top:0;">Couldn't read automatically (gated)</h3>
     <ul class="kv">
       <li><span class="k">Australia's database (DAEN)</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">Australia safety alerts</span><span class="v"><span class="pill p-pending">pending</span></span></li>
@@ -390,7 +390,7 @@
   <div class="src-h">Where the data comes from (all live)</div>
   PubMed · US FDA openFDA (side-effect reports, product labels, recalls) · PubChem · RxNorm · UK gov.uk (MHRA) · EU EMA (PRAC) · Health Canada recalls.<br /><br />
   <div class="src-h">Honesty notes</div>
-  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. Country-specific databases marked <span class="pill p-pending">pending</span> are bot-protected and need a paid access key — they're shown as gaps, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
+  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. Sources marked <span class="pill p-pending">gated</span> were tested with a live scraping key but reveal their data only after an in-page “accept terms + search” step a page-scraper can't perform — their real route is a bulk data file or browser automation. They're shown as gaps, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
 </div>
 
 </div>
