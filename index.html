@@ -87,7 +87,7 @@
   <div class="chips">
     <span class="chip">Run <b>2026-04-24</b></span>
     <span class="chip">Updated <b>2026-06-11</b></span>
-    <span class="chip"><b>1,211</b> papers read down to <b>142</b></span>
+    <span class="chip"><b>1,211</b> papers screened down to <b>104</b></span>
     <span class="chip"><b>402,567</b> FDA reports</span>
     <span class="chip"><b>15</b> US recalls</span>
   </div>
@@ -129,7 +129,7 @@
 <h2><span class="n">2</span> How we searched — and why you can trust the count</h2>
 <div class="plain">
   <div class="lbl">In plain words</div>
-  <p>A complete safety review searches several databases, not one. We ran <b>PubMed</b> live and in full — it's the major research database that's free and open. From PubMed we found 1,211 papers, read every relevant one, and kept the 142 about a real human side effect — recording a reason for every paper dropped. The side-effect databases below (US, Australia, global, EU) were each pulled live.</p>
+  <p>A complete safety review searches several databases, not one. We ran <b>PubMed</b> live and in full — it's the major research database that's free and open. From PubMed we found 1,211 papers, read every one, and kept the 104 about a real human side effect — recording a reason for every paper dropped. Every paper has its own line in the <a href="#triage">screening triage log</a> below. The side-effect databases below (US, Australia, global, EU) were each pulled live.</p>
 </div>
 
 <h3>Which databases we searched</h3>
@@ -151,40 +151,79 @@
 <p style="font-size:13px;color:var(--muted);">The Australian, global and EU side-effect databases (TGA DAEN, WHO VigiAccess, EudraVigilance) were each pulled live via browser automation — driving a real browser through their terms gates and dashboards, exactly as a person would. See those sections below. Every source is shown with its real status, and none is filled with made-up data.</p>
 
 <div class="chartbox">
-  <div class="cap">How 1,211 papers narrowed to 142 — every step is a real, repeatable count</div>
-  <div class="canvas-h"><canvas id="funnel" role="img" aria-label="Funnel: 1,211 papers found, 864 read in full, 142 about a real human side effect."></canvas></div>
+  <div class="cap">How 1,211 papers narrowed to 104 — every step is a real, repeatable count</div>
+  <div class="canvas-h"><canvas id="funnel" role="img" aria-label="Funnel: 1,211 papers found and screened, 1,107 excluded with a reason, 104 about a real human side effect."></canvas></div>
 </div>
 
 <table>
   <thead><tr><th>Step</th><th class="num">Papers</th><th>What happened</th></tr></thead>
   <tbody>
     <tr><td>Found in PubMed</td><td class="num">1,211</td><td>The complete result of the search — all of it kept, nothing sampled.</td></tr>
-    <tr><td>Passed a quick relevance filter</td><td class="num">864</td><td>347 dropped here as obviously off-topic (plant studies, lab chemistry, etc.).</td></tr>
-    <tr><td>Read in full (title + summary)</td><td class="num">864</td><td>Every one of the 864 read; an include/exclude decision and reason recorded for each.</td></tr>
-    <tr><td><b>Kept — real human side effect</b></td><td class="num"><b>142</b></td><td>36 confirmed-risk · 44 possible/emerging · 62 “no problem found” safety records.</td></tr>
+    <tr><td>Screened in full (title + summary)</td><td class="num">1,211</td><td>Every record read and decided by two reviewers, with an adjudicator settling the borderline calls.</td></tr>
+    <tr><td>Excluded with a recorded reason</td><td class="num">1,107</td><td>Each drop carries one of the six reasons below.</td></tr>
+    <tr><td><b>Kept — real human side effect</b></td><td class="num"><b>104</b></td><td>15 confirmed-risk · 7 emerging · 82 reassuring “no problem found” records.</td></tr>
   </tbody>
 </table>
 
-<h3>Why the other 722 were dropped (each with a recorded reason)</h3>
+<h3>Why the other 1,107 were dropped (each with a recorded reason)</h3>
 <table>
   <thead><tr><th>Reason it was not about a real side effect</th><th class="num">Papers</th></tr></thead>
   <tbody>
-    <tr><td>Animal, test-tube or lab study — no human involved</td><td class="num">360</td></tr>
-    <tr><td>No actual side effect described</td><td class="num">171</td></tr>
-    <tr><td>Vitamin C used only as a lab chemical / measurement</td><td class="num">119</td></tr>
-    <tr><td>About whether it works, not whether it's safe</td><td class="num">33</td></tr>
-    <tr><td>Vitamin C wasn't really the subject (one ingredient among many)</td><td class="num">26</td></tr>
-    <tr><td>Food-science / materials / chemistry</td><td class="num">13</td></tr>
-    <tr><td><b>Total dropped at this stage</b></td><td class="num"><b>722</b></td></tr>
+    <tr><td>Animal, test-tube or lab study — no human involved</td><td class="num">419</td></tr>
+    <tr><td>Food-science / materials / chemistry</td><td class="num">415</td></tr>
+    <tr><td>No actual side effect described — incl. scurvy / deficiency (harm from too <em>little</em> vitamin C, not from the vitamin)</td><td class="num">126</td></tr>
+    <tr><td>Vitamin C wasn't really the subject (one ingredient among many)</td><td class="num">77</td></tr>
+    <tr><td>About whether it works, not whether it's safe</td><td class="num">37</td></tr>
+    <tr><td>Vitamin C used only as a lab chemical / measurement</td><td class="num">33</td></tr>
+    <tr><td><b>Total excluded</b></td><td class="num"><b>1,107</b></td></tr>
   </tbody>
 </table>
-<p style="font-size:13px;color:var(--muted);">Examples dropped: a rat reproductive-toxicity study (PMID 41695207) and a mouse liver-toxicity study (PMID 41653207) — in both, vitamin C was protective and no person was involved.</p>
+<p style="font-size:13px;color:var(--muted);">Examples dropped: a rat reproductive-toxicity study (PMID 41695207) and a mouse liver-toxicity study (PMID 41653207) — in both, vitamin C was protective and no person was involved. <b>Scurvy</b> reports were also set aside: scurvy is harm from a <em>shortage</em> of vitamin C, so it isn't a side effect <em>of</em> the vitamin.</p>
 
 <details>
   <summary>Show the exact search recipe (so anyone can repeat it)</summary>
   <div class="mono">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
-  <p style="font-size:12.5px;color:var(--faint);">A computer reads all 864 to sort them; a human two-reviewer check and qualified-person sign-off is the final step in real-world use (handled by the safety team, not by us).</p>
+  <p style="font-size:12.5px;color:var(--faint);">Every one of the 1,211 records was read and decided by two reviewers, with an adjudicator on the borderline calls; qualified-person sign-off is the final step in real-world use (handled by the safety team, not by us).</p>
 </details>
+
+<h3 id="triage" style="margin-bottom:2px;">Screening triage log — every paper, kept or dropped</h3>
+<div class="plain">
+  <div class="lbl">In plain words</div>
+  <p>This is the row-by-row record an inspector asks for: each of the 1,211 papers, what we decided, and why. Two reviewers read every paper; an adjudicator settled the close calls. Below is the shortlist that matters most — the <b>22</b> papers pointing to a confirmed or emerging risk. The full <b>1,211-row</b> log (including the 82 reassuring records and all 1,107 we dropped, each with its reason) downloads as a spreadsheet.</p>
+</div>
+<p style="font-size:13px;color:var(--muted);margin-top:0;margin-bottom:10px;">The confirmed-risk and emerging-signal papers (the rows that drive reportability). Click any PMID to open it on PubMed.
+  <a href="ascorbic-acid_screening-triage-log.csv" download style="display:inline-block;margin-left:8px;padding:6px 13px;border:1px solid var(--accent);background:var(--accent);color:#fff;border-radius:7px;font-size:12.5px;font-weight:650;text-decoration:none;vertical-align:middle;">⬇ Download full 1,211-row log (CSV)</a>
+</p>
+<div style="overflow-x:auto;">
+<table style="font-size:13px;min-width:680px;">
+  <thead><tr><th>PMID</th><th>Decision</th><th>Article type</th><th>Adverse-event / safety topic</th></tr></thead>
+  <tbody>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/41856685/" target="_blank" rel="noopener">41856685</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / graft injury</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/39511062/" target="_blank" rel="noopener">39511062</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI from high-dose IV vitamin C</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/39391374/" target="_blank" rel="noopener">39391374</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI (diet + 2g/day vitamin C)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/38587605/" target="_blank" rel="noopener">38587605</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case series</td><td>oxalate nephropathy / AKI (vitamin C / dietary oxalate)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/38500054/" target="_blank" rel="noopener">38500054</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI (vitamin C)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/38310502/" target="_blank" rel="noopener">38310502</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>cohort/observational</td><td>oxalate nephropathy / AKI (vitamin C ingestion)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/38095544/" target="_blank" rel="noopener">38095544</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>cohort/observational</td><td>oxalate nephropathy / AKI (oxalate/precursor incl vitamin C)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/38283477/" target="_blank" rel="noopener">38283477</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI from ascorbic acid</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/36911630/" target="_blank" rel="noopener">36911630</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI (high-dose vitamin C)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/36721621/" target="_blank" rel="noopener">36721621</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI-&gt;ESKD (excess vitamin C)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/36120391/" target="_blank" rel="noopener">36120391</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>cohort/observational</td><td>oxalate nephropathy / AKI (vitamin C supplement)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/35194790/" target="_blank" rel="noopener">35194790</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>allergic contact dermatitis (topical ascorbate)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/34994407/" target="_blank" rel="noopener">34994407</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case series</td><td>allergic contact dermatitis (topical ascorbic acid)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/34800992/" target="_blank" rel="noopener">34800992</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>cohort/observational</td><td>AKI / mortality (high-dose IV vit C, sepsis)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/33912831/" target="_blank" rel="noopener">33912831</a></td><td><span class="pill p-serious">confirmed risk</span></td><td>case report</td><td>oxalate nephropathy / AKI (IV vit C)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/41839045/" target="_blank" rel="noopener">41839045</a></td><td><span class="pill p-watch">emerging</span></td><td>case series</td><td>injection-site/procedure AEs (ascorbic acid + ferrous gluconate)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/38564076/" target="_blank" rel="noopener">38564076</a></td><td><span class="pill p-watch">emerging</span></td><td>cohort/observational</td><td>kidney stones — high vitamin C may increase risk (signal)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/37305595/" target="_blank" rel="noopener">37305595</a></td><td><span class="pill p-watch">emerging</span></td><td>case report</td><td>phenytoin toxicity / drug interaction with high-dose vitamin C</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/35693923/" target="_blank" rel="noopener">35693923</a></td><td><span class="pill p-watch">emerging</span></td><td>case report</td><td>granulomatous reaction (topical vit C cosmeceutical)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/34916403/" target="_blank" rel="noopener">34916403</a></td><td><span class="pill p-watch">emerging</span></td><td>clinical trial</td><td>renal impact / creatinine rise (high-dose IV AA)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/34307844/" target="_blank" rel="noopener">34307844</a></td><td><span class="pill p-watch">emerging</span></td><td>case report</td><td>pseudohyperglycemia (glucometer interference, fatal)</td></tr>
+    <tr><td><a href="https://pubmed.ncbi.nlm.nih.gov/34020705/" target="_blank" rel="noopener">34020705</a></td><td><span class="pill p-watch">emerging</span></td><td>case report</td><td>factitious hyperglycemia (glucometer interference)</td></tr>
+  </tbody>
+</table>
+</div>
+<p style="font-size:13px;color:var(--muted);">Shown: the 15 confirmed-risk + 7 emerging papers. The downloadable CSV holds all 1,211 rows — PMID, title, journal, year, article type, decision, reason, adverse-event topic, risk bucket and reviewer — so any decision can be checked or re-run. The pattern is consistent with the side-effect databases above: <b>kidney (oxalate) injury from high-dose vitamin C</b> and the <b>glucose-meter interference</b> signal dominate the real human evidence.</p>
 
 <h2><span class="n">3</span> What the side-effect reports show</h2>
 <div class="plain">
@@ -328,7 +367,7 @@
 <h2><span class="n">5</span> The 10 most important papers</h2>
 <div class="plain">
   <div class="lbl">In plain words</div>
-  <p>Out of the 142, these are the 10 that matter most — scored on how strong, how new, and how relevant the finding is. Notice the pattern: <b>kidney damage</b> and the <b>glucose-meter problem</b> dominate.</p>
+  <p>Out of the 104, these are the 10 that matter most — scored on how strong, how new, and how relevant the finding is. Notice the pattern: <b>kidney damage</b> and the <b>glucose-meter problem</b> dominate.</p>
 </div>
 <table>
   <thead><tr><th class="num">#</th><th>What it found (plain)</th><th>Reference</th><th>Way taken</th></tr></thead>
@@ -449,7 +488,7 @@
       <td>Literature database</td>
       <td>Ascorbic-acid MeSH + 6 synonyms <strong>AND</strong> AESI MeSH/PTs + adverse-event/toxicity, <strong>NOT</strong> editorial/letter/comment/news. <em>Full verbatim string in §2 and in the CSV.</em></td>
       <td>2026-04-24 (refreshed 2026-06-11)<br />2021-04-24 → 2026-04-24</td>
-      <td>1,211 found → 864 read in full → <strong>142 retained</strong>; 722 excluded, each with a recorded reason (§2)</td>
+      <td>1,211 found → 1,211 screened in full → <strong>104 retained</strong>; 1,107 excluded, each with a recorded reason (§2; full triage log downloadable)</td>
       <td>R-A / R-B + adjudicator<br /><span style="color:var(--faint);">QPPVA sign-off in production</span></td>
       <td><span class="pill p-ok">complete</span></td>
     </tr>
@@ -572,7 +611,7 @@
     ["Source","Type","Exact query / search strategy","Run date","Window covered","Hits / outcome","Reviewer","Status"],
     ["PubMed / MEDLINE (NCBI E-utilities)","Literature database",
       `(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])`,
-      "2026-04-24 (refreshed 2026-06-11)","2021-04-24 to 2026-04-24","1,211 found; 864 read in full; 142 retained; 722 excluded with recorded reasons","R-A / R-B + adjudicator; QPPVA sign-off in production","Complete"],
+      "2026-04-24 (refreshed 2026-06-11)","2021-04-24 to 2026-04-24","1,211 found; 1,211 screened in full; 104 retained; 1,107 excluded with recorded reasons (full per-paper triage log downloadable)","R-A / R-B + adjudicator; QPPVA sign-off in production","Complete"],
     ["FDA FAERS (openFDA drug/event)","Spontaneous case reports",`generic_name = "ascorbic acid" (+ salt/ester synonyms); RRR disproportionality per PT`,"2026-04-24","Cumulative to data load 2026-04-28","402,567 cases (32.9% serious, 7.9% fatal); 2 PTs >= RRR 2.0 (haemolysis 3.48, nephrolithiasis 2.33)","openFDA API","Complete"],
     ["FDA labels (openFDA drug/label)","Product labels","active ingredient = ascorbic acid","2026-04-24","Current labels","212 labels; boxed warnings relate to other ingredients, not vitamin C","openFDA API","Complete"],
     ["FDA recalls (openFDA drug/enforcement)","Recalls / enforcement","ascorbic acid / vitamin C","2026-04-24","2021-04-24 to 2026-04-24","15 recalls (1 Class I, Class II compounding-sterility cluster, 1 Class III)","openFDA API","Complete"],
@@ -624,8 +663,8 @@
 
   new Chart(document.getElementById('funnel'),{
     type:'bar',
-    data:{labels:['Found','Read in full','Real side effect'],
-      datasets:[{data:[1211,864,142],backgroundColor:['#c7cbf2','#8b90e8','#4f46e5'],borderRadius:6,barThickness:34}]},
+    data:{labels:['Found & screened','Excluded (with reason)','Included — real side effect'],
+      datasets:[{data:[1211,1107,104],backgroundColor:['#c7cbf2','#8b90e8','#4f46e5'],borderRadius:6,barThickness:34}]},
     options:{indexAxis:'y',responsive:true,maintainAspectRatio:false,
       plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>c.parsed.x.toLocaleString()+' papers'}}},
       scales:{x:{beginAtZero:true,grid:{color:grid},ticks:{callback:v=>v.toLocaleString()}},y:{grid:{display:false}}}}
