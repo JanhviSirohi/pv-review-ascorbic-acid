@@ -144,7 +144,8 @@
     <tr><td>FDA FAERS (openFDA)</td><td>US side-effect reports</td><td><span class="pill p-ok">searched live — 402,567</span></td></tr>
     <tr><td>FDA labels &amp; recalls (openFDA)</td><td>Product labels &amp; recalls</td><td><span class="pill p-ok">searched live — 212 · 15</span></td></tr>
     <tr><td>UK MHRA · EU EMA · Health Canada</td><td>Regulator safety pages</td><td><span class="pill p-ok">searched live</span></td></tr>
-    <tr><td>TGA DAEN · WHO VigiAccess · EU EudraVigilance</td><td>Australia / global / EU side-effect databases</td><td><span class="pill p-pending">reachable via browser automation — extraction in progress</span></td></tr>
+    <tr><td><strong>TGA DAEN</strong> (Australia) <span class="pill p-new">live</span></td><td>Australian side-effect reports</td><td><span class="pill p-ok">searched live — 3,117 reports</span></td></tr>
+    <tr><td>WHO VigiAccess · EU EudraVigilance</td><td>Global / EU side-effect databases</td><td><span class="pill p-pending">reachable via browser automation — not yet pulled</span></td></tr>
     <tr><td>TGA alerts · Australian labels</td><td>Australian regulator sources</td><td><span class="pill p-pending">JS search (down at TGA at time of run)</span></td></tr>
   </tbody>
 </table>
@@ -224,6 +225,30 @@
     <div class="canvas-h" style="height:230px;"><canvas id="trend" role="img" aria-label="Line chart of yearly reports 2021 to 2025, gently declining."></canvas></div>
   </div>
 </div>
+
+<h3>Australian reports — TGA DAEN <span class="pill p-new">live</span></h3>
+<div class="plain">
+  <div class="lbl">In plain words</div>
+  <p>Because this matters most for an Australian company, we pulled the <b>TGA's own database (DAEN)</b> directly. Across the <b>485 Australian products that contain ascorbic acid</b>, there are <b>3,117 adverse-event reports</b> on record. Important caveat: most of those products are <b>multi-ingredient supplements</b> (multivitamins, cold-and-flu remedies), so these reactions reflect the whole products — not vitamin C on its own.</p>
+</div>
+<div class="stat-grid">
+  <div class="stat"><div class="k">Reports (cases)</div><div class="v">3,117</div></div>
+  <div class="stat"><div class="k">Ascorbic-acid product the only suspect</div><div class="v">2,740</div></div>
+  <div class="stat"><div class="k">Reported deaths</div><div class="v" style="color:var(--serious);">21</div></div>
+  <div class="stat"><div class="k">Products containing it</div><div class="v">485</div></div>
+</div>
+<table>
+  <thead><tr><th>Top reaction reported (Australia)</th><th class="num">Cases</th><th class="num">Sole-suspect cases</th></tr></thead>
+  <tbody>
+    <tr><td>Ageusia (loss of taste)</td><td class="num">326</td><td class="num">321</td></tr>
+    <tr><td>Pruritus (itching)</td><td class="num">311</td><td class="num">282</td></tr>
+    <tr><td>Nausea</td><td class="num">307</td><td class="num">270</td></tr>
+    <tr><td>Dysgeusia (altered taste)</td><td class="num">273</td><td class="num">269</td></tr>
+    <tr><td>Hypersensitivity</td><td class="num">261</td><td class="num">252</td></tr>
+    <tr><td>Anaphylactic reaction</td><td class="num">257</td><td class="num">244</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);">Hypersensitivity and anaphylaxis appearing near the top is consistent with the allergy/anaphylaxis signal flagged elsewhere in this review. Taste changes (ageusia/dysgeusia) most likely come from zinc-containing cold remedies in the multi-ingredient products, not vitamin C. Source: TGA DAEN — medicines, all dates to Jun 2026, retrieved live; active-ingredient search on “ascorbic acid” (485 products).</p>
 
 <h2><span class="n">4</span> Official records — recalls, labels and warnings</h2>
 <div class="plain">
@@ -371,15 +396,15 @@
       <li><span class="k">FDA reports + recalls</span><span class="v"><span class="pill p-ok">done</span></span></li>
       <li><span class="k">UK / EU / Canada scan</span><span class="v"><span class="pill p-ok">done</span></span></li>
       <li><span class="k">Risk + signal tables</span><span class="v"><span class="pill p-ok">done</span></span></li>
+      <li><span class="k">Australia's database (DAEN)</span><span class="v"><span class="pill p-ok">done — 3,117</span></span></li>
     </ul>
   </div>
   <div class="card">
-    <h3 style="margin-top:0;">Reachable via browser automation (in progress)</h3>
+    <h3 style="margin-top:0;">Reachable via browser automation (not yet pulled)</h3>
     <ul class="kv">
-      <li><span class="k">Australia's database (DAEN)</span><span class="v"><span class="pill p-pending">pending</span></span></li>
-      <li><span class="k">Australia safety alerts</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">WHO global database</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">EU adverse-event view</span><span class="v"><span class="pill p-pending">pending</span></span></li>
+      <li><span class="k">Australia safety alerts</span><span class="v"><span class="pill p-pending">pending</span></span></li>
       <li><span class="k">Australian product labels</span><span class="v"><span class="pill p-pending">pending</span></span></li>
     </ul>
   </div>
@@ -390,7 +415,7 @@
   <div class="src-h">Where the data comes from (all live)</div>
   PubMed · US FDA openFDA (side-effect reports, product labels, recalls) · PubChem · RxNorm · UK gov.uk (MHRA) · EU EMA (PRAC) · Health Canada recalls.<br /><br />
   <div class="src-h">Honesty notes</div>
-  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. The Australian / global / EU side-effect databases sit behind a terms gate and an embedded Power BI dashboard; access via browser automation is confirmed (the live DAEN database was reached and read), and ascorbic-acid-specific extraction is in progress — shown as a gap until verified, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
+  Run 2026-04-24, refreshed 2026-06-11. The FDA side-effect dataset was last loaded 2026-04-28, so reports filed after that aren't in yet. <strong>TGA DAEN (Australia) was pulled live via browser automation</strong> — the figures shown (3,117 reports across 485 ascorbic-acid products) are real, retrieved directly from the TGA dashboard. WHO VigiAccess and the EU view are reachable the same way but not yet pulled — shown as gaps, never filled with made-up data. Built by Outread; the regulated reporting decisions remain with the customer's qualified safety person.
 </div>
 
 </div>
