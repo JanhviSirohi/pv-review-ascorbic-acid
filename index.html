@@ -657,21 +657,25 @@ ADVANCE (PV signal): patient·clinical·case report·adverse·safety·nephropath
 RESULT: 1,211 → 864 advanced (474 clear + 390 unclear) / 347 excluded.  Excluded examples:
   • 42217878  "Synergistic effects of nanoplastics and BDE-47 on glutathione dysregulation in rice"
   • 41970270  "Biochar as a protective adsorbent against cadmium and lead stress in parsley"</div>
-<p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready; full string + per-record raw PMID list export to CSV):</p>
-<div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
+<p class="lede" style="margin-top:8px;"><strong>Stage-2 deep-screen — why the 722 were excluded.</strong> Every one of the 864 was read at title + abstract; each exclusion carries a recorded reason, categorised below. The dominant reasons are animal/in-vitro studies and papers where ascorbate is only an antioxidant reagent or biomarker — not a human adverse event.</p>
 <table style="margin-top:10px;">
-  <thead><tr><th>Deep-screen exclusions — all 864 (audit trail)</th><th class="num">Count</th></tr></thead>
+  <thead><tr><th>Deep-screen exclusion reason (all 864)</th><th class="num">Count</th></tr></thead>
   <tbody>
-    <tr><td>Animal / in-vitro / preclinical (no human AE)</td><td class="num">360</td></tr>
+    <tr><td>Animal / in-vitro / preclinical — no human adverse event</td><td class="num">360</td></tr>
     <tr><td>Other — no extractable human adverse event</td><td class="num">171</td></tr>
-    <tr><td>Ascorbate as antioxidant reagent / biomarker / assay</td><td class="num">119</td></tr>
-    <tr><td>Efficacy- or mechanism-only (no safety/AE data)</td><td class="num">33</td></tr>
-    <tr><td>Ascorbate not the subject substance</td><td class="num">26</td></tr>
+    <tr><td>Ascorbate only an antioxidant reagent / biomarker / assay</td><td class="num">119</td></tr>
+    <tr><td>Efficacy- or mechanism-only — no safety / AE data</td><td class="num">33</td></tr>
+    <tr><td>Ascorbate not the subject substance (incidental / co-formulant)</td><td class="num">26</td></tr>
     <tr><td>Food-science / materials / chemistry</td><td class="num">13</td></tr>
     <tr><td><strong>Total excluded at deep-screen</strong></td><td class="num"><strong>722</strong></td></tr>
     <tr><td><strong>Included</strong></td><td class="num"><strong>142</strong></td></tr>
   </tbody>
 </table>
+<div class="mono-block">Excluded examples (Stage 2):
+  • 41695207  "Ameliorative effects of vitamin C and garlic…"  — rat reproductive-toxicity model; vitamin C protective, no human AE
+  • 41653207  "Pyrazinamide-induced hepatotoxicity…"  — mouse / in-vitro; vitamin C protective, no human AE</div>
+<p class="lede" style="margin-top:8px;">Exact core Boolean string (PubMed-ready; full string + per-record raw PMID list export to CSV):</p>
+<div class="mono-block">(("Ascorbic Acid"[MeSH] OR "vitamin C"[tiab] OR ascorbate[tiab] OR "sodium ascorbate"[tiab] OR "ascorbyl palmitate"[tiab] OR "tetrahexyldecyl ascorbate"[tiab] OR E300[tiab]) AND ("Nephrolithiasis"[MeSH] OR "oxalate nephropathy"[tiab] OR "Acute Kidney Injury"[MeSH] OR "Hemolysis"[MeSH] OR "Glucosephosphate Dehydrogenase Deficiency"[MeSH] OR "Tumor Lysis Syndrome"[MeSH] OR "Dermatitis, Contact"[MeSH] OR "Scurvy"[MeSH] OR "Anaphylaxis"[MeSH] OR "adverse event*"[tiab] OR toxicity[tiab])) AND ("2021/04/24"[PDat] : "2026/04/24"[PDat]) NOT (editorial[pt] OR letter[pt] OR comment[pt] OR news[pt])</div>
 
 <h3><span class="rowtag">ROW 7</span> Screening triage log <span class="pill builds">Outread builds</span></h3>
 <p class="lede">Per-record triage in the controlled format — citation, suspected AE, article type, country, Australian relevance, decision and escalation. A sample of the 142 included records is shown; the full log covers all 864 deep-screened records.</p>
