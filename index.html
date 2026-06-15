@@ -148,7 +148,7 @@
     <tr><td><strong>WHO VigiAccess</strong> (global) <span class="pill p-new">live</span></td><td>WHO global side-effect database</td><td><span class="pill p-ok">searched live — 22,578 reports</span></td></tr>
     <tr><td><strong>EU EudraVigilance</strong> <span class="pill p-new">live</span></td><td>European side-effect database</td><td><span class="pill p-ok">searched live — 4,272 cases</span></td></tr>
     <tr><td><strong>TGA safety alerts</strong> (Australia) <span class="pill p-new">live</span></td><td>Australian regulator alerts/recalls</td><td><span class="pill p-ok">searched live — none for vitamin C</span></td></tr>
-    <tr><td>Australian product labels (PI/CMI)</td><td>Australian regulator source</td><td><span class="pill p-pending">not yet pulled</span></td></tr>
+    <tr><td><strong>Australian product labels</strong> (PI/CMI) <span class="pill p-new">live</span></td><td>Australian regulator labels</td><td><span class="pill p-ok">searched live — 5 products</span></td></tr>
   </tbody>
 </table>
 <p style="font-size:13px;color:var(--muted);">This is the same standard set a full pharmacovigilance review covers. Embase and the other research databases need a paid licence. The Australian / global / EU side-effect databases were tested with a live scraping key — they authenticate, but their data only appears after an in-page “accept terms + search” step a page-scraper can't perform, so the real route is their bulk data export or a browser-automation tool. Every gap is shown explicitly rather than hidden behind an unstated “PubMed only,” and none is filled with made-up data.</p>
@@ -301,6 +301,23 @@
 </table>
 <p style="font-size:13px;color:var(--muted);">212 product labels list vitamin C; the only “boxed” warnings on them are about other ingredients (omega-3, iron), not vitamin C itself.</p>
 
+<h3>Australian product labels (TGA PI/CMI) <span class="pill p-new">live</span></h3>
+<div class="plain">
+  <div class="lbl">In plain words</div>
+  <p>We searched the TGA's official label repository. Only <b>5 registered products</b> carry ascorbic acid in a formal Australian label — and none is a plain vitamin C product. That's because vitamin C supplements in Australia are <b>“listed” (low-risk) medicines, which don't get a full label document</b>. The registered ones that do are an IV multivitamin and bowel-prep products.</p>
+</div>
+<table>
+  <thead><tr><th>Australian product</th><th>Label</th><th>What it is</th></tr></thead>
+  <tbody>
+    <tr><td>CERNEVIT</td><td>PI + CMI</td><td>IV multivitamin (parenteral nutrition)</td></tr>
+    <tr><td>MOVIPREP</td><td>PI + CMI</td><td>Bowel-preparation</td></tr>
+    <tr><td>MOVIPREP ORANGE</td><td>PI + CMI</td><td>Bowel-preparation</td></tr>
+    <tr><td>PLENVU (oral solution)</td><td>CMI</td><td>Bowel-preparation</td></tr>
+    <tr><td>PLENVU (solution)</td><td>PI</td><td>Bowel-preparation</td></tr>
+  </tbody>
+</table>
+<p style="font-size:13px;color:var(--muted);">The bowel-prep products (MoviPrep/Plenvu use sodium ascorbate + ascorbic acid) line up with the US Class III recall found earlier (Teva PEG + sodium-ascorbate bowel prep, pouch leakage) — the same product family, two regulators. Source: TGA PI/CMI repository, searched live for “ascorbic acid” (5 documents).</p>
+
 <table>
   <thead><tr><th>Regulator checked</th><th>Result</th></tr></thead>
   <tbody>
@@ -434,13 +451,15 @@
       <li><span class="k">WHO global database</span><span class="v"><span class="pill p-ok">done — 22,578</span></span></li>
       <li><span class="k">EU adverse-event database</span><span class="v"><span class="pill p-ok">done — 4,272</span></span></li>
       <li><span class="k">Australia safety alerts (TGA)</span><span class="v"><span class="pill p-ok">done — none</span></span></li>
+      <li><span class="k">Australian labels (PI/CMI)</span><span class="v"><span class="pill p-ok">done — 5</span></span></li>
     </ul>
   </div>
   <div class="card">
-    <h3 style="margin-top:0;">Still to pull</h3>
+    <h3 style="margin-top:0;">Only gap left: paid-licence databases</h3>
     <ul class="kv">
-      <li><span class="k">Australian product labels (PI/CMI)</span><span class="v"><span class="pill p-pending">pending</span></span></li>
-      <li><span class="k">Embase / Scopus / WoS</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
+      <li><span class="k">Embase</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
+      <li><span class="k">Scopus</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
+      <li><span class="k">Web of Science</span><span class="v"><span class="pill p-pending">needs licence</span></span></li>
     </ul>
   </div>
 </div>
